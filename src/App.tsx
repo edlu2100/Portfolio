@@ -1,8 +1,9 @@
-import Home from './components/Home'
-import './App.css'
 
-function App() {
-  return <Home />
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-surface text-text">
+
+    </div>
+  )
 }
-
-export default App

@@ -1,10 +1,82 @@
 @import "tailwindcss";
+
+@theme {
+    /* Blå – primärfärg */
+    --color-blue-50: #eff6ff;
+    --color-blue-100: #dbeafe;
+    --color-blue-200: #bfdbfe;
+    --color-blue-300: #93c5fd;
+    --color-blue-400: #60a5fa;
+    --color-blue-500: #3b82f6;
+    --color-blue-600: #2563eb;
+    --color-blue-700: #1d4ed8;
+    --color-blue-800: #1e3a5f;
+    --color-blue-900: #172554;
+    --color-blue-950: #0f1a2e;
+
+    /* Beige – sekundärfärg */
+    --color-beige-50: #fefdfb;
+    --color-beige-100: #fdf8f0;
+    --color-beige-200: #f5ead6;
+    --color-beige-300: #e8d5b7;
+    --color-beige-400: #d4b896;
+    --color-beige-500: #c2a378;
+    --color-beige-600: #a68a5b;
+    --color-beige-700: #8a7048;
+    --color-beige-800: #6e5a3a;
+    --color-beige-900: #544430;
+    --color-beige-950: #3a2e1f;
+
+    /* Semantiska färger */
+    --color-primary: var(--color-blue-600);
+    --color-primary-light: var(--color-blue-400);
+    --color-primary-dark: var(--color-blue-800);
+    --color-secondary: var(--color-beige-300);
+    --color-secondary-light: var(--color-beige-100);
+    --color-secondary-dark: var(--color-beige-600);
+    --color-surface: var(--color-blue-950);
+    --color-surface-light: var(--color-blue-900);
+    --color-text: var(--color-beige-100);
+    --color-text-muted: var(--color-beige-400);
+}
+
 * {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-surface);
+    color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: rgba(37, 99, 235, 0.3);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-blue-800);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-blue-700);
 }
