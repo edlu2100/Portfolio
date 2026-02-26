@@ -1,43 +1,67 @@
 @import "tailwindcss";
-
 @theme {
-    /* Blå – primärfärg */
-    --color-blue-50: #eff6ff;
-    --color-blue-100: #dbeafe;
-    --color-blue-200: #bfdbfe;
-    --color-blue-300: #93c5fd;
-    --color-blue-400: #60a5fa;
-    --color-blue-500: #3b82f6;
-    --color-blue-600: #2563eb;
-    --color-blue-700: #1d4ed8;
-    --color-blue-800: #1e3a5f;
-    --color-blue-900: #172554;
-    --color-blue-950: #0f1a2e;
-
-    /* Beige – sekundärfärg */
-    --color-beige-50: #fefdfb;
-    --color-beige-100: #fdf8f0;
-    --color-beige-200: #f5ead6;
-    --color-beige-300: #e8d5b7;
-    --color-beige-400: #d4b896;
-    --color-beige-500: #c2a378;
-    --color-beige-600: #a68a5b;
-    --color-beige-700: #8a7048;
-    --color-beige-800: #6e5a3a;
-    --color-beige-900: #544430;
-    --color-beige-950: #3a2e1f;
-
-    /* Semantiska färger */
-    --color-primary: var(--color-blue-600);
-    --color-primary-light: var(--color-blue-400);
-    --color-primary-dark: var(--color-blue-800);
-    --color-secondary: var(--color-beige-300);
-    --color-secondary-light: var(--color-beige-100);
-    --color-secondary-dark: var(--color-beige-600);
-    --color-surface: var(--color-blue-950);
-    --color-surface-light: var(--color-blue-900);
-    --color-text: var(--color-beige-100);
-    --color-text-muted: var(--color-beige-400);
+    /* ── Blå skala – ink-blå, djup och sofistikerad ── */
+    --color-blue-50: #eef2ff;
+    --color-blue-100: #e0e7ff;
+    --color-blue-200: #c7d4ff;
+    --color-blue-300: #a5b8ff;
+    --color-blue-400: #7a96ff;
+    --color-blue-500: #4f72ff;
+    /* elektrisk kobolt – primär accent */
+    --color-blue-600: #3a56e8;
+    --color-blue-700: #2c41c0;
+    --color-blue-800: #1e2d6e;
+    --color-blue-900: #111a42;
+    --color-blue-950: #0a0e1a;
+    /* ink-svart med blå undertone */
+    /* ── Beige / sand skala – varm pergament ── */
+    --color-sand-50: #faf8f4;
+    --color-sand-100: #f3ede1;
+    --color-sand-200: #e8dcc8;
+    --color-sand-300: #d9c8a8;
+    --color-sand-400: #c4a97e;
+    --color-sand-500: #a98a5c;
+    --color-sand-600: #8a6e43;
+    --color-sand-700: #6e562f;
+    --color-sand-800: #4e3c1f;
+    --color-sand-900: #352814;
+    --color-sand-950: #1c1408;
+    /* ── Blå-grå – modern muted-ton ── */
+    --color-slate-400: #8a9fc2;
+    --color-slate-500: #6b809e;
+    --color-slate-600: #4d607a;
+    --color-slate-700: #2e3f58;
+    --color-slate-800: #1a2540;
+    --color-slate-900: #101828;
+    /* ── Semantiska tokens ── */
+    --color-surface: #0a0e1a;
+    /* sidans bakgrund */
+    --color-surface-light: #111827;
+    /* lätt upphöjd yta */
+    --color-surface-elevated: #1a2236;
+    /* kort / modaler */
+    --color-border: #1e2d45;
+    /* subtila kanter */
+    --color-border-light: #2a3d5c;
+    /* hover-kanter */
+    --color-primary: #4f72ff;
+    /* koboltblå accent */
+    --color-primary-light: #7a96ff;
+    /* hover / glow */
+    --color-primary-dark: #3a56e8;
+    /* pressed */
+    --color-primary-muted: rgba(79, 114, 255, 0.12);
+    /* bakgrund-tint */
+    --color-text: #f0ece4;
+    /* varm off-white – pergament */
+    --color-text-muted: #8a9fc2;
+    /* kall blå-grå – läsbar muted */
+    --color-text-faint: #4d607a;
+    /* ännu nedtonad */
+    --color-accent: #d9c8a8;
+    /* sand-beige som highlight */
+    --color-accent-warm: #c4a97e;
+    /* varm sand accent */
 }
 
 * {
@@ -52,7 +76,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     background-color: var(--color-surface);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
@@ -60,12 +84,12 @@ body {
 }
 
 ::selection {
-    background-color: rgba(37, 99, 235, 0.3);
+    background-color: rgba(79, 114, 255, 0.25);
     color: #fff;
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -73,10 +97,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-blue-800);
-    border-radius: 3px;
+    background: var(--color-slate-700);
+    border-radius: 99px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-blue-700);
+    background: var(--color-slate-600);
 }
