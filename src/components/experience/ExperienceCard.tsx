@@ -27,7 +27,6 @@ export default function ExperienceCard({ item, side, delay, visible, color }: Pr
       padding: '1.5rem 1.75rem',
       backgroundColor: 'var(--color-surface-elevated)',
       border: '1px solid var(--color-border)',
-      borderLeft: `3px solid ${color}`,
       borderRadius: '2px',
       overflow: 'hidden',
     }}>

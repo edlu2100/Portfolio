@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Tag from '../ui/Tag'
 import DiplomaIcon from './DiplomaIcon'
 
@@ -20,18 +21,24 @@ interface Props {
 
 export default function EducationCard({ item, index, delay, visible, color, isMobile }: Props) {
   const tx = !isMobile && index % 2 === 0 ? -28 : 28
-
+  // Pop-in animation: scale from 0.96 to 1
+  const scale = visible ? 1 : 0.96
   return (
     <div style={{
       opacity: visible ? 1 : 0,
-      transform: visible ? 'translateX(0)' : `translateX(${tx}px)`,
-      transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms`,
+      transform: visible
+        ? 'translateX(0) scale(1)'
+        : `translateX(${tx}px) scale(${scale})`,
+      transition:
+        `opacity 0.65s cubic-bezier(.7,.2,.2,1) ${delay}ms, ` +
+        `transform 0.65s cubic-bezier(.7,.2,.2,1) ${delay}ms`,
       padding: '1.75rem 2rem',
       backgroundColor: 'var(--color-surface-elevated)',
       border: '1px solid var(--color-border)',
       borderRadius: '2px',
       overflow: 'hidden',
       flex: 1,
+      boxShadow: visible ? '0 8px 32px 0 rgba(79,114,255,0.07)' : 'none',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.9rem' }}>
         <DiplomaIcon color={color} />

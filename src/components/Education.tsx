@@ -30,19 +30,13 @@ export default function Education() {
               index={i}
               delay={150 + i * 140}
               visible={visible}
-              color={COLORS[i] ?? COLORS[COLORS.length - 1]}
+              color={'var(--color-text)'}
               isMobile={isMobile}
             />
           ))}
         </div>
 
-        {!isMobile && (
-          <div style={{ marginTop: '2rem', display: 'flex', gap: '0.6rem', opacity: visible ? 1 : 0, transition: 'opacity 0.7s ease 500ms' }}>
-            {COLORS.map((c, i) => (
-              <div key={i} style={{ flex: 1, height: 2, backgroundColor: c, opacity: 0.35, borderRadius: 1 }} />
-            ))}
-          </div>
-        )}
+
       </div>
     </section>
   )
