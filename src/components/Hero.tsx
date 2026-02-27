@@ -203,7 +203,7 @@ export default function Hero() {
               paddingTop: '0.875rem',
               paddingBottom: '0.875rem',
               backgroundColor: 'transparent',
-              color: accentColor,
+              color: 'var(--color-accent)',
               fontFamily: "'Inter', system-ui, sans-serif",
               fontSize: '0.8rem',
               fontWeight: 500,
@@ -220,7 +220,7 @@ export default function Hero() {
               ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.borderColor = `${accentColor}66`
+              (e.currentTarget as HTMLElement).style.borderColor = `${accentColor}`
               ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
               (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'transparent' : ''
 

@@ -8,13 +8,15 @@ export default function ScrollToTop() {
   const color = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
   const cableColor = theme === 'dark' ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.3)'
   // Cabin colors
+  // Skier colors
+  const pantsColor = theme === 'dark' ? '#1e2235' : '#1a1f33'
   const woodWall  = theme === 'dark' ? '#8B6F47' : '#7A5C3A'
   const woodRoof  = theme === 'dark' ? '#6B4F2F' : '#5A3E22'
   const woodTrim  = theme === 'dark' ? '#A68B5B' : '#9B7D50'
   const windowCol = theme === 'dark' ? 'rgba(180,210,240,0.35)' : 'rgba(140,190,240,0.45)'
 
   // ↓ Change this to control animation speed (ms). Lower = faster, higher = slower.
-  const DURATION = 3000
+  const DURATION = 3200
 
   const [visible, setVisible] = useState(false)
   const [phase, setPhase] = useState<Phase>('idle')
@@ -41,7 +43,7 @@ export default function ScrollToTop() {
     // Button bottom edge = 2rem from viewport bottom, button height = 2.75rem
     // So hook starts at bottom: calc(2rem + 2.75rem) ≈ 76px from bottom
     const hookStartBottom = 76 // px from viewport bottom
-    const hookEndBottom = window.innerHeight - 114 // stop at cabin bottom edge
+    const hookEndBottom = window.innerHeight - 154 // skier helmet stays 10px below cabin
 
     function step(now: number) {
       const elapsed = now - startTime
@@ -162,6 +164,62 @@ export default function ScrollToTop() {
         <div
           style={{
             position: 'fixed',
+            // Skier hips (y=52 in SVG, 68px from SVG bottom) align with hook bracket top
+            // skierBottom = hookBottom - 50
+            bottom: hookBottom != null ? `${hookBottom - 21}px` : '26px',
+            right: rightOffset,
+            zIndex: 53,
+            pointerEvents: 'none',
+            transform: 'translateX(0px)',
+            opacity: fading ? 0 : 1,
+            transition: fading ? 'opacity 0.4s ease' : 'none',
+          }}
+        >
+          {/* center x=30, skis at x=11 and x=43 align with cable center */}
+          <svg width="26" height="51" viewBox="0 0 60 120" fill="none" overflow="visible">
+            {/* Left ski – long narrow strip */}
+            <rect x="11" y="0" width="6" height="120" rx="3" fill="#CC1A1A" />
+            {/* Right ski */}
+            <rect x="43" y="0" width="6" height="120" rx="3" fill="#CC1A1A" />
+            {/* Ski glare tips */}
+            <ellipse cx="14" cy="5"  rx="2" ry="3" fill="rgba(255,255,255,0.15)" />
+            <ellipse cx="46" cy="5"  rx="2" ry="3" fill="rgba(255,255,255,0.15)" />
+
+            {/* Helmet – top of head, small circle */}
+            <circle cx="30" cy="21" r="8" fill={pantsColor} />
+            <circle cx="27" cy="17" r="3" fill="rgba(255,255,255,0.12)" />
+
+            {/* Jacket / shoulders – wide rounded blob */}
+            <ellipse cx="30" cy="37" rx="16" ry="12" fill={pantsColor} />
+
+            {/* Left arm curving outward and backward */}
+            <path d="M14 35 Q5 42 1 53" stroke={pantsColor} strokeWidth="5" strokeLinecap="round" fill="none" />
+            {/* Right arm */}
+            <path d="M46 35 Q55 42 59 53" stroke={pantsColor} strokeWidth="5" strokeLinecap="round" fill="none" />
+
+            {/* Left pole shaft */}
+            <line x1="1"  y1="53" x2="-7" y2="80" stroke={cableColor} strokeWidth="1.5" strokeLinecap="round" />
+            {/* Left basket – small angled cross */}
+            <line x1="-10" y1="78" x2="-4"  y2="82" stroke={cableColor} strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="-10" y1="82" x2="-4"  y2="78" stroke={cableColor} strokeWidth="1.5" strokeLinecap="round" />
+
+            {/* Right pole shaft */}
+            <line x1="59" y1="53" x2="67" y2="80" stroke={cableColor} strokeWidth="1.5" strokeLinecap="round" />
+            {/* Right basket */}
+            <line x1="64" y1="78" x2="70" y2="82" stroke={cableColor} strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="64" y1="82" x2="70" y2="78" stroke={cableColor} strokeWidth="1.5" strokeLinecap="round" />
+
+            {/* Hips / butt – hook bracket sits just below here */}
+            <ellipse cx="30" cy="52" rx="10" ry="6" fill={pantsColor} />
+          </svg>
+        </div>
+      )}
+
+      {/* ── Hook / bracket – rides up along the cable ── */}
+      {(hookVisible || fading) && (
+        <div
+          style={{
+            position: 'fixed',
             bottom: hookBottom != null ? `${hookBottom}px` : '76px',
             right: rightOffset,
             zIndex: 51,
@@ -205,7 +263,7 @@ export default function ScrollToTop() {
           justifyContent: 'center',
           background: 'var(--color-surface-elevated)',
           border: `1px solid ${visible || animating ? color + '44' : 'transparent'}`,
-          borderRadius: '2px',
+          borderRadius: '50%',
           cursor: animating ? 'default' : 'pointer',
           color,
           opacity: visible || animating ? (fading ? 0 : 1) : 0,
