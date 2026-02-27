@@ -27,7 +27,7 @@ export default function Background() {
             maxWidth: '800px',
             maxHeight: '800px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(79,114,255,0.10) 0%, transparent 68%)',
+            background: 'radial-gradient(ellipse, rgba(79,114,255,0.05) 0%, transparent 68%)',
             filter: 'blur(10px)',
             animation: 'orb1 28s ease-in-out infinite',
           }} />
@@ -42,7 +42,7 @@ export default function Background() {
             maxWidth: '750px',
             maxHeight: '750px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(44,65,192,0.12) 0%, transparent 68%)',
+            background: 'radial-gradient(ellipse, rgba(44,65,192,0.05) 0%, transparent 60%)',
             filter: 'blur(10px)',
             animation: 'orb2 36s ease-in-out infinite',
           }} />
@@ -57,7 +57,7 @@ export default function Background() {
             maxWidth: '500px',
             maxHeight: '500px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(217,200,168,0.04) 0%, transparent 68%)',
+            background: 'radial-gradient(ellipse, rgba(217,200,168,0.036) 0%, transparent 68%)',
             filter: 'blur(8px)',
             animation: 'orb3 44s ease-in-out infinite',
           }} />
@@ -85,7 +85,7 @@ export default function Background() {
             maxWidth: '780px',
             maxHeight: '780px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(196,169,126,0.18) 0%, transparent 68%)',
+            background: 'radial-gradient(ellipse, rgba(196,169,126,0.162) 0%, transparent 68%)',
             filter: 'blur(12px)',
             animation: 'orb1 32s ease-in-out infinite',
           }} />
@@ -100,7 +100,7 @@ export default function Background() {
             maxWidth: '700px',
             maxHeight: '700px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(58,86,232,0.07) 0%, transparent 68%)',
+            background: 'radial-gradient(ellipse, rgba(58,86,232,0.063) 0%, transparent 68%)',
             filter: 'blur(12px)',
             animation: 'orb2 40s ease-in-out infinite',
           }} />
@@ -115,7 +115,7 @@ export default function Background() {
             maxWidth: '600px',
             maxHeight: '600px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(138,110,67,0.05) 0%, transparent 68%)',
+            background: 'radial-gradient(ellipse, rgba(138,110,67,0.045) 0%, transparent 68%)',
             filter: 'blur(10px)',
             animation: 'orb3 48s ease-in-out infinite',
           }} />

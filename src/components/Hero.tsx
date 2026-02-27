@@ -85,13 +85,15 @@ export default function Hero() {
             gap: '0.75rem',
           }}
         >
-          <span style={{
-            display: 'inline-block',
-            width: '2rem',
-            height: '1px',
-            backgroundColor: accentColor,
-            opacity: 0.6,
-          }} />
+          <svg width="21.6" height="12.6" viewBox="0 0 24 14" fill="none" aria-hidden="true" style={{ flexShrink: 0, opacity: 0.85 }}>
+            <path
+              d="M1 10 C5 2, 11 2, 12 7 C13 12, 19 12, 23 4"
+              stroke={accentColor}
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
           {h.greeting}
         </p>
 
@@ -109,7 +111,7 @@ export default function Hero() {
           }}
         >
           {h.name}
-          <span style={{ color: 'var(--color-primary)' }}>.</span>
+         {/*<span style={{ color: 'var(--color-primary)' }}>.</span>*/}
         </h1>
 
         {/* Roll – kursiv serif */}
@@ -164,8 +166,8 @@ export default function Hero() {
               paddingRight: '1.75rem',
               paddingTop: '0.875rem',
               paddingBottom: '0.875rem',
-              backgroundColor: 'var(--color-primary)',
-              color: '#fff',
+              backgroundColor: theme === 'dark' ? 'transparent' : 'transparent',
+              color: theme === 'dark' ? '#D9D9D9' : 'var(--color-primary)',
               fontFamily: "'Inter', system-ui, sans-serif",
               fontSize: '0.8rem',
               fontWeight: 500,
@@ -173,15 +175,15 @@ export default function Hero() {
               textTransform: 'uppercase',
               textDecoration: 'none',
               borderRadius: '2px',
-              border: '1px solid var(--color-primary)',
+              border: theme === 'dark' ? '1px solid var(--color-primary)' : '1px solid var(--color-primary)',
               transition: 'background-color 0.2s ease, transform 0.2s ease',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--color-primary-dark)'
+              (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'var(--color-surface-elevated)' : 'var(--color-surface-elevated)'
               ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--color-primary)'
+              (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'transparent' : 'transparent'
               ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
             }}
           >
@@ -213,12 +215,15 @@ export default function Hero() {
               transition: 'border-color 0.2s ease, color 0.2s ease, transform 0.2s ease',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.borderColor = accentColor
+              (e.currentTarget as HTMLElement).style.borderColor = accentColor;
+              (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'var(--color-surface-elevated)' : 'var(--color-surface-elevated)'
               ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLElement).style.borderColor = `${accentColor}66`
-              ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
+              ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+              (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'transparent' : ''
+
             }}
           >
             {h.contact}
@@ -232,6 +237,7 @@ export default function Hero() {
           alignItems: 'center',
           gap: '1.5rem',
           marginTop: '2rem',
+
         }}>
           {[
             {
@@ -256,13 +262,13 @@ export default function Hero() {
               target={href.startsWith('mailto') ? undefined : '_blank'}
               rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
               aria-label={label}
-              style={{ color: 'var(--color-text-muted)', transition: 'color 0.2s ease, transform 0.2s ease', display: 'flex' }}
+              style={{ color: accentColor, transition: 'color 0.2s ease, transform 0.2s ease', display: 'flex' }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.color = accentColor
+                (e.currentTarget as HTMLElement).style.color = theme === 'dark' ? 'var(--color-primary)' : 'var(--color-accent-warm)'
                 ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.color = 'var(--color-text-muted)'
+                (e.currentTarget as HTMLElement).style.color = accentColor
                 ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
               }}
             >

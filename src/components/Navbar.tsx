@@ -48,7 +48,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#" className="relative font-bold tracking-tight group flex">
             <p className="text-text group-hover:text-primary-light transition-colors duration-300 text-2xl">Edwin Lundbäck</p>
-            <p className="text-primary text-2xl">.</p>
+            {/*<p className="text-primary text-2xl">.</p>*/ }
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary-light group-hover:w-full transition-all duration-300" />
           </a>
 
