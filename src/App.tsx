@@ -6,6 +6,7 @@ import Education from './components/Education'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import Background from './components/Background'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -24,6 +25,7 @@ export default function App() {
         <Skills />
         <Contact />
         <Footer />
+        <ScrollToTop />
       </div>
     </LanguageProvider>
     </ThemeProvider>

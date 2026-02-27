@@ -121,14 +121,14 @@ export const translations = {
                 {
                     year: '2024 – 2029',
                     degree: 'Civilingenjör, Industriell ekonomi',
-                    school: 'Linköpings Universitet',
+                    school: 'Linköpings Universitet, Sverige',
                     description: 'Studier i teknik, ekonomi och ledarskap med fokus på att effektivisera processer, optimera resurser och förbättra lönsamhet och hållbarhet.',
                     tags: [],
                 },
                 {
                     year: '2021 – 2024',
                     degree: 'Högskoleexamen, Datateknik',
-                    school: 'Mittuniversitetet',
+                    school: 'Mittuniversitetet, Sverige',
                     description: 'Praktiska och teoretiska kunskaper inom webbutveckling med fokus på användarvänlighet samt både frontend och backend.',
                     tags: [],
                 },
@@ -283,14 +283,14 @@ export const translations = {
                 {
                     year: '2024 – 2029',
                     degree: 'Master of Science in Industrial Engineering and Management',
-                    school: 'Linköping University',
+                    school: 'Linköping University, Sweden',
                     description: 'Studies in engineering, economics and leadership with a focus on streamlining processes, optimising resources and improving profitability and sustainability.',
                     tags: [],
                 },
                 {
                     year: '2021 – 2024',
                     degree: 'Higher Education Diploma in Computer Science (Fullstack developer) ',
-                    school: 'Mid Sweden University',
+                    school: 'Mid Sweden University, Sweden',
                     description: 'Practical and theoretical knowledge in web development with a focus on usability and accessibility. Both frontend and backend development.',
                     tags: [],
                 },
