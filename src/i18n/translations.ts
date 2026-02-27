@@ -6,6 +6,7 @@ export const translations = {
                 { label: 'Projekt', href: '#projekt' },
                 { label: 'Erfarenhet', href: '#erfarenhet' },
                 { label: 'Utbildning', href: '#utbildning' },
+                { label: 'Kompetenser', href: '#kompetenser' },
                 { label: 'Kontakt', href: '#kontakt' },
             ],
             openMenu: 'Öppna meny',
@@ -70,7 +71,7 @@ export const translations = {
             subheading: 'Karriär',
             items: [
                 {
-                    year: 'Apr 2025 – Pågående',
+                    year: 'Apr 2025 – Nuvarande',
                     role: 'Systemutvecklare',
                     company: 'Skymaker AB',
                     description: 'Utvecklade plattformsfunktioner och prototyper för en SaaS-produkt, omsatte kundkrav till tekniska lösningar och fick praktisk erfarenhet av produktionssystem samt hur tekniska beslut påverkar både produkt och affär.',
@@ -84,14 +85,14 @@ export const translations = {
                     tags: ['Shopify', 'JavaScript', 'CSS'],
                 },
                 {
-                    year: 'Mar 2024 – Pågående',
+                    year: 'Mar 2024 – Nuvarande',
                     role: 'Ledamot, Teknologrådet',
                     company: 'Sveriges Ingenjörer',
                     description: 'Förtroendevald representant teknologrådet, där jag företräder ingenjörsstudenters perspektiv lokalt och internationellt, bland annat genom deltagande vid European Youth Event (EYE) i Malta och ingenjörsfullmäktige (FUM).',
                     tags: [],
                 },
                 {
-                    year: 'Nov 2024 – Pågående',
+                    year: 'Nov 2024 – Nuvarande',
                     role: 'Samordnare för studentambassadörer',
                     company: 'Sveriges Ingenjörer',
                     description: 'Leder och utvecklar studentambassadörsverksamheten på campus, med ansvar för ett team om fem personer och bidragande till rekordresultat i medlemsrekrytering med en konverteringsgrad på 72 %.',
@@ -133,6 +134,16 @@ export const translations = {
                 },
             ],
         },
+        skills: {
+            heading: 'Kompetenser',
+            subheading: 'Teknisk profil',
+            languages: 'Språk',
+            technologies: 'Teknologier',
+            items: {
+                languages: ['TypeScript', 'JavaScript', 'PHP', 'C#', '.Net', 'CSS', 'HTML', 'SQL'],
+                technologies: ['React.js', 'React Native', 'Vue.js', 'jQuery', 'Laravel', 'ASP.NET', 'Node.js', 'WordPress', 'Dynamaker', 'Tailwind', 'Excel'],
+            },
+        },
     },
     en: {
         nav: {
@@ -141,6 +152,7 @@ export const translations = {
                 { label: 'Projects', href: '#projekt' },
                 { label: 'Experience', href: '#erfarenhet' },
                 { label: 'Education', href: '#utbildning' },
+                { label: 'Skills', href: '#kompetenser' },
                 { label: 'Contact', href: '#kontakt' },
             ],
             openMenu: 'Open menu',
@@ -268,6 +280,16 @@ export const translations = {
                     tags: [],
                 },
             ],
+        },
+        skills: {
+            heading: 'Skills',
+            subheading: 'Technical profile',
+            languages: 'Languages',
+            technologies: 'Technologies',
+            items: {
+                languages: ['TypeScript', 'JavaScript', 'PHP', 'C#', '.Net', 'CSS', 'HTML', 'SQL'],
+                technologies: ['React.js', 'React Native', 'Vue.js', 'jQuery', 'Laravel', 'ASP.NET', 'Node.js', 'WordPress', 'Dynamaker', 'Tailwind', 'Excel'],
+            },
         },
     },
 }

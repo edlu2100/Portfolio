@@ -1,12 +1,13 @@
 import { useMemo } from 'react'
 import { useLanguage } from '../context/LanguageContext'
+import { useTheme } from '../context/ThemeContext'
 import { useMobile } from '../hooks/useMobile'
 import { useInView } from '../hooks/useInView'
 import SectionHeader from './ui/SectionHeader'
 import ExperienceCard from './experience/ExperienceCard'
 
 // ── Storslalom (GS) constants ───────────────────────────────────────
-const GATE_RED   = '#e8341a'
+const GATE_RED   = '#DB2D14'
 const GATE_BLUE  = '#1a4de8'
 const ROW_H      = 230    // desktop: px per experience row
 const SVG_W      = 200    // width of the center track column
@@ -67,6 +68,8 @@ export default function Experience() {
   const n     = items.length
 
   const isMobile      = useMobile()
+  const { theme }     = useTheme()
+  const cardColor     = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)' 
   const { ref, visible } = useInView()
   const totalH        = n * ROW_H
   const pathD         = useMemo(() => buildPath(n), [n])
@@ -75,7 +78,7 @@ export default function Experience() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="erfarenhet"
-      style={{ padding: '7rem 0', borderTop: '1px solid var(--color-border)' }}
+      style={{ padding: '7rem 0', borderTop: '1px solid var(--color-border)', marginTop: '10px' }}
     >
       <div style={{ maxWidth: '72rem', margin: '0 auto', padding: '0 1.5rem' }}>
         <SectionHeader heading={e.heading} subheading={e.subheading} visible={visible} />
@@ -96,15 +99,15 @@ export default function Experience() {
                   {/* Gate dot */}
                   <div style={{
                     width: 14, height: 14, borderRadius: '50%', flexShrink: 0,
-                    backgroundColor: gateColor(i),
-                    boxShadow: `0 0 10px ${gateColor(i)}55`,
+                    backgroundColor: cardColor,
+                    boxShadow: `0 0 10px ${cardColor}55`,
                     marginTop: '1.6rem',
                   }} />
                   {/* Connector line */}
                   {i < n - 1 && (
                     <div style={{
                       width: 2, flex: 1,
-                      background: `linear-gradient(to bottom, ${gateColor(i)}, ${gateColor(i + 1)})`,
+                      background: `linear-gradient(to bottom, ${cardColor}, ${cardColor})`,
                       opacity: 0.3, marginTop: '0.5rem',
                     }} />
                   )}
@@ -117,7 +120,7 @@ export default function Experience() {
                     side="right"
                     delay={i * 130}
                     visible={visible}
-                    color={gateColor(i)}
+                    color={cardColor}
                   />
                 </div>
               </div>
@@ -144,7 +147,7 @@ export default function Experience() {
                         side="left"
                         delay={i * 160}
                         visible={visible}
-                        color={gateColor(i)}
+                        color={cardColor}
                       />
                     </div>
                   </div>
@@ -300,7 +303,7 @@ export default function Experience() {
                         side="right"
                         delay={i * 160}
                         visible={visible}
-                        color={gateColor(i)}
+                        color={cardColor}
                       />
                     </div>
                   </div>

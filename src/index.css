@@ -1,96 +1,91 @@
 @import "tailwindcss";
 @theme {
-    /* ── Blå skala – ink-blå, djup och sofistikerad ── */
-    --color-blue-50: #eef2ff;
-    --color-blue-100: #e0e7ff;
-    --color-blue-200: #c7d4ff;
-    --color-blue-300: #a5b8ff;
-    --color-blue-400: #7a96ff;
-    --color-blue-500: #4f72ff;
-    /* elektrisk kobolt – primär accent */
-    --color-blue-600: #3a56e8;
-    --color-blue-700: #2c41c0;
-    --color-blue-800: #1e2d6e;
-    --color-blue-900: #111a42;
-    --color-blue-950: #0a0e1a;
-    /* ink-svart med blå undertone */
-    /* ── Beige / sand skala – varm pergament ── */
-    --color-sand-50: #faf8f4;
-    --color-sand-100: #f3ede1;
-    --color-sand-200: #e8dcc8;
-    --color-sand-300: #d9c8a8;
-    --color-sand-400: #c4a97e;
+    /* ── Blå skala – djup navy / heritage ── */
+    --color-blue-50: #f4f6f8;
+    --color-blue-100: #e6ebf0;
+    --color-blue-200: #cfd8e3;
+    --color-blue-300: #aebed1;
+    --color-blue-400: #7f97b3;
+    --color-blue-500: #4f6a8a;
+    --color-blue-600: #2f4a6b;
+    --color-blue-700: #1f3a5f;
+    --color-blue-800: #162c4a;
+    --color-blue-900: #0f1f35;
+    --color-blue-950: #0b1626;
+    /* ── Beige / sand – camel / parchment ── */
+    --color-sand-50: #faf7f2;
+    --color-sand-100: #f1e8dc;
+    --color-sand-200: #e6d7c4;
+    --color-sand-300: #d5c0a6;
+    --color-sand-400: #c2a878;
     --color-sand-500: #a98a5c;
     --color-sand-600: #8a6e43;
     --color-sand-700: #6e562f;
     --color-sand-800: #4e3c1f;
     --color-sand-900: #352814;
-    --color-sand-950: #1c1408;
-    /* ── Blå-grå – modern muted-ton ── */
-    --color-slate-400: #8a9fc2;
-    --color-slate-500: #6b809e;
-    --color-slate-600: #4d607a;
-    --color-slate-700: #2e3f58;
-    --color-slate-800: #1a2540;
-    --color-slate-900: #101828;
-    /* ── Semantiska tokens – åsidosätts per tema nedan ── */
-    --color-surface: #0a0e1a;
-    --color-surface-light: #111827;
-    --color-surface-elevated: #1a2236;
-    --color-border: #1e2d45;
-    --color-border-light: #2a3d5c;
-    --color-primary: #4f72ff;
-    --color-primary-light: #7a96ff;
-    --color-primary-dark: #3a56e8;
-    --color-primary-muted: rgba(79, 114, 255, 0.12);
-    --color-text: #f0ece4;
-    --color-text-muted: #8a9fc2;
-    --color-text-faint: #4d607a;
-    --color-accent: #d9c8a8;
-    --color-accent-warm: #c4a97e;
+    --color-sand-950: #1f160c;
+    /* ── Blå-grå – dämpad akademisk ton ── */
+    --color-slate-400: #8b97a8;
+    --color-slate-500: #6e7c8f;
+    --color-slate-600: #525f73;
+    --color-slate-700: #3b4759;
+    --color-slate-800: #273140;
+    --color-slate-900: #161d26;
+    /* ── Semantiska tokens ── */
+    --color-surface: #0f1f35;
+    --color-surface-light: #162c4a;
+    --color-surface-elevated: #1f3a5f;
+    --color-border: #24364f;
+    --color-border-light: #2f4a6b;
+    --color-primary: #1f3a5f;
+    /* Deep navy */
+    --color-primary-light: #2f4a6b;
+    --color-primary-dark: #0b1626;
+    --color-primary-muted: rgba(31, 58, 95, 0.12);
+    --color-text: #f4efe6;
+    /* Ivory */
+    --color-text-muted: #8b97a8;
+    --color-text-faint: #525f73;
+    --color-accent: #c2a878;
+    /* Camel */
+    --color-accent-warm: #a98a5c;
 }
-
-
-/* ── Mörkt tema (default) ── */
 
 :root,
 [data-theme="dark"] {
-    --color-surface: #0a0e1a;
-    --color-surface-light: #111827;
-    --color-surface-elevated: #1a2236;
-    --color-border: #1e2d45;
-    --color-border-light: #2a3d5c;
-    --color-primary: #4f72ff;
-    --color-primary-light: #7a96ff;
-    --color-primary-dark: #3a56e8;
-    --color-primary-muted: rgba(79, 114, 255, 0.12);
-    --color-text: #f0ece4;
-    --color-text-muted: #8a9fc2;
-    --color-text-faint: #4d607a;
-    --color-accent: #d9c8a8;
-    --color-accent-warm: #c4a97e;
-    --navbar-bg: rgba(10, 14, 26, 0.85);
+    --color-surface: #0b1626;
+    --color-surface-light: #0f1f35;
+    --color-surface-elevated: #162c4a;
+    --color-border: #1f2f45;
+    --color-border-light: #2f4a6b;
+    --color-primary: #1f3a5f;
+    --color-primary-light: #2f4a6b;
+    --color-primary-dark: #0b1626;
+    --color-primary-muted: rgba(31, 58, 95, 0.12);
+    --color-text: #f4efe6;
+    --color-text-muted: #8b97a8;
+    --color-text-faint: #525f73;
+    --color-accent: #c2a878;
+    --color-accent-warm: #a98a5c;
+    --navbar-bg: rgba(11, 22, 38, 0.85);
 }
 
-
-/* ── Ljust tema ── */
-
 [data-theme="light"] {
-    --color-surface: #f8f5f0;
+    --color-surface: #f8f5ef;
     --color-surface-light: #ffffff;
     --color-surface-elevated: #ffffff;
-    --color-border: #e0d8cd;
-    --color-border-light: #c9bfb2;
-    --color-primary: #3a56e8;
-    --color-primary-light: #4f72ff;
-    --color-primary-dark: #2c41c0;
-    --color-primary-muted: rgba(58, 86, 232, 0.1);
+    --color-border: #e4d9c9;
+    --color-border-light: #d5c0a6;
+    --color-primary: #1f3a5f;
+    --color-primary-light: #2f4a6b;
+    --color-primary-dark: #162c4a;
+    --color-primary-muted: rgba(31, 58, 95, 0.08);
     --color-text: #1a1612;
-    --color-text-muted: #6b7280;
-    --color-text-faint: #9ca3af;
+    --color-text-muted: #6e7c8f;
+    --color-text-faint: #9aa3ad;
     --color-accent: #8a6e43;
     --color-accent-warm: #6e562f;
-    --navbar-bg: rgba(248, 245, 240, 0.88);
+    --navbar-bg: rgba(248, 245, 239, 0.9);
 }
 
 * {

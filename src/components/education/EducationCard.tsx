@@ -41,7 +41,7 @@ export default function EducationCard({ item, index, delay, visible, color, isMo
       boxShadow: visible ? '0 8px 32px 0 rgba(79,114,255,0.07)' : 'none',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.9rem' }}>
-        <DiplomaIcon color={color} />
+        <DiplomaIcon color={"var(--color-accent)"} />
         <p style={{
           fontFamily: "'Inter', system-ui, sans-serif",
           fontSize: '0.64rem', fontWeight: 600, letterSpacing: '0.18em',

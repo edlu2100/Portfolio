@@ -1,5 +1,3 @@
-import Tag from '../ui/Tag'
-
 export interface ExpItem {
   year: string
   role: string
@@ -28,7 +26,6 @@ export default function ExperienceCard({ item, side, delay, visible, color }: Pr
       backgroundColor: 'var(--color-surface-elevated)',
       border: '1px solid var(--color-border)',
       borderRadius: '2px',
-      overflow: 'hidden',
     }}>
       <p style={{
         fontFamily: "'Inter', system-ui, sans-serif",
@@ -57,7 +54,17 @@ export default function ExperienceCard({ item, side, delay, visible, color }: Pr
 
       {item.tags.length > 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-          {item.tags.map(tag => <Tag key={tag} label={tag} />)}
+          {item.tags.map(tag => (
+            <span key={tag} style={{
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              padding: '0.28rem 0.6rem',
+              backgroundColor: `${color}18`,
+              color: color,
+              borderRadius: '2px',
+            }}>{tag}</span>
+          ))}
         </div>
       )}
     </div>

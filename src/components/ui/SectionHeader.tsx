@@ -1,10 +1,28 @@
+import { useTheme } from '../../context/ThemeContext'
+
 interface Props {
   heading: string
   subheading: string
   visible?: boolean
 }
 
+const Swirl = ({ color }: { color: string }) => (
+  <svg width="24" height="14" viewBox="0 0 24 14" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+    <path
+      d="M1 10 C5 2, 11 2, 12 7 C13 12, 19 12, 23 4"
+      stroke={color}
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      fill="none"
+      opacity="0.75"
+    />
+  </svg>
+)
+
 export default function SectionHeader({ heading, subheading, visible = true }: Props) {
+  const { theme } = useTheme()
+  const color = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
+
   return (
     <div style={{
       opacity: visible ? 1 : 0,
@@ -15,11 +33,11 @@ export default function SectionHeader({ heading, subheading, visible = true }: P
       <p style={{
         fontFamily: "'Inter', system-ui, sans-serif",
         fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.2em',
-        textTransform: 'uppercase', color: 'var(--color-primary)',
-        display: 'flex', alignItems: 'center', gap: '0.75rem',
+        textTransform: 'uppercase', color,
+        display: 'flex', alignItems: 'center', gap: '0.6rem',
         marginBottom: '0.75rem',
       }}>
-        <span style={{ display: 'inline-block', width: '2rem', height: '1px', backgroundColor: 'var(--color-primary)', opacity: 0.6 }} />
+        <Swirl color={color} />
         {subheading}
       </p>
       <h2 style={{
