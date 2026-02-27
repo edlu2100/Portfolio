@@ -15,8 +15,8 @@ export const translations = {
         hero: {
             greeting: 'Hej, jag är',
             name: 'Edwin Lundbäck',
-            role: 'Frontendutvecklare & designer',
-            description: 'Jag bygger digitala upplevelser med fokus på detaljer, typografi och känsla. Varje projekt är ett hantverk.',
+            role: 'Frontendutvecklare & Ingenjörsstudent',
+            description: 'Jag kombinerar teknisk förståelse med strategiskt tänkande för att bygga lösningar som skapar verkligt värde.',
             cta: 'Se projekt',
             contact: 'Ta kontakt',
             scroll: 'Scrolla ned',
@@ -176,8 +176,8 @@ export const translations = {
         hero: {
             greeting: 'Hello, I\'m',
             name: 'Edwin Lundbäck',
-            role: 'Frontend developer & designer',
-            description: 'I craft digital experiences with attention to detail, typography and feel. Every project is a work of craft.',
+            role: 'Fullstack developer & Engineering student',
+            description: 'I combine technical understanding with strategic thinking to build solutions that create real value.',
             cta: 'View projects',
             contact: 'Get in touch',
             scroll: 'Scroll down',

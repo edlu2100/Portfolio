@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { useTheme } from '../context/ThemeContext'
 import SectionHeader from './ui/SectionHeader'
 import ProjectCard from './projects/ProjectCard'
 import ProjectModal from './projects/ProjectModal'
@@ -8,10 +7,8 @@ import type { Project } from './projects/types'
 
 export default function Projects() {
   const { t } = useLanguage()
-  const { theme } = useTheme()
   const p = t.projects
   const [active, setActive] = useState<Project | null>(null)
-  const color = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
 
   return (
     <>
@@ -32,7 +29,6 @@ export default function Projects() {
                 key={project.id}
                 project={project}
                 index={index}
-                color={color}
                 onClick={() => setActive(project)}
               />
             ))}

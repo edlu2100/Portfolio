@@ -166,7 +166,7 @@ export default function Hero() {
               paddingRight: '1.75rem',
               paddingTop: '0.875rem',
               paddingBottom: '0.875rem',
-              backgroundColor: theme === 'dark' ? 'transparent' : 'transparent',
+              backgroundColor: theme === 'dark' ? 'var( --color-surface-elevated)' : 'transparent',
               color: theme === 'dark' ? '#D9D9D9' : 'var(--color-primary)',
               fontFamily: "'Inter', system-ui, sans-serif",
               fontSize: '0.8rem',
@@ -179,11 +179,11 @@ export default function Hero() {
               transition: 'background-color 0.2s ease, transform 0.2s ease',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'var(--color-surface-elevated)' : 'var(--color-surface-elevated)'
+              (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'transparent' : 'var(--color-surface-elevated)'
               ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)'
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'transparent' : 'transparent'
+              (e.currentTarget as HTMLElement).style.backgroundColor = theme === 'dark' ? 'var( --color-surface-elevated)' : 'transparent'
               ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
             }}
           >
