@@ -1,0 +1,10 @@
+export type Project = {
+  id: number
+  title: string
+  tags: string[]
+  summary: string
+  description: string
+  images: string[]
+  github: string
+  live: string
+}

@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext'
 import { useMobile } from '../hooks/useMobile'
 import { useInView } from '../hooks/useInView'
 import SectionHeader from './ui/SectionHeader'
-import Tag from './ui/Tag'
+import ExperienceCard from './experience/ExperienceCard'
 
 // ── Storslalom (GS) constants ───────────────────────────────────────
 const GATE_RED   = '#e8341a'
@@ -57,84 +57,6 @@ function buildPath(n: number): string {
     d += ` C ${p0.x} ${p0.y + dy * 0.45}, ${p1.x} ${p1.y - dy * 0.45}, ${p1.x} ${p1.y}`
   }
   return d
-}
-
-// ── ExperienceCard ──────────────────────────────────────────────────
-interface ExpItem {
-  year: string
-  role: string
-  company: string
-  description: string
-  tags: string[]
-}
-
-function ExperienceCard({
-  item, side, delay, visible, color,
-}: {
-  item: ExpItem
-  side: 'left' | 'right'
-  delay: number
-  visible: boolean
-  color: string
-}) {
-  const tx = side === 'left' ? -28 : 28
-
-  return (
-    <div
-      style={{
-        opacity:    visible ? 1 : 0,
-        transform:  visible ? 'translateX(0)' : `translateX(${tx}px)`,
-        transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms`,
-        padding: '1.5rem 1.75rem',
-        backgroundColor: 'var(--color-surface-elevated)',
-        border:     '1px solid var(--color-border)',
-        borderLeft: `3px solid ${color}`,
-        borderRadius: '2px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Year */}
-      <p style={{
-        fontFamily: "'Inter', system-ui, sans-serif",
-        fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.18em',
-        textTransform: 'uppercase', color, marginBottom: '0.5rem',
-        position: 'relative',
-      }}>{item.year}</p>
-
-      {/* Role */}
-      <h3 style={{
-        fontFamily: "'Cormorant Garamond', Georgia, serif",
-        fontSize: 'clamp(1.35rem, 2.2vw, 1.8rem)', fontWeight: 600,
-        lineHeight: 1.1, letterSpacing: '-0.01em',
-        color: 'var(--color-text)', marginBottom: '0.2rem',
-        position: 'relative',
-      }}>{item.role}</h3>
-
-      {/* Company */}
-      <p style={{
-        fontFamily: "'Inter', system-ui, sans-serif",
-        fontSize: '0.78rem', fontWeight: 400, letterSpacing: '0.03em',
-        color: 'var(--color-text-muted)', marginBottom: '0.8rem',
-        position: 'relative',
-      }}>{item.company}</p>
-
-      {/* Description */}
-      <p style={{
-        fontFamily: "'Inter', system-ui, sans-serif",
-        fontSize: '0.79rem', lineHeight: 1.7,
-        color: 'var(--color-text-muted)', marginBottom: '1rem',
-        position: 'relative',
-      }}>{item.description}</p>
-
-      {/* Tags */}
-      {item.tags.length > 0 && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-          {item.tags.map(tag => <Tag key={tag} label={tag} />)}
-        </div>
-      )}
-    </div>
-  )
 }
 
 // ── Main component ──────────────────────────────────────────────────
