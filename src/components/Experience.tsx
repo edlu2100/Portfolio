@@ -1,5 +1,9 @@
-import { useEffect, useRef, useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useLanguage } from '../context/LanguageContext'
+import { useMobile } from '../hooks/useMobile'
+import { useInView } from '../hooks/useInView'
+import SectionHeader from './ui/SectionHeader'
+import Tag from './ui/Tag'
 
 // ── Storslalom (GS) constants ───────────────────────────────────────
 const GATE_RED   = '#e8341a'
@@ -55,18 +59,6 @@ function buildPath(n: number): string {
   return d
 }
 
-// ── useMobile hook ──────────────────────────────────────────────────
-function useMobile() {
-  const [m, setM] = useState(false)
-  useEffect(() => {
-    const check = () => setM(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
-  return m
-}
-
 // ── ExperienceCard ──────────────────────────────────────────────────
 interface ExpItem {
   year: string
@@ -102,12 +94,6 @@ function ExperienceCard({
         overflow: 'hidden',
       }}
     >
-      {/* Subtle background gradient flush with accent color */}
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: `linear-gradient(135deg, ${color}08 0%, transparent 60%)`,
-      }} />
-
       {/* Year */}
       <p style={{
         fontFamily: "'Inter', system-ui, sans-serif",
@@ -142,19 +128,11 @@ function ExperienceCard({
       }}>{item.description}</p>
 
       {/* Tags */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', position: 'relative' }}>
-        {item.tags.map(tag => (
-          <span key={tag} style={{
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            padding: '0.28rem 0.6rem',
-            backgroundColor: 'var(--color-primary-muted)',
-            color: 'var(--color-primary-light)',
-            borderRadius: '2px',
-          }}>{tag}</span>
-        ))}
-      </div>
+      {item.tags.length > 0 && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+          {item.tags.map(tag => <Tag key={tag} label={tag} />)}
+        </div>
+      )}
     </div>
   )
 }
@@ -162,65 +140,23 @@ function ExperienceCard({
 // ── Main component ──────────────────────────────────────────────────
 export default function Experience() {
   const { t } = useLanguage()
-  const e      = t.experience
-  const items  = e.items
-  const n      = items.length
+  const e     = t.experience
+  const items = e.items
+  const n     = items.length
 
-  const isMobile  = useMobile()
-  const [visible, setVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-
-  // Trigger card animations when section scrolls into view
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect() } },
-      { threshold: 0.1 },
-    )
-    if (sectionRef.current) obs.observe(sectionRef.current)
-    return () => obs.disconnect()
-  }, [])
-
-  const totalH = n * ROW_H
-
-  // Build SVG path once
-  const pathD = useMemo(() => buildPath(n), [n])
+  const isMobile      = useMobile()
+  const { ref, visible } = useInView()
+  const totalH        = n * ROW_H
+  const pathD         = useMemo(() => buildPath(n), [n])
 
   return (
     <section
-      ref={sectionRef}
+      ref={ref as React.RefObject<HTMLElement>}
       id="erfarenhet"
-      style={{
-        padding: '7rem 0',
-        borderTop: '1px solid var(--color-border)',
-      }}
+      style={{ padding: '7rem 0', borderTop: '1px solid var(--color-border)' }}
     >
-      <div style={{
-        maxWidth: '72rem', marginLeft: 'auto', marginRight: 'auto',
-        paddingLeft: '1.5rem', paddingRight: '1.5rem',
-      }}>
-
-        {/* ── Section header ── */}
-        <div style={{ marginBottom: '4rem' }}>
-          <p style={{
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.2em',
-            textTransform: 'uppercase', color: 'var(--color-primary)',
-            display: 'flex', alignItems: 'center', gap: '0.75rem',
-            marginBottom: '0.75rem',
-          }}>
-            <span style={{
-              display: 'inline-block', width: '2rem', height: '1px',
-              backgroundColor: 'var(--color-primary)', opacity: 0.6,
-            }} />
-            {e.subheading}
-          </p>
-          <h2 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 600,
-            lineHeight: 1.05, letterSpacing: '-0.02em',
-            color: 'var(--color-text)',
-          }}>{e.heading}</h2>
-        </div>
+      <div style={{ maxWidth: '72rem', margin: '0 auto', padding: '0 1.5rem' }}>
+        <SectionHeader heading={e.heading} subheading={e.subheading} visible={visible} />
 
         {/* ── Layout branches: mobile vs desktop ── */}
         {isMobile ? (

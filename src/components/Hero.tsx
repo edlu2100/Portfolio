@@ -39,18 +39,7 @@ export default function Hero() {
           width: '900px',
           height: '600px',
           borderRadius: '50%',
-          background: 'radial-gradient(ellipse, rgba(79,114,255,0.07) 0%, transparent 70%)',
-          filter: 'blur(40px)',
-        }} />
-        <div style={{
-          position: 'absolute',
-          bottom: '0',
-          right: '-10%',
-          width: '500px',
-          height: '500px',
-          borderRadius: '50%',
-          background: 'radial-gradient(ellipse, rgba(217,200,168,0.04) 0%, transparent 70%)',
-          filter: 'blur(60px)',
+          opacity: 0,
         }} />
         {/* Subtil horisontell linje mitt i */}
         <div style={{

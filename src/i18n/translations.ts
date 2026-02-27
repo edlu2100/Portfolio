@@ -5,6 +5,7 @@ export const translations = {
                 { label: 'Om', href: '#om' },
                 { label: 'Projekt', href: '#projekt' },
                 { label: 'Erfarenhet', href: '#erfarenhet' },
+                { label: 'Utbildning', href: '#utbildning' },
                 { label: 'Kontakt', href: '#kontakt' },
             ],
             openMenu: 'Öppna meny',
@@ -112,6 +113,26 @@ export const translations = {
                 },
             ],
         },
+        education: {
+            heading: 'Utbildning',
+            subheading: 'Akademisk bakgrund',
+            items: [
+                {
+                    year: '2024 – 2029',
+                    degree: 'Civilingenjör, Industriell ekonomi',
+                    school: 'Linköpings Universitet',
+                    description: 'Studier i teknik, ekonomi och ledarskap med fokus på att effektivisera processer, optimera resurser och förbättra lönsamhet och hållbarhet.',
+                    tags: [],
+                },
+                {
+                    year: '2021 – 2024',
+                    degree: 'Högskoleexamen, Datateknik',
+                    school: 'Mittuniversitetet',
+                    description: 'Praktiska och teoretiska kunskaper inom webbutveckling med fokus på användarvänlighet samt både frontend och backend.',
+                    tags: [],
+                },
+            ],
+        },
     },
     en: {
         nav: {
@@ -119,6 +140,7 @@ export const translations = {
                 { label: 'About', href: '#om' },
                 { label: 'Projects', href: '#projekt' },
                 { label: 'Experience', href: '#erfarenhet' },
+                { label: 'Education', href: '#utbildning' },
                 { label: 'Contact', href: '#kontakt' },
             ],
             openMenu: 'Open menu',
@@ -199,7 +221,7 @@ export const translations = {
                 },
                 {
                     year: 'Mar 2025 – Present',
-                    role: 'Board Member, Technology Council (teknologrådet)',
+                    role: 'Board Member, Technology Council (Teknologrådet)',
                     company: 'Sveriges Ingenjörer',
                     description: 'Elected representative in the Engineering Council, advocating for engineering students locally and internationally, including at the European Youth Event (EYE) in Malta and Ingenjörsfullmäktige (FUM).',
                     tags: [],
@@ -223,6 +245,26 @@ export const translations = {
                     role: 'Process Operator',
                     company: 'LKAB',
                     description: 'Monitored and optimized operational processes to ensure stable performance, efficiency, and high safety standards. Worked in high-responsibility environments where precision, discipline, and continuous risk awareness were critical.',
+                    tags: [],
+                },
+            ],
+        },
+        education: {
+            heading: 'Education',
+            subheading: 'Academic background',
+            items: [
+                {
+                    year: '2024 – 2029',
+                    degree: 'Master of Science in Industrial Engineering and Management',
+                    school: 'Linköping University',
+                    description: 'Studies in engineering, economics and leadership with a focus on streamlining processes, optimising resources and improving profitability and sustainability.',
+                    tags: [],
+                },
+                {
+                    year: '2021 – 2024',
+                    degree: 'Higher Education Diploma in Computer Science (Fullstack developer) ',
+                    school: 'Mid Sweden University',
+                    description: 'Practical and theoretical knowledge in web development with a focus on usability and accessibility. Both frontend and backend development.',
                     tags: [],
                 },
             ],
