@@ -11,6 +11,8 @@ export const translations = {
             ],
             openMenu: 'Öppna meny',
             closeMenu: 'Stäng meny',
+            themeLight: 'Byt till ljust tema',
+            themeDark: 'Byt till mörkt tema',
         },
         hero: {
             greeting: 'Hej, jag är',
@@ -172,6 +174,8 @@ export const translations = {
             ],
             openMenu: 'Open menu',
             closeMenu: 'Close menu',
+            themeLight: 'Switch to light theme',
+            themeDark: 'Switch to dark theme',
         },
         hero: {
             greeting: 'Hello, I\'m',

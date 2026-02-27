@@ -1,4 +1,7 @@
 import { useTheme } from '../../context/ThemeContext'
+import { useLanguage } from '../../context/LanguageContext'
+
+
 
 const SunIcon = () => (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -17,11 +20,16 @@ const MoonIcon = () => (
 )
 
 export default function ThemeToggle() {
+
+
   const { theme, toggleTheme } = useTheme()
+  const { t } = useLanguage()
+  const label = theme === 'dark' ? t.nav.themeLight : t.nav.themeDark
   return (
     <button
       onClick={toggleTheme}
-      aria-label={theme === 'dark' ? 'Byt till ljust tema' : 'Byt till mörkt tema'}
+      title={label}
+      aria-label={label}
       style={{
         background: 'none', border: 'none', padding: '2px',
         cursor: 'pointer', display: 'flex', alignItems: 'center',

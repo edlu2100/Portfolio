@@ -112,21 +112,32 @@ body {
     color: #fff;
 }
 
+
+/* ── Scrollbar ── */
+
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--color-surface);
+    background: var(--color-border);
+    border-radius: 99px;
+    margin: 4px 0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-slate-700);
+    background: var(--color-accent-warm);
     border-radius: 99px;
+    box-shadow: 0 0 6px var(--color-accent-warm);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-slate-600);
+    background: var(--color-accent);
+    box-shadow: 0 0 10px var(--color-accent);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
 }
 
 @keyframes scrollLine {
