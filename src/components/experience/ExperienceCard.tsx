@@ -60,6 +60,7 @@ export default function ExperienceCard({ item, side, delay, visible, color }: Pr
               fontSize: '0.6rem', fontWeight: 500, letterSpacing: '0.1em',
               textTransform: 'uppercase',
               padding: '0.28rem 0.6rem',
+              paddingLeft: '0',
               backgroundColor: `${color}18`,
               color: color,
               borderRadius: '2px',
