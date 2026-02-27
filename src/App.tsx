@@ -5,6 +5,7 @@ import Experience from './components/Experience'
 import Education from './components/Education'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 import Background from './components/Background'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -22,6 +23,7 @@ export default function App() {
         <Education />
         <Skills />
         <Contact />
+        <Footer />
       </div>
     </LanguageProvider>
     </ThemeProvider>
