@@ -31,9 +31,9 @@ export const translations = {
                 {
                     id: 1,
                     title: 'Portfolio',
-                    tags: ['React', 'TypeScript', 'Tailwind'],
+                    tags: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Vercel'],
                     summary: 'Den här sidan du är på just nu.',
-                    description: 'Ett personligt portfolio byggt från grunden med React 19, TypeScript och Tailwind CSS v4. Designat med ett Old Money-inspirerat designspråk — Cormorant Garamond, djupa marinblå toner och subtila sandbeige accenter.',
+                    description: 'Ett personligt portfolio byggt från grunden med React, Vite, TypeScript och Tailwind. Designat med ett Old Money-inspirerade färger och typsnitt — Cormorant Garamond, djupa marinblå toner och sandbeige accenter. Förhoppningsvis den snyggaste portfoliosidan ni sätt;)',
                     images: [
                         'https://placehold.co/1200x700/0a0e1a/4f72ff?text=Portfolio',
                     ],

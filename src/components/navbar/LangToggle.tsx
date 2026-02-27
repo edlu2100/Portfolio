@@ -8,13 +8,20 @@ export default function LangToggle() {
       onClick={() => setLanguage(next as Language)}
       aria-label="Byt språk"
       title={language === 'sv' ? 'Switch to English' : 'Byt till svenska'}
-      style={{ width: '1.3rem', height: '1rem', borderRadius: '2px', overflow: 'hidden', cursor: 'pointer', border: 'none', padding: 0, display: 'flex' }}
+      style={{
+        cursor: 'pointer',
+        border: 'none',
+        background: 'none',
+        padding: 0,
+        fontSize: '1.25rem',
+        lineHeight: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: "2px"
+      }}
     >
-      <img
-        src={language === 'sv' ? 'https://flagcdn.com/gb.svg' : 'https://flagcdn.com/se.svg'}
-        alt={language === 'sv' ? 'English' : 'Svenska'}
-        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-      />
+      {language === 'sv' ? '🇬🇧' : '🇸🇪'}
     </button>
   )
 }
