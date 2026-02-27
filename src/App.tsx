@@ -4,6 +4,7 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Education from './components/Education'
 import Skills from './components/Skills'
+import Contact from './components/Contact'
 import Background from './components/Background'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -20,6 +21,7 @@ export default function App() {
         <Experience />
         <Education />
         <Skills />
+        <Contact />
       </div>
     </LanguageProvider>
     </ThemeProvider>
