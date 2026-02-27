@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useLanguage, type Language } from '../context/LanguageContext'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage()
+  const { theme, toggleTheme } = useTheme()
   const navLinks = t.nav.links
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -37,12 +39,14 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 inset-x-0 transition-all duration-500 ${
-          scrolled
-            ? 'bg-surface/85 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-border'
-            : 'bg-transparent'
-        }`}
-        style={{ zIndex: 200 }}
+        style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 200,
+          transition: 'background-color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease',
+          backgroundColor: scrolled ? 'var(--navbar-bg)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+          boxShadow: scrolled ? '0 1px 0 var(--color-border)' : 'none',
+        }}
       >
         <div className="w-full h-16 flex items-center justify-between" style={{ position: 'relative', maxWidth: '2000px', marginLeft: 'auto', marginRight: 'auto', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
           {/* Logo – vänster */}
@@ -85,13 +89,50 @@ export default function Navbar() {
                 className="flex items-center justify-center transition-all duration-300 hover:scale-110"
                 aria-label="Byt språk"
                 title={language === 'sv' ? 'Switch to English' : 'Byt till svenska'}
-                style={{ width: '1.3rem', height: '1rem', borderRadius: '2px', overflow: 'hidden' }}
+                style={{ width: '1.3rem', height: '1rem', borderRadius: '2px', overflow: 'hidden', cursor: 'pointer' }}
               >
                 <img
                   src={language === 'sv' ? 'https://flagcdn.com/gb.svg' : 'https://flagcdn.com/se.svg'}
                   alt={language === 'sv' ? 'English' : 'Svenska'}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
+              </button>
+            </li>
+
+            {/* Tema-toggle */}
+            <li>
+              <button
+                onClick={toggleTheme}
+                aria-label={theme === 'dark' ? 'Byt till ljust tema' : 'Byt till mörkt tema'}
+                title={theme === 'dark' ? 'Ljust tema' : 'Mörkt tema'}
+                style={{
+                  background: 'none', border: 'none', padding: '2px',
+                  cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: 'var(--color-text-muted)',
+                  transition: 'color 0.3s ease, transform 0.3s ease',
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--color-text)'; (e.currentTarget as HTMLElement).style.transform = 'scale(1.15)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--color-text-muted)'; (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
+              >
+                {theme === 'dark' ? (
+                  /* Sun icon */
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="4" />
+                    <line x1="12" y1="2" x2="12" y2="4" />
+                    <line x1="12" y1="20" x2="12" y2="22" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="2" y1="12" x2="4" y2="12" />
+                    <line x1="20" y1="12" x2="22" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                  </svg>
+                ) : (
+                  /* Moon icon */
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                )}
               </button>
             </li>
           </ul>
@@ -158,7 +199,7 @@ export default function Navbar() {
           inset: 0,
           display: 'flex',
           flexDirection: 'column',
-          backgroundColor: '#0a0e1a',
+          backgroundColor: 'var(--color-surface)',
           zIndex: 100,
           opacity: mobileOpen ? 1 : 0,
           transform: mobileOpen ? 'translateY(0)' : 'translateY(1.5rem)',
@@ -178,7 +219,8 @@ export default function Navbar() {
 
         {/* Centrerade länkar */}
         <div className="flex-1 flex flex-col items-center justify-center">
-          <ul className="space-y-1 text-center">
+          <ul className="space-y-6 text-center"
+           >
             {navLinks.map((link, index) => {
               const isActive = activeSection === link.href.slice(1)
               return (
@@ -189,6 +231,7 @@ export default function Navbar() {
                     transform: mobileOpen ? 'translateY(0)' : 'translateY(1.5rem)',
                     transition: 'opacity 0.5s ease, transform 0.5s ease',
                     transitionDelay: mobileOpen ? `${index * 80 + 150}ms` : '0ms',
+                    marginBottom: "16px"
                   }}
                 >
                   <a
@@ -198,9 +241,13 @@ export default function Navbar() {
                       isActive ? 'text-text' : 'text-text-muted hover:text-text'
                     }`}
                   >
-                    <span className={`text-xs font-normal tabular-nums transition-colors duration-200 ${
+                    <span className={` font-normal tabular-nums transition-colors duration-200 ${
                       isActive ? 'text-primary' : 'text-text-faint'
-                    }`}>
+                    }`
+                    }
+                           style={{
+fontSize: "20px"
+        }}>
                       0{index + 1}
                     </span>
                     <span className="relative">
@@ -230,15 +277,51 @@ export default function Navbar() {
           >
             <button
               onClick={() => setLanguage(language === 'sv' ? 'en' : 'sv' as Language)}
-              className="flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all duration-200"
-              style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-muted)' }}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '0.75rem',
+                paddingLeft: '1.25rem', paddingRight: '1.25rem',
+                paddingTop: '0.625rem', paddingBottom: '0.625rem',
+                borderRadius: '99px', border: '1px solid var(--color-border)',
+                backgroundColor: 'transparent', color: 'var(--color-text-muted)',
+                cursor: 'pointer', transition: 'border-color 0.2s',
+              }}
             >
               <img
                 src={language === 'sv' ? 'https://flagcdn.com/gb.svg' : 'https://flagcdn.com/se.svg'}
                 alt={language === 'sv' ? 'English' : 'Svenska'}
-                style={{ width: '1.5rem', height: '1.125rem', objectFit: 'cover', borderRadius: '2px', display: 'block' }}
+                style={{ width: '1.1rem', height: '0.825rem', objectFit: 'cover', borderRadius: '2px', display: 'block' }}
               />
-              <span className="text-sm tracking-widest">{language === 'sv' ? 'English' : 'Svenska'}</span>
+              <span style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '0.8rem', letterSpacing: '0.08em' }}>
+                {language === 'sv' ? 'English' : 'Svenska'}
+              </span>
+            </button>
+
+            {/* Tema-toggle mobil */}
+            <button
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Ljust tema' : 'Mörkt tema'}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '0.75rem',
+                paddingLeft: '1.25rem', paddingRight: '1.25rem',
+                paddingTop: '0.625rem', paddingBottom: '0.625rem',
+                borderRadius: '99px', border: '1px solid var(--color-border)',
+                backgroundColor: 'transparent', color: 'var(--color-text-muted)',
+                cursor: 'pointer', transition: 'border-color 0.2s',
+              }}
+            >
+              {theme === 'dark' ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"/>
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              )}
+              <span style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '0.8rem', letterSpacing: '0.08em' }}>
+                {theme === 'dark' ? 'Ljust' : 'Mörkt'}
+              </span>
             </button>
           </div>
 

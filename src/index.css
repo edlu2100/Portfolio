@@ -33,35 +33,64 @@
     --color-slate-700: #2e3f58;
     --color-slate-800: #1a2540;
     --color-slate-900: #101828;
-    /* ── Semantiska tokens ── */
+    /* ── Semantiska tokens – åsidosätts per tema nedan ── */
     --color-surface: #0a0e1a;
-    /* sidans bakgrund */
     --color-surface-light: #111827;
-    /* lätt upphöjd yta */
     --color-surface-elevated: #1a2236;
-    /* kort / modaler */
     --color-border: #1e2d45;
-    /* subtila kanter */
     --color-border-light: #2a3d5c;
-    /* hover-kanter */
     --color-primary: #4f72ff;
-    /* koboltblå accent */
     --color-primary-light: #7a96ff;
-    /* hover / glow */
     --color-primary-dark: #3a56e8;
-    /* pressed */
     --color-primary-muted: rgba(79, 114, 255, 0.12);
-    /* bakgrund-tint */
     --color-text: #f0ece4;
-    /* varm off-white – pergament */
     --color-text-muted: #8a9fc2;
-    /* kall blå-grå – läsbar muted */
     --color-text-faint: #4d607a;
-    /* ännu nedtonad */
     --color-accent: #d9c8a8;
-    /* sand-beige som highlight */
     --color-accent-warm: #c4a97e;
-    /* varm sand accent */
+}
+
+
+/* ── Mörkt tema (default) ── */
+
+:root,
+[data-theme="dark"] {
+    --color-surface: #0a0e1a;
+    --color-surface-light: #111827;
+    --color-surface-elevated: #1a2236;
+    --color-border: #1e2d45;
+    --color-border-light: #2a3d5c;
+    --color-primary: #4f72ff;
+    --color-primary-light: #7a96ff;
+    --color-primary-dark: #3a56e8;
+    --color-primary-muted: rgba(79, 114, 255, 0.12);
+    --color-text: #f0ece4;
+    --color-text-muted: #8a9fc2;
+    --color-text-faint: #4d607a;
+    --color-accent: #d9c8a8;
+    --color-accent-warm: #c4a97e;
+    --navbar-bg: rgba(10, 14, 26, 0.85);
+}
+
+
+/* ── Ljust tema ── */
+
+[data-theme="light"] {
+    --color-surface: #f8f5f0;
+    --color-surface-light: #ffffff;
+    --color-surface-elevated: #ffffff;
+    --color-border: #e0d8cd;
+    --color-border-light: #c9bfb2;
+    --color-primary: #3a56e8;
+    --color-primary-light: #4f72ff;
+    --color-primary-dark: #2c41c0;
+    --color-primary-muted: rgba(58, 86, 232, 0.1);
+    --color-text: #1a1612;
+    --color-text-muted: #6b7280;
+    --color-text-faint: #9ca3af;
+    --color-accent: #8a6e43;
+    --color-accent-warm: #6e562f;
+    --navbar-bg: rgba(248, 245, 240, 0.88);
 }
 
 * {
@@ -103,4 +132,72 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-slate-600);
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 0;
+    }
+    40% {
+        transform: scaleY(1);
+        transform-origin: top;
+        opacity: 1;
+    }
+    60% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+}
+
+
+/* ── Bakgrundsanimationer ── */
+
+@keyframes orb1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(6%, 4%) scale(1.06);
+    }
+    66% {
+        transform: translate(-4%, 7%) scale(0.96);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes orb2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-7%, -5%) scale(1.04);
+    }
+    66% {
+        transform: translate(5%, -3%) scale(0.97);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes orb3 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(4%, -6%) scale(1.08);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
 }
