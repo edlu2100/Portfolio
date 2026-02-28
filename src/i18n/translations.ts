@@ -57,7 +57,7 @@ export const translations = {
                     blurImage: true,
                     github: '',
                     live: '',
-                },{
+                }, {
                     id: 3,
                     title: 'Automatiserad webbplatsövervakning',
                     tags: ['Laravel', 'Inertia', 'Vue', 'Tailwind', 'MySQL'],
@@ -65,8 +65,8 @@ export const translations = {
                     description:
                         'Jag utvecklade ett internt administrationsgränssnitt som kontinuerligt övervakar ett stort antal webbplatser. Systemet skannar samtliga länkar och loggar statuskoder, kontrollerar DNS (A-records och name servers) samt bevakar SSL-certifikatens giltighet och utgångsdatum. Vid avvikelser skickas notifieringar via e-post och Slack.\n\n' +
                         'Fokus låg på robust backend-logik, tydlig felrapportering och ett enkelt UI för att lägga till/hantera webbplatser samt välja vilka tester som ska köras. Eventuella fel meddelas via slack och mail.',
-                        images: [
-                            '/project4_1.svg'
+                    images: [
+                        '/project4_1.svg'
                     ],
                     github: 'https://github.com/edlu2100/ex-jobb/',
                     live: '',
@@ -83,7 +83,7 @@ export const translations = {
                     ],
                     github: '',
                     live: 'https://i-portalen.se/',
-                }, 
+                },
             ],
         }, experience: {
             heading: 'Erfarenhet',
@@ -125,11 +125,25 @@ export const translations = {
                     tags: ['Odoo'],
                 },
                 {
+                    year: '2024 – 2025',
+                    role: 'Ordförande & Vice Ordförande, Webgroup',
+                    company: 'Linköpings universitet',
+                    description: 'Ledde och utvecklade Webgroup med ansvar för projektfördelning, teknisk riktning och struktur. Arbetade med att förbättra arbetsprocesser och samarbete inom gruppen.',
+                    tags: ['Ledarskap', 'Projektledning'],
+                },
+                {
                     year: 'Jun 2021 – Aug 2024',
                     role: 'Processoperatör',
                     company: 'LKAB',
                     description: 'Övervakade och optimerade processer för att säkerställa stabil drift, effektivitet och höga säkerhetskrav. Arbetade i miljöer med stort ansvar där noggrannhet, disciplin och kontinuerlig riskmedvetenhet var avgörande.',
                     tags: [],
+                },
+                {
+                    year: '2019 – 2024',
+                    role: 'Elitsatsande alpin skidåkare',
+                    company: 'Team Bauhaus, Svenska Skidförbundet',
+                    description: 'Tävlande på nationell elitnivå samtidigt som jag kombinerade idrottssatsningen med akademiska studier. Verkade i en prestationsmiljö med fokus på långsiktig utveckling, struktur och resultat.',
+                    tags: ['Hög prestation', "Disciplin"],
                 },
             ],
         },
@@ -222,75 +236,75 @@ export const translations = {
             contact: 'Get in touch',
             scroll: 'Scroll down',
         },
-projects: {
-    heading: 'Projects',
-    subheading: 'Selected Work',
-    viewCode: 'GitHub',
-    viewLive: 'Live',
-    viewReport: 'Report',
-    close: 'Close',
-    items: [
-        {
-            id: 1,
-            title: 'Portfolio',
-            tags: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Vercel'],
-            summary: 'A technically structured portfolio built from scratch.',
-            description:
-                'A personal portfolio developed with React, TypeScript, and Tailwind. Built with a strong focus on clean architecture, reusable components, and performance.\n\n' +
-                'The design is inspired by classic typography and a restrained color palette. The slalom theme throughout the site reflects my background in elite alpine skiing and my structured approach to development.',
-            images: [
-                '/project1_1.svg',
-                '/project1_2.svg',
+        projects: {
+            heading: 'Projects',
+            subheading: 'Selected Work',
+            viewCode: 'GitHub',
+            viewLive: 'Live',
+            viewReport: 'Report',
+            close: 'Close',
+            items: [
+                {
+                    id: 1,
+                    title: 'Portfolio',
+                    tags: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Vercel'],
+                    summary: 'A technically structured portfolio built from scratch.',
+                    description:
+                        'A personal portfolio developed with React, TypeScript, and Tailwind. Built with a strong focus on clean architecture, reusable components, and performance.\n\n' +
+                        'The design is inspired by classic typography and a restrained color palette. The slalom theme throughout the site reflects my background in elite alpine skiing and my structured approach to development.',
+                    images: [
+                        '/project1_1.svg',
+                        '/project1_2.svg',
+                    ],
+                    github: 'https://github.com/edlu2100/Portfolio',
+                    live: '',
+                },
+                {
+                    id: 2,
+                    title: 'Mobile Application',
+                    tags: ['React Native', 'Expo', 'Nativewind'],
+                    summary: 'A mobile application currently in development.',
+                    description:
+                        'A larger mobile application developed since September 2025, focusing on scalable architecture and user-centered design.\n\n' +
+                        'The project emphasizes structured code, maintainability, and clear user flows. The application is currently in its final development phase.',
+                    images: [
+                        '/project2_1.svg',
+                    ],
+                    blurImage: true,
+                    github: '',
+                    live: '',
+                },
+                {
+                    id: 3,
+                    title: 'Automated Website Monitoring System',
+                    tags: ['Laravel', 'Inertia', 'Vue', 'Tailwind', 'MySQL'],
+                    summary: 'A monitoring system for websites and technical infrastructure.',
+                    description:
+                        'An administrative system designed to continuously monitor websites by analyzing HTTP status codes, DNS configuration, and SSL certificates.\n\n' +
+                        'The system detects broken links, DNS irregularities, and expiring certificates, sending notifications via Slack and email. The focus was on robust backend logic, structured logging, and a clear interface for managing monitored domains.',
+                    images: [
+                        '/project4_1.svg'
+                    ],
+                    github: 'https://github.com/edlu2100/ex-jobb/',
+                    live: '',
+                    reportUrl: 'https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1878583&dswid=-1400',
+                },
+                {
+                    id: 4,
+                    title: 'I-Portal',
+                    tags: ['React', 'Strapi', 'Chakra UI'],
+                    summary: 'Frontend development and ongoing improvements.',
+                    description:
+                        'Responsible for further development and improvement of the I-Portal frontend, focusing on structure, reusable components, and user experience.\n\n' +
+                        'The project includes collaboration around content management via Strapi and continuous performance and UI improvements.',
+                    images: [
+                        '/project3_1.svg'
+                    ],
+                    github: '',
+                    live: 'https://i-portalen.se/',
+                },
             ],
-            github: 'https://github.com/edlu2100/Portfolio',
-            live: '',
         },
-        {
-            id: 2,
-            title: 'Mobile Application',
-            tags: ['React Native', 'Expo', 'Nativewind'],
-            summary: 'A mobile application currently in development.',
-            description:
-                'A larger mobile application developed since September 2025, focusing on scalable architecture and user-centered design.\n\n' +
-                'The project emphasizes structured code, maintainability, and clear user flows. The application is currently in its final development phase.',
-            images: [
-                '/project2_1.svg',
-            ],
-            blurImage: true,
-            github: '',
-            live: '',
-        },
-        {
-            id: 3,
-            title: 'Automated Website Monitoring System',
-            tags: ['Laravel', 'Inertia', 'Vue', 'Tailwind', 'MySQL'],
-            summary: 'A monitoring system for websites and technical infrastructure.',
-            description:
-                'An administrative system designed to continuously monitor websites by analyzing HTTP status codes, DNS configuration, and SSL certificates.\n\n' +
-                'The system detects broken links, DNS irregularities, and expiring certificates, sending notifications via Slack and email. The focus was on robust backend logic, structured logging, and a clear interface for managing monitored domains.',
-            images: [
-                '/project4_1.svg'
-            ],
-            github: 'https://github.com/edlu2100/ex-jobb/',
-            live: '',
-            reportUrl: 'https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1878583&dswid=-1400',
-        },
-        {
-            id: 4,
-            title: 'I-Portal',
-            tags: ['React', 'Strapi', 'Chakra UI'],
-            summary: 'Frontend development and ongoing improvements.',
-            description:
-                'Responsible for further development and improvement of the I-Portal frontend, focusing on structure, reusable components, and user experience.\n\n' +
-                'The project includes collaboration around content management via Strapi and continuous performance and UI improvements.',
-            images: [
-                '/project3_1.svg'
-            ],
-            github: '',
-            live: 'https://i-portalen.se/',
-        },
-    ],
-},
         experience: {
             heading: 'Experience',
             subheading: 'Career',
@@ -331,12 +345,26 @@ projects: {
                     tags: ['Odoo'],
                 },
                 {
+                    year: '2024 – 2025',
+                    role: 'Chair & Vice Chair, Webgroup',
+                    company: 'Linköping University',
+                    description: 'Led and coordinated the Webgroup with responsibility for project allocation, technical direction, and team structure. Worked to improve development workflows, collaboration, and long-term sustainability within the group.',
+                    tags: ['Leadership', 'Project Management'],
+                },
+                {
                     year: 'Jun 2021 – Aug 2024',
                     role: 'Process Operator',
                     company: 'LKAB',
                     description: 'Monitored and optimized operational processes to ensure stable performance, efficiency, and high safety standards. Worked in high-responsibility environments where precision, discipline, and continuous risk awareness were critical.',
                     tags: [],
                 },
+                {
+                    year: '2021 – 2024',
+                    role: 'Elite Alpine Skier',
+                    company: 'Team Bauhaus, Sweden ski Association',
+                    description: 'Competed at national elite level while combining training with academic studies. Developed discipline, resilience, performance under pressure, and structured long-term goal setting.',
+                    tags: ['Performance', 'Discipline'],
+                }
             ],
         },
         education: {
@@ -347,14 +375,14 @@ projects: {
                     year: '2024 – 2029',
                     degree: 'Master of Science in Industrial Engineering and Management',
                     school: 'Linköping University, Sweden',
-                    description: 'Studies in engineering, economics and leadership with a focus on streamlining processes, optimising resources and improving profitability and sustainability.',
+                    description: 'Studies in technology, economics, and leadership with focus on strategy, systems thinking, and business development. Parallel leadership experience as Chair and Vice Chair of Webgroup.',
                     tags: [],
                 },
                 {
                     year: '2021 – 2024',
                     degree: 'Higher Education Diploma in Computer Science (Fullstack developer) ',
                     school: 'Mid Sweden University, Sweden',
-                    description: 'Practical and theoretical knowledge in web development with a focus on usability and accessibility. Both frontend and backend development.',
+                    description: 'Education in full-stack web development combining theoretical foundations with practical implementation. Studies were combined with elite alpine skiing at a ski university program and national-level competition as part of Team Bauhaus.',
                     tags: [],
                 },
             ],
