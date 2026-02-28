@@ -4,33 +4,40 @@ interface Props {
   color: string
   borderColor: string
   visible: boolean
+  isMobile?: boolean
 }
 
-export default function AboutPhoto({ color, borderColor, visible }: Props) {
+export default function AboutPhoto({ color, borderColor, visible, isMobile = false }: Props) {
   const { theme } = useTheme()
 
   const fadeStyle: React.CSSProperties = {
     opacity: visible ? 1 : 0,
     transform: visible ? 'translateY(0)' : 'translateY(18px)',
     transition: `opacity 0.65s ease 120ms, transform 0.65s ease 120ms`,
-    position: 'sticky',
-    top: '6rem',
-    perspective: '800px',
+    ...(isMobile ? {} : {
+      position: 'sticky' as const,
+      top: '6rem',
+      perspective: '800px',
+    }),
   }
+
+  const baseShadow = theme === 'dark'
+    ? `0 8px 32px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 1px ${borderColor}`
+    : `0 8px 32px rgba(31,58,95,0.18), 0 2px 8px rgba(31,58,95,0.1), 0 0 0 1px ${borderColor}`
 
   return (
     <div style={fadeStyle}>
       <div
         style={{
           borderRadius: '3px',
-          boxShadow: theme === 'dark'
-            ? `0 8px 32px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 1px ${borderColor}`
-            : `0 8px 32px rgba(31,58,95,0.18), 0 2px 8px rgba(31,58,95,0.1), 0 0 0 1px ${borderColor}`,
+          boxShadow: baseShadow,
           transition: 'box-shadow 0.15s ease, transform 0.15s ease',
-          transformStyle: 'preserve-3d',
-          willChange: 'transform',
+          ...(isMobile ? {} : {
+            transformStyle: 'preserve-3d' as const,
+            willChange: 'transform',
+          }),
         }}
-        onMouseMove={e => {
+        onMouseMove={isMobile ? undefined : e => {
           const el = e.currentTarget as HTMLElement
           const rect = el.getBoundingClientRect()
           const x = (e.clientX - rect.left) / rect.width
@@ -44,7 +51,7 @@ export default function AboutPhoto({ color, borderColor, visible }: Props) {
             ? `${shadowX}px ${shadowY}px 48px rgba(0,0,0,0.65), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 1px ${borderColor}`
             : `${shadowX}px ${shadowY}px 48px rgba(31,58,95,0.25), 0 2px 8px rgba(31,58,95,0.12), 0 0 0 1px ${borderColor}`
         }}
-        onMouseLeave={e => {
+        onMouseLeave={isMobile ? undefined : e => {
           const el = e.currentTarget as HTMLElement
           el.style.transition = 'box-shadow 0.4s ease, transform 0.4s ease'
           el.style.transform = 'rotateY(0deg) rotateX(0deg) translateY(0px)'
