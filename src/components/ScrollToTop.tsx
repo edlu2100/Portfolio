@@ -9,7 +9,7 @@ export default function ScrollToTop() {
   const cableColor = theme === 'dark' ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.3)'
   // Cabin colors
   // Skier colors
-  const pantsColor = theme === 'dark' ? '#1e2235' : '#1a1f33'
+  const pantsColor = theme === 'dark' ? '#c9a96e' : '#b8905a'
   const woodWall  = theme === 'dark' ? '#8B6F47' : '#7A5C3A'
   const woodRoof  = theme === 'dark' ? '#6B4F2F' : '#5A3E22'
   const woodTrim  = theme === 'dark' ? '#A68B5B' : '#9B7D50'
