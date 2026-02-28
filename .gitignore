@@ -8,7 +8,8 @@ dist/
 dist-ssr/
 
 # Environment & secrets
-src/config/emailjs.ts
+.env.local
+.env*.local
 
 # Logs
 *.log
