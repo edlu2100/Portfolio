@@ -23,7 +23,7 @@ export default function ExperienceCard({ item, side, delay, visible, color }: Pr
       transform: visible ? 'translateX(0)' : `translateX(${tx}px)`,
       transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms`,
       padding: '1.5rem 1.75rem',
-      backgroundColor: 'var(--color-surface-light)',
+      backgroundColor: 'var(--color-surface-elevated)',
       border: '1px solid var(--color-border)',
       borderRadius: '2px',
     }}>

@@ -8,7 +8,7 @@ import type { Project } from './projects/types'
 export default function Projects() {
   const { t } = useLanguage()
   const p = t.projects
-  const [active, setActive] = useState<Project | null>(null)
+  const [active, setActive] = useState<{ project: Project; index: number } | null>(null)
 
   return (
     <>
@@ -29,7 +29,7 @@ export default function Projects() {
                 key={project.id}
                 project={project}
                 index={index}
-                onClick={() => setActive(project)}
+                onClick={() => setActive({ project, index })}
               />
             ))}
           </div>
@@ -38,7 +38,8 @@ export default function Projects() {
 
       {active && (
         <ProjectModal
-          project={active}
+          project={active.project}
+          index={active.index}
           onClose={() => setActive(null)}
           labels={{ viewCode: p.viewCode, viewLive: p.viewLive, close: p.close }}
         />

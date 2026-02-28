@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTheme } from '../../context/ThemeContext'
 import type { Project } from './types'
 
 export default function ProjectCard({ project, index, onClick }: {
@@ -7,6 +8,10 @@ export default function ProjectCard({ project, index, onClick }: {
   onClick: () => void
 }) {
   const [hovered, setHovered] = useState(false)
+  const { theme } = useTheme()
+  const accentColor = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
+  const tagBg = theme === 'dark' ? 'rgba(169,138,92,0.1)' : 'rgba(31,58,95,0.08)'
+  const tagBorder = theme === 'dark' ? 'rgba(169,138,92,0.28)' : 'rgba(31,58,95,0.18)'
 
   return (
     <article
@@ -15,12 +20,13 @@ export default function ProjectCard({ project, index, onClick }: {
       onMouseLeave={() => setHovered(false)}
       style={{
         cursor: 'pointer',
-        backgroundColor: 'var(--color-surface-light)',
+        backgroundColor: 'var(--color-surface-elevated)',
         border: `1px solid ${hovered ? 'var(--color-border-light)' : 'var(--color-border)'}`,
         borderRadius: '4px', overflow: 'hidden',
         transition: 'border-color 0.3s, transform 0.3s, box-shadow 0.3s',
         transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
         boxShadow: hovered ? '0 20px 60px rgba(0,0,0,0.35)' : 'none',
+
       }}
     >
       {/* Image */}
@@ -30,8 +36,9 @@ export default function ProjectCard({ project, index, onClick }: {
           alt={project.title}
           style={{
             width: '100%', height: '100%', objectFit: 'cover', display: 'block',
-            transform: hovered ? 'scale(1.04)' : 'scale(1)',
+            transform: hovered ? 'scale(1.14)' : 'scale(1.1)',
             transition: 'transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+
           }}
         />
       </div>
@@ -42,11 +49,7 @@ export default function ProjectCard({ project, index, onClick }: {
           <span style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '0.65rem', color: 'var(--color-text-faint)', letterSpacing: '0.1em' }}>
             0{index + 1}
           </span>
-          <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-            {project.tags.slice(0, 3).map(tag => (
-              <span key={tag} style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-text-faint)' }}>{tag}</span>
-            ))}
-          </div>
+ 
         </div>
 
         <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.6rem', fontWeight: 600, lineHeight: 1.1, color: 'var(--color-text)', marginBottom: '0.5rem' }}>

@@ -35,9 +35,11 @@ export const translations = {
                     title: 'Portfolio',
                     tags: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Vercel'],
                     summary: 'Den här sidan du är på just nu.',
-                    description: 'Ett personligt portfolio byggt från grunden med React, Vite, TypeScript och Tailwind. Designat med ett Old Money-inspirerade färger och typsnitt — Cormorant Garamond, djupa marinblå toner och sandbeige accenter. Förhoppningsvis den snyggaste portfoliosidan ni sätt;)',
+                    description: 'Den här sidan är ett personligt portfolio byggt från grunden med React, Vite, TypeScript och Tailwind — och representerar mig som person. Designat med Old Money-inspirerade färger och typsnitt: Cormorant Garamond, djupa marinblå toner och sandbeige accenter. Slalomtemat som löper genom sidan speglar en stor del av vem jag är utanför koden.',
                     images: [
-                        'https://placehold.co/1200x700/0a0e1a/4f72ff?text=Portfolio',
+                        '/project1_1.svg',
+                        '/project1_2.svg',
+
                     ],
                     github: 'https://github.com/edlu2100/Portfolio',
                     live: '',
@@ -217,9 +219,9 @@ export const translations = {
                     title: 'Portfolio',
                     tags: ['React', 'TypeScript', 'Tailwind'],
                     summary: 'The site you\'re on right now.',
-                    description: 'A personal portfolio built from scratch with React 19, TypeScript and Tailwind CSS v4. Designed with an Old Money-inspired design language — Cormorant Garamond, deep navy tones and subtle sand-beige accents.',
+                    description: 'This site is a personal portfolio built from scratch with React, TypeScript and Tailwind — and is meant to represent me as a person. Designed with an Old Money-inspired aesthetic: Cormorant Garamond, deep navy tones and sand-beige accents. The slalom theme woven throughout reflects a big part of who I am outside of code.',
                     images: [
-                        'https://placehold.co/1200x700/0a0e1a/4f72ff?text=Portfolio',
+                        '/project1.png',
                     ],
                     github: 'https://github.com/edlu2100/Portfolio',
                     live: '',
