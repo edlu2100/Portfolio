@@ -114,7 +114,7 @@ export default function Projects() {
           project={active.project}
           index={active.index}
           onClose={() => setActive(null)}
-          labels={{ viewCode: p.viewCode, viewLive: p.viewLive, close: p.close }}
+          labels={{ viewCode: p.viewCode, viewLive: p.viewLive, close: p.close, viewReport: p.viewReport }}
         />
       )}
     </>

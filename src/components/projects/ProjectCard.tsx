@@ -60,18 +60,6 @@ export default function ProjectCard({ project, index, onClick }: {
           {project.summary}
         </p>
 
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '1.25rem',
-          color: 'var(--color-primary)', fontFamily: "'Inter', system-ui, sans-serif",
-          fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase',
-          opacity: hovered ? 1 : 0.4,
-          transform: hovered ? 'translateX(4px)' : 'translateX(0)',
-          transition: 'opacity 0.25s, transform 0.25s',
-        }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
       </div>
     </article>
   )

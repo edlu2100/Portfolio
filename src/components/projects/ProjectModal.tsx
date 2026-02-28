@@ -7,7 +7,7 @@ interface Props {
   project: Project
   index: number
   onClose: () => void
-  labels: { viewCode: string; viewLive: string; close: string }
+  labels: { viewCode: string; viewLive: string; close: string; viewReport: string }
 }
 
 export default function ProjectModal({ project, index, onClose, labels }: Props) {
@@ -301,7 +301,7 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
                   }}
                 >
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  Rapport
+                  {labels.viewReport}
                 </a>
               )}
               {project.live && (

@@ -28,6 +28,7 @@ export const translations = {
             subheading: 'Utvalda arbeten',
             viewCode: 'GitHub',
             viewLive: 'Live',
+            viewReport: 'Rapport',
             close: 'Stäng',
             items: [
                 {
@@ -57,7 +58,7 @@ export const translations = {
                     github: '',
                     live: '',
                 },{
-                    id: 4,
+                    id: 3,
                     title: 'Automatiserad webbplatsövervakning',
                     tags: ['Laravel', 'Inertia', 'Vue', 'Tailwind', 'MySQL'],
                     summary: 'Internt administrationsverktyg som skannar webbplatser och larmar vid brutna länkar, DNS-problem och utgående SSL.',
@@ -72,7 +73,7 @@ export const translations = {
                     reportUrl: 'https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1878583&dswid=-1400',
                 },
                 {
-                    id: 3,
+                    id: 4,
                     title: 'I-Portalen',
                     tags: ['React', 'Strapi', 'Chakra UI'],
                     summary: 'Underhåller och vidareutvecklar I-portalen.',
@@ -221,53 +222,75 @@ export const translations = {
             contact: 'Get in touch',
             scroll: 'Scroll down',
         },
-        projects: {
-            heading: 'Projects',
-            subheading: 'Selected works',
-            viewCode: 'GitHub',
-            viewLive: 'Live',
-            close: 'Close',
-            items: [
-                {
-                    id: 1,
-                    title: 'Portfolio',
-                    tags: ['React', 'TypeScript', 'Tailwind'],
-                    summary: 'The site you\'re on right now.',
-                    description: 'This site is a personal portfolio built from scratch with React, TypeScript and Tailwind — and is meant to represent me as a person. Designed with an Old Money-inspired aesthetic: Cormorant Garamond, deep navy tones and sand-beige accents. The slalom theme woven throughout reflects a big part of who I am outside of code.',
-                    images: [
-                        '/project1.png',
-                    ],
-                    github: 'https://github.com/edlu2100/Portfolio',
-                    live: '',
-                },
-                {
-                    id: 2,
-                    title: 'Project Two',
-                    tags: ['Next.js', 'Prisma', 'PostgreSQL'],
-                    summary: 'A fullstack application with a modern stack.',
-                    description: 'Describe your second project here. What did it solve, what technologies did you use and what did you learn? Replace this with real content.',
-                    images: [
-                        'https://placehold.co/1200x700/111827/7a96ff?text=Project+2',
-                        'https://placehold.co/1200x700/1a2236/4f72ff?text=Project+2+–+Screen+2',
-                    ],
-                    blurImage: true,
-                    github: 'https://github.com/edlu2100',
-                    live: 'https://example.com',
-                },
-                {
-                    id: 3,
-                    title: 'Project Three',
-                    tags: ['Vue', 'Node.js', 'Express'],
-                    summary: 'A third project focused on UX.',
-                    description: 'Describe your third project here. What was the challenge, how did you solve it and what was the result? Replace this with real content.',
-                    images: [
-                        'https://placehold.co/1200x700/0a0e1a/d9c8a8?text=Project+3',
-                    ],
-                    github: 'https://github.com/edlu2100',
-                    live: '',
-                },
+projects: {
+    heading: 'Projects',
+    subheading: 'Selected Work',
+    viewCode: 'GitHub',
+    viewLive: 'Live',
+    viewReport: 'Report',
+    close: 'Close',
+    items: [
+        {
+            id: 1,
+            title: 'Portfolio',
+            tags: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Vercel'],
+            summary: 'A technically structured portfolio built from scratch.',
+            description:
+                'A personal portfolio developed with React, TypeScript, and Tailwind. Built with a strong focus on clean architecture, reusable components, and performance.\n\n' +
+                'The design is inspired by classic typography and a restrained color palette. The slalom theme throughout the site reflects my background in elite alpine skiing and my structured approach to development.',
+            images: [
+                '/project1_1.svg',
+                '/project1_2.svg',
             ],
+            github: 'https://github.com/edlu2100/Portfolio',
+            live: '',
         },
+        {
+            id: 2,
+            title: 'Mobile Application',
+            tags: ['React Native', 'Expo', 'Nativewind'],
+            summary: 'A mobile application currently in development.',
+            description:
+                'A larger mobile application developed since September 2025, focusing on scalable architecture and user-centered design.\n\n' +
+                'The project emphasizes structured code, maintainability, and clear user flows. The application is currently in its final development phase.',
+            images: [
+                '/project2_1.svg',
+            ],
+            blurImage: true,
+            github: '',
+            live: '',
+        },
+        {
+            id: 3,
+            title: 'Automated Website Monitoring System',
+            tags: ['Laravel', 'Inertia', 'Vue', 'Tailwind', 'MySQL'],
+            summary: 'A monitoring system for websites and technical infrastructure.',
+            description:
+                'An administrative system designed to continuously monitor websites by analyzing HTTP status codes, DNS configuration, and SSL certificates.\n\n' +
+                'The system detects broken links, DNS irregularities, and expiring certificates, sending notifications via Slack and email. The focus was on robust backend logic, structured logging, and a clear interface for managing monitored domains.',
+            images: [
+                '/project4_1.svg'
+            ],
+            github: 'https://github.com/edlu2100/ex-jobb/',
+            live: '',
+            reportUrl: 'https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1878583&dswid=-1400',
+        },
+        {
+            id: 4,
+            title: 'I-Portal',
+            tags: ['React', 'Strapi', 'Chakra UI'],
+            summary: 'Frontend development and ongoing improvements.',
+            description:
+                'Responsible for further development and improvement of the I-Portal frontend, focusing on structure, reusable components, and user experience.\n\n' +
+                'The project includes collaboration around content management via Strapi and continuous performance and UI improvements.',
+            images: [
+                '/project3_1.svg'
+            ],
+            github: '',
+            live: 'https://i-portalen.se/',
+        },
+    ],
+},
         experience: {
             heading: 'Experience',
             subheading: 'Career',
