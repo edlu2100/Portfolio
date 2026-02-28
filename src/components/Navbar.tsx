@@ -58,7 +58,7 @@ export default function Navbar() {
               const isActive = activeSection === link.href.slice(1)
               return (
                 <li key={link.href}>
-                  <a href={link.href} className={`relative tracking-wide transition-colors duration-300 ${isActive ? 'text-text' : 'text-text-muted hover:text-text'}`}>
+                  <a href={link.href} className={`relative tracking-wide transition-colors duration-300 ${isActive ? 'text-text' : 'text-text-text hover:text-text'}`}>
                     {link.label}
                     <span className={`absolute -bottom-1 left-0 h-px bg-primary transition-all duration-300 ${isActive ? 'w-full' : 'w-0'}`} />
                   </a>
