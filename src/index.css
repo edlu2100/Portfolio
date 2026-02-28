@@ -63,8 +63,8 @@
     --color-primary-dark: #0b1626;
     --color-primary-muted: rgba(31, 58, 95, 0.12);
     --color-text: #f4efe6;
-    --color-text-muted: #8b97a8;
-    --color-text-faint: #525f73;
+    --color-text-muted: #a9b3c3;
+    --color-text-faint: #687589;
     --color-accent: #c2a878;
     --color-accent-warm: #a98a5c;
     --navbar-bg: rgba(11, 22, 38, 0.85);
@@ -81,8 +81,8 @@
     --color-primary-dark: #162c4a;
     --color-primary-muted: rgba(31, 58, 95, 0.08);
     --color-text: #1a1612;
-    --color-text-muted: #6e7c8f;
-    --color-text-faint: #9aa3ad;
+    --color-text-muted: #545f6b;
+    --color-text-faint: #7f878f;
     --color-accent: #8a6e43;
     --color-accent-warm: #6e562f;
     --navbar-bg: rgba(248, 245, 239, 0.9);

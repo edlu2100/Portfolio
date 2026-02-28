@@ -1,3 +1,5 @@
+import { useTheme } from '../../context/ThemeContext'
+
 // GS slalom constants
 const GATE_RED   = '#DB2D14'
 const GATE_BLUE  = '#1a4de8'
@@ -43,6 +45,8 @@ interface Props {
 }
 
 export default function SlalomTrack({ pathD, totalH, items }: Props) {
+  const { theme } = useTheme()
+  const lineColor = theme === 'dark' ? 'var(--color-primary)' : 'var(--color-accent)'
   return (
     <div style={{ flex: `0 0 ${SVG_W}px`, position: 'relative', height: totalH }}>
       <svg
@@ -54,9 +58,9 @@ export default function SlalomTrack({ pathD, totalH, items }: Props) {
         xmlns="http://www.w3.org/2000/svg"
       >
         {/* Outer glow */}
-        <path d={pathD} fill="none" stroke="var(--color-primary)" strokeWidth="6" strokeOpacity="0.06" strokeLinecap="round" />
+        <path d={pathD} fill="none" stroke={lineColor} strokeWidth="6" strokeOpacity="0.06" strokeLinecap="round" />
         {/* Main track */}
-        <path d={pathD} fill="none" stroke="var(--color-primary)" strokeWidth="1.8" strokeOpacity="0.4" strokeLinecap="round" />
+        <path d={pathD} fill="none" stroke={lineColor} strokeWidth="1.8" strokeOpacity="0.4" strokeLinecap="round" />
         {/* Dashed ski-mark */}
         <path d={pathD} fill="none" stroke="var(--color-text)" strokeWidth="0.7" strokeOpacity="0.07" strokeDasharray="2.5 7" strokeLinecap="round" />
 
@@ -90,8 +94,8 @@ export default function SlalomTrack({ pathD, totalH, items }: Props) {
               {/* Sheen */}
               <rect x={panelL} y={panelTop} width={GATE_WIDTH} height={PANEL_H / 2} fill="white" fillOpacity="0.08" rx="2" />
               {/* Skier crossing mark */}
-              <circle cx={px} cy={gy} r={4} fill="var(--color-primary)" fillOpacity="0.8" />
-              <circle cx={px} cy={gy} r={8} fill="var(--color-primary)" fillOpacity="0.1" />
+              <circle cx={px} cy={gy} r={4} fill={lineColor} fillOpacity="0.8" />
+              <circle cx={px} cy={gy} r={8} fill={lineColor} fillOpacity="0.1" />
               {/* Snow spray */}
               {SPRAY_IN.map(([dx, dy], j) => (
                 <circle key={j} cx={px + dx * sprayMul} cy={gy + dy} r={SPRAY_R_VAL[j]} fill="var(--color-text)" fillOpacity={SPRAY_O_VAL[j]} />

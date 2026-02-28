@@ -64,15 +64,15 @@ export default function MobileMenu({ open, activeSection, onClose }: Props) {
                 <a
                   href={link.href}
                   onClick={onClose}
-                  className={`group relative inline-flex items-center gap-4 py-3 text-4xl font-bold tracking-tight transition-colors duration-200 ${isActive ? 'text-text' : 'text-text-muted hover:text-text'}`}
+                  className={`group relative block py-3 text-center text-4xl font-bold tracking-tight transition-colors duration-200 ${isActive ? 'text-text' : 'text-text-muted hover:text-text'}`}
                 >
-                  <span
-                    style={{ fontSize: '20px' }}
-                    className={`font-normal tabular-nums transition-colors duration-200 ${isActive ? 'text-primary' : 'text-text-faint'}`}
-                  >
-                    0{i + 1}
-                  </span>
-                  <span className="relative">
+                  <span className="relative inline-block">
+                    <span
+                      style={{ position: 'absolute', right: 'calc(100% + 0.75rem)', top: '50%', transform: 'translateY(-50%)', fontSize: '20px', whiteSpace: 'nowrap' }}
+                      className={`font-normal tabular-nums transition-colors duration-200 ${isActive ? 'text-primary' : 'text-text-faint'}`}
+                    >
+                      0{i + 1}
+                    </span>
                     {link.label}
                     <span className={`absolute -bottom-1 left-0 h-px bg-primary transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                   </span>

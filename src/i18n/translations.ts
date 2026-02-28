@@ -4,8 +4,8 @@ export const translations = {
             links: [
                 { label: 'Om', href: '#om' },
                 { label: 'Projekt', href: '#projekt' },
-                { label: 'Erfarenhet', href: '#erfarenhet' },
                 { label: 'Utbildning', href: '#utbildning' },
+                { label: 'Erfarenhet', href: '#erfarenhet' },
                 { label: 'Kompetenser', href: '#kompetenser' },
                 { label: 'Kontakt', href: '#kontakt' },
             ],
@@ -17,8 +17,8 @@ export const translations = {
         hero: {
             greeting: 'Hej, jag är',
             name: 'Edwin Lundbäck',
-            role: 'Frontendutvecklare & Ingenjörsstudent',
-            description: 'Jag kombinerar teknisk förståelse med strategiskt tänkande för att bygga lösningar som skapar verkligt värde.',
+            role: 'Fullstackutvecklare & Ingenjörsstudent',
+            description: 'Med bakgrund inom elitidrott och teknik drivs jag av struktur, ansvar och att bygga lösningar som håller över tid.',
             cta: 'Se projekt',
             contact: 'Ta kontakt',
             scroll: 'Scrolla ned',
@@ -217,8 +217,8 @@ export const translations = {
             links: [
                 { label: 'About', href: '#om' },
                 { label: 'Projects', href: '#projekt' },
-                { label: 'Experience', href: '#erfarenhet' },
                 { label: 'Education', href: '#utbildning' },
+                { label: 'Experience', href: '#erfarenhet' },
                 { label: 'Skills', href: '#kompetenser' },
                 { label: 'Contact', href: '#kontakt' },
             ],
