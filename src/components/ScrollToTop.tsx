@@ -42,8 +42,8 @@ export default function ScrollToTop() {
     // Hook travels from button top to screen top
     // Button bottom edge = 2rem from viewport bottom, button height = 2.75rem
     // So hook starts at bottom: calc(2rem + 2.75rem) ≈ 76px from bottom
-    const hookStartBottom = 76 // px from viewport bottom
-    const hookEndBottom = window.innerHeight - 154 // skier helmet stays 10px below cabin
+    const hookStartBottom = 140 // px from viewport bottom (above bottom bullwheel)
+    const hookEndBottom = window.innerHeight - 190 // skier ends lower, below cabin
 
     function step(now: number) {
       const elapsed = now - startTime
@@ -73,8 +73,8 @@ export default function ScrollToTop() {
   function handleClick() {
     if (phase !== 'idle') return
 
-    // Reset hook to button position
-    setHookBottom(76)
+    // Reset hook to starting position (above bottom bullwheel)
+    setHookBottom(140)
 
     // Phase 1: cable drops down
     setPhase('cable-drop')
@@ -99,25 +99,89 @@ export default function ScrollToTop() {
 
   return (
     <>
-      {/* ── Cable / wire – fixed from top to button ── */}
+      {/* ── Two parallel cables + bullwheels ── */}
       {(showCable || fading) && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '114px',
-            right: rightOffset,
-            width: '3px',
-            bottom: 'calc(2rem + 2.75rem + 8px)',
-            zIndex: 49,
-            pointerEvents: 'none',
-            transformOrigin: 'top',
-            background: cableColor,
-            borderRadius: '1.5px',
-            opacity: fading ? 0 : 1,
-            transition: 'opacity 0.4s ease',
-            animation: phase === 'cable-drop' ? 'cableDrop 0.5s ease-out forwards' : 'none',
-          }}
-        />
+        <>
+          {/* Left cable */}
+          <div
+            style={{
+              position: 'fixed',
+              top: '154px',
+              right: 'calc(2rem + 1.375rem + 8px)',
+              width: '2px',
+              bottom: 'calc(2rem + 2.75rem + 44px)',
+              zIndex: 49,
+              pointerEvents: 'none',
+              background: cableColor,
+              borderRadius: '1px',
+              opacity: fading ? 0 : 1,
+              transition: 'opacity 0.4s ease',
+              animation: phase === 'cable-drop' ? 'cableDrop 0.5s ease-out forwards' : 'none',
+            }}
+          />
+          {/* Right cable */}
+          <div
+            style={{
+              position: 'fixed',
+              top: '154px',
+              right: 'calc(2rem + 1.375rem - 10px)',
+              width: '2px',
+              bottom: 'calc(2rem + 2.75rem + 44px)',
+              zIndex: 49,
+              pointerEvents: 'none',
+              background: cableColor,
+              borderRadius: '1px',
+              opacity: fading ? 0 : 1,
+              transition: 'opacity 0.4s ease',
+              animation: phase === 'cable-drop' ? 'cableDrop 0.5s ease-out forwards' : 'none',
+            }}
+          />
+          {/* Top bullwheel */}
+          <div
+            style={{
+              position: 'fixed',
+              top: '118px',
+              right: rightOffset,
+              zIndex: 52,
+              pointerEvents: 'none',
+              transform: 'translateX(50%)',
+              opacity: fading ? 0 : 1,
+              transition: 'opacity 0.4s ease',
+              animation: phase === 'cable-drop' ? 'cableDrop 0.5s ease-out forwards' : 'none',
+            }}
+          >
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="16" stroke={cableColor} strokeWidth="2" fill="var(--color-surface-elevated)" />
+              <circle cx="18" cy="18" r="4" fill={cableColor} />
+              <line x1="18" y1="2" x2="18" y2="34" stroke={cableColor} strokeWidth="1.2" />
+              <line x1="2" y1="18" x2="34" y2="18" stroke={cableColor} strokeWidth="1.2" />
+              <line x1="5.7" y1="5.7" x2="30.3" y2="30.3" stroke={cableColor} strokeWidth="1.2" />
+              <line x1="5.7" y1="30.3" x2="30.3" y2="5.7" stroke={cableColor} strokeWidth="1.2" />
+            </svg>
+          </div>
+          {/* Bottom bullwheel */}
+          <div
+            style={{
+              position: 'fixed',
+              bottom: 'calc(2rem + 2.75rem + 8px)',
+              right: rightOffset,
+              zIndex: 52,
+              pointerEvents: 'none',
+              transform: 'translateX(50%)',
+              opacity: fading ? 0 : 1,
+              transition: 'opacity 0.4s ease',
+            }}
+          >
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="16" stroke={cableColor} strokeWidth="2" fill="var(--color-surface-elevated)" />
+              <circle cx="18" cy="18" r="4" fill={cableColor} />
+              <line x1="18" y1="2" x2="18" y2="34" stroke={cableColor} strokeWidth="1.2" />
+              <line x1="2" y1="18" x2="34" y2="18" stroke={cableColor} strokeWidth="1.2" />
+              <line x1="5.7" y1="5.7" x2="30.3" y2="30.3" stroke={cableColor} strokeWidth="1.2" />
+              <line x1="5.7" y1="30.3" x2="30.3" y2="5.7" stroke={cableColor} strokeWidth="1.2" />
+            </svg>
+          </div>
+        </>
       )}
 
       {/* ── Cabin / lift station at the top of the cable ── */}
@@ -153,8 +217,9 @@ export default function ScrollToTop() {
             <line x1="13" y1="21" x2="25" y2="21" stroke={woodTrim} strokeWidth="0.6" />
             {/* Door opening at bottom center */}
             <rect x="16" y="27" width="6" height="5" rx="0.5" fill={woodRoof} />
-            {/* Cable exit hole (small circle at bottom center) */}
-            <circle cx="19" cy="33" r="1.5" fill={cableColor} />
+            {/* Two cable exit holes */}
+            <circle cx="10" cy="33" r="1" fill={cableColor} opacity="0.8" />
+            <circle cx="28" cy="33" r="1" fill={cableColor} opacity="0.8" />
           </svg>
         </div>
       )}
