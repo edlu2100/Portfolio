@@ -161,6 +161,25 @@ export const translations = {
             successMsg: 'Tack! Jag återkommer så snart som möjligt.',
             errorMsg: 'Något gick fel. Försök igen eller maila direkt till edwinlundback@gmail.com.',
         },
+        om: {
+            heading: 'Om mig',
+            subheading: 'Bakgrund',
+            tagline: ['Elitalpinist', '15+ år på skidor', 'Nationella tävlingar', 'Civilingenjör'],
+            bio1: 'Jag är fullstackutvecklare och ingenjörsstudent med bakgrund inom elitidrott i alpint, vilket har präglat mitt arbetssätt genom disciplin, precision och en tydlig drivkraft att ständigt utvecklas.',
+            bio2: 'Under studietiden har jag aktivt sökt erfarenheter som breddar mitt perspektiv och förbereder mig för en framtida roll inom IT. Genom allt från programmering och ekonomi till ledarskap har jag utvecklat en förståelse för hur teknik, strategi och affär hänger samman.',
+            bio3: 'På sikt vill jag arbeta i en roll med ett tydligt helhetsperspektiv, där jag verkar i gränslandet mellan teknik, ekonomi och försäljning och bidrar till att omsätta tekniska lösningar i konkret affärsvärde.',
+            stats: [
+                { value: '4+', label: 'År programmering' },
+                { value: '3+', label: 'Års studier' },
+            ],
+            interestsLabel: 'Intressen',
+            interests: [
+                'Alpint',
+                'Träning',
+                'Teknik',
+                'Entreprenörskap',
+            ]
+        },
     },
     en: {
         nav: {
@@ -324,6 +343,25 @@ export const translations = {
             successTitle: 'Message sent',
             successMsg: 'Thank you! I will get back to you as soon as possible.',
             errorMsg: 'Something went wrong. Try again or email edwinlundback@gmail.com directly.',
+        },
+        om: {
+            heading: 'About me',
+            subheading: 'Background',
+            tagline: ['Elite alpine skier', '15+ years on snow', 'National competitions', 'Engineering student'],
+            bio1: "I am a full-stack developer and engineering student with a background in elite alpine skiing, which has shaped my approach to work through discipline, precision, and a strong drive for continuous improvement.",
+            bio2: 'Throughout my studies, I have actively sought experiences that broaden my perspective and prepare me for a future role in technology. From programming and economics to leadership, I have developed an understanding of how technology, strategy, and business intersect.',
+            bio3: 'In the long term, I aim to work in a role with a broad, holistic perspective, operating at the intersection of technology, business, and sales, and contributing to turning technical solutions into tangible business value.',
+            stats: [
+                { value: '4+', label: 'Years coding' },
+                { value: '3+', label: 'Years studied' },
+            ],
+            interestsLabel: 'Interests',
+            interests: [
+                'Alpine skiing',
+                'Training',
+                'Technology & digital products',
+                'Entrepreneurship',
+            ]
         },
     },
 }
