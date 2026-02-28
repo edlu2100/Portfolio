@@ -238,7 +238,7 @@ export default function ScrollToTop() {
             {/* Bracket: centered U shape */}
             <path
               d="M12 0 V8 Q12 14, 6 14 H2 M12 8 Q12 14, 18 14 H22"
-              stroke={cableColor}
+              stroke="#E8701A"
               strokeWidth="2.5"
               strokeLinecap="round"
               fill="none"
