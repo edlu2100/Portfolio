@@ -27,6 +27,7 @@ export default function ExperienceCard({ item, side, delay, visible, color }: Pr
       border: '1px solid var(--color-border)',
       borderRadius: '2px',
     }}>
+
       <p style={{
         fontFamily: "'Inter', system-ui, sans-serif",
         fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.18em',

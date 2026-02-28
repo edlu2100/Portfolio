@@ -3,6 +3,38 @@ import { useLanguage } from '../context/LanguageContext'
 import { useTheme } from '../context/ThemeContext'
 import { useInView } from '../hooks/useInView'
 import SectionHeader from './ui/SectionHeader'
+import {
+  SiTypescript, SiJavascript, SiPhp, SiDotnet, SiCss3, SiHtml5,
+  SiMysql, SiReact, SiVuedotjs, SiJquery, SiLaravel,
+  SiNodedotjs, SiWordpress, SiTailwindcss,
+} from 'react-icons/si'
+import { TbBrandCSharp, TbFileExcel } from 'react-icons/tb'
+import { IconType } from 'react-icons'
+
+const IMG_MAP: Record<string, string> = {
+  'Dynamaker': '/logos/dynamakerLogo.webp',
+}
+
+const ICON_MAP: Record<string, IconType> = {
+  'TypeScript': SiTypescript,
+  'JavaScript': SiJavascript,
+  'PHP': SiPhp,
+  'C#': TbBrandCSharp,
+  '.Net': SiDotnet,
+  'CSS': SiCss3,
+  'HTML': SiHtml5,
+  'SQL': SiMysql,
+  'React.js': SiReact,
+  'React Native': SiReact,
+  'Vue.js': SiVuedotjs,
+  'jQuery': SiJquery,
+  'Laravel': SiLaravel,
+  'ASP.NET': SiDotnet,
+  'Node.js': SiNodedotjs,
+  'WordPress': SiWordpress,
+  'Tailwind': SiTailwindcss,
+  'Excel': TbFileExcel,
+}
 
 interface SkillData {
   heading: string
@@ -13,12 +45,15 @@ interface SkillData {
 }
 
 function SkillChip({
-  label, delay, visible, accentColor,
+  label, delay, visible, accentColor, icon: Icon, imgSrc, imgFilter,
 }: {
   label: string
   delay: number
   visible: boolean
   accentColor: string
+  icon?: IconType
+  imgSrc?: string
+  imgFilter?: string
 }) {
   const [hovered, setHovered] = useState(false)
   return (
@@ -27,7 +62,6 @@ function SkillChip({
       onMouseLeave={() => setHovered(false)}
       style={{
         opacity: visible ? 1 : 0,
-
         transition:
           `opacity 0.5s ease ${delay}ms, ` +
           `transform 0.5s ease ${delay}ms, ` +
@@ -45,8 +79,20 @@ function SkillChip({
         cursor: 'default',
         userSelect: 'none' as const,
         boxShadow: hovered ? `0 6px 20px ${accentColor}1a` : 'none',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.45rem',
       }}
     >
+      {imgSrc && (
+        <img
+          src={imgSrc}
+          alt={label}
+          style={{ height: '0.95rem', width: 'auto', objectFit: 'contain', opacity: hovered ? 1 : 0.65, transition: 'opacity 0.25s ease', filter: imgFilter }}
+          onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+        />
+      )}
+      {!imgSrc && Icon && <Icon style={{ fontSize: '0.95rem', flexShrink: 0, opacity: hovered ? 1 : 0.65, transition: 'opacity 0.25s ease' }} />}
       {label}
     </div>
   )
@@ -84,6 +130,8 @@ export default function Skills() {
   const { ref, visible } = useInView()
 
   const color = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
+  // Logos that are dark/black and need inversion in dark mode to appear white
+  const WHITE_IN_DARK = new Set(['Dynamaker'])
 
   return (
     <section
@@ -105,6 +153,9 @@ export default function Skills() {
                 delay={130 + i * 45}
                 visible={visible}
                 accentColor={color}
+                icon={ICON_MAP[lang]}
+                imgSrc={IMG_MAP[lang]}
+                imgFilter={theme === 'dark' && WHITE_IN_DARK.has(lang) ? 'invert(1)' : undefined}
               />
             ))}
           </div>
@@ -130,6 +181,9 @@ export default function Skills() {
                 delay={530 + i * 45}
                 visible={visible}
                 accentColor={color}
+                icon={ICON_MAP[tech]}
+                imgSrc={IMG_MAP[tech]}
+                imgFilter={theme === 'dark' && WHITE_IN_DARK.has(tech) ? 'invert(1)' : undefined}
               />
             ))}
           </div>
