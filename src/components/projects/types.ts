@@ -7,4 +7,7 @@ export type Project = {
   images: string[]
   github: string
   live: string
+  reportUrl?: string
+  darkImageIndex?: number
+  blurImage?: boolean
 }

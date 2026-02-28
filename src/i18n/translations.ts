@@ -46,29 +46,43 @@ export const translations = {
                 },
                 {
                     id: 2,
-                    title: 'Projekt Två',
-                    tags: ['Next.js', 'Prisma', 'PostgreSQL'],
-                    summary: 'En fullstack-applikation med modern stack.',
-                    description: 'Beskriv ditt andra projekt här. Vad löste det, vilka tekniker använde du och vad lärde du dig? Byt ut detta mot riktigt innehåll.',
+                    title: 'Mobilapp',
+                    tags: ['React Native', 'Expo', 'Nativewind'],
+                    summary: 'En app som snart är helt klar och kan presenteras.',
+                    description: 'En app som snart kommer kunna visas upp. Ett stort projekt som pågått sedan september 2025',
                     images: [
-                        'https://placehold.co/1200x700/111827/7a96ff?text=Projekt+2',
-                        'https://placehold.co/1200x700/1a2236/4f72ff?text=Projekt+2+–+Skärm+2',
+                        '/project2_1.svg',
                     ],
-                    github: 'https://github.com/edlu2100',
-                    live: 'https://example.com',
+                    blurImage: true,
+                    github: '',
+                    live: '',
+                },{
+                    id: 4,
+                    title: 'Automatiserad webbplatsövervakning',
+                    tags: ['Laravel', 'Inertia', 'Vue', 'Tailwind', 'MySQL'],
+                    summary: 'Internt administrationsverktyg som skannar webbplatser och larmar vid brutna länkar, DNS-problem och utgående SSL.',
+                    description:
+                        'Jag utvecklade ett internt administrationsgränssnitt som kontinuerligt övervakar ett stort antal webbplatser. Systemet skannar samtliga länkar och loggar statuskoder, kontrollerar DNS (A-records och name servers) samt bevakar SSL-certifikatens giltighet och utgångsdatum. Vid avvikelser skickas notifieringar via e-post och Slack.\n\n' +
+                        'Fokus låg på robust backend-logik, tydlig felrapportering och ett enkelt UI för att lägga till/hantera webbplatser samt välja vilka tester som ska köras. Eventuella fel meddelas via slack och mail.',
+                        images: [
+                            '/project4_1.svg'
+                    ],
+                    github: 'https://github.com/edlu2100/ex-jobb/',
+                    live: '',
+                    reportUrl: 'https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1878583&dswid=-1400',
                 },
                 {
                     id: 3,
-                    title: 'Projekt Tre',
-                    tags: ['Vue', 'Node.js', 'Express'],
-                    summary: 'Ett tredje projekt med fokus på UX.',
+                    title: 'I-Portalen',
+                    tags: ['React', 'Strapi', 'Chakra UI'],
+                    summary: 'Underhåller och vidareutvecklar I-portalen.',
                     description: 'Beskriv ditt tredje projekt här. Vad var utmaningen, hur löste du den och vad blev resultatet? Byt ut detta mot riktigt innehåll.',
                     images: [
-                        'https://placehold.co/1200x700/0a0e1a/d9c8a8?text=Projekt+3',
+                        '/project3_1.svg'
                     ],
-                    github: 'https://github.com/edlu2100',
-                    live: '',
-                },
+                    github: '',
+                    live: 'https://i-portalen.se/',
+                }, 
             ],
         }, experience: {
             heading: 'Erfarenhet',
@@ -236,6 +250,7 @@ export const translations = {
                         'https://placehold.co/1200x700/111827/7a96ff?text=Project+2',
                         'https://placehold.co/1200x700/1a2236/4f72ff?text=Project+2+–+Screen+2',
                     ],
+                    blurImage: true,
                     github: 'https://github.com/edlu2100',
                     live: 'https://example.com',
                 },

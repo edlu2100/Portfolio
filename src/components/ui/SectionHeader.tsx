@@ -4,6 +4,7 @@ interface Props {
   heading: string
   subheading: string
   visible?: boolean
+  noMargin?: boolean
 }
 
 const Swirl = ({ color }: { color: string }) => (
@@ -19,7 +20,7 @@ const Swirl = ({ color }: { color: string }) => (
   </svg>
 )
 
-export default function SectionHeader({ heading, subheading, visible = true }: Props) {
+export default function SectionHeader({ heading, subheading, visible = true, noMargin = false }: Props) {
   const { theme } = useTheme()
   const color = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
 
@@ -28,7 +29,7 @@ export default function SectionHeader({ heading, subheading, visible = true }: P
       opacity: visible ? 1 : 0,
       transform: visible ? 'translateY(0)' : 'translateY(16px)',
       transition: 'opacity 0.6s ease, transform 0.6s ease',
-      marginBottom: '3.5rem',
+      marginBottom: noMargin ? 0 : '3.5rem',
     }}>
       <p style={{
         fontFamily: "'Inter', system-ui, sans-serif",

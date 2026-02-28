@@ -38,7 +38,7 @@ export default function ProjectCard({ project, index, onClick }: {
             width: '100%', height: '100%', objectFit: 'cover', display: 'block',
             transform: hovered ? 'scale(1.14)' : 'scale(1.1)',
             transition: 'transform 0.5s cubic-bezier(0.22,1,0.36,1)',
-
+            filter: project.blurImage ? 'blur(8px)' : 'none',
           }}
         />
       </div>
