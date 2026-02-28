@@ -1,6 +1,7 @@
 import { useLanguage } from '../context/LanguageContext'
 import { useTheme } from '../context/ThemeContext'
 import { useInView } from '../hooks/useInView'
+import { useMobile } from '../hooks/useMobile'
 import SectionHeader from './ui/SectionHeader'
 import ContactForm from './contact/ContactForm'
 
@@ -24,11 +25,11 @@ export default function Contact() {
   const { t, language } = useLanguage()
   const { theme } = useTheme()
   const { ref, visible } = useInView()
+  const isMobile = useMobile(860)
 
   const c = (t as any).contact as ContactData
   const color = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
   const cvHref = language === 'en' ? '/Edwin_Lundback_ENG_26.pdf' : '/Edwin_Lundback_SV_26_CV.pdf'
-  const cvLabel = language === 'en' ? 'Edwin_Lundback_ENG_26.pdf' : 'Edwin_Lundback_SV_26_CV.pdf'
 
   const CONTACT_LINKS = [
     {
@@ -100,8 +101,8 @@ export default function Contact() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.4fr)',
-          gap: '5rem',
+          gridTemplateColumns: isMobile ? '1fr' : 'minmax(0, 1fr) minmax(0, 1.4fr)',
+          gap: isMobile ? '2.5rem' : '5rem',
           alignItems: 'start',
         }}>
 
@@ -121,73 +122,78 @@ export default function Contact() {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {CONTACT_LINKS.map(({ href, label, sublabel, download, icon }) => (
-                <a
-                  key={href}
-                  href={href}
-                  download={download}
-                  target={href.startsWith('mailto') || download ? undefined : '_blank'}
-                  rel={href.startsWith('mailto') || download ? undefined : 'noopener noreferrer'}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '1rem',
-                    padding: '0.9rem 1.1rem',
-                    background: 'var(--color-surface-elevated)',
-                    border: '1px solid var(--color-border)',
-                    borderRadius: '4px',
-                    textDecoration: 'none',
-                    color: 'var(--color-text)',
-                    transition: 'border-color 0.2s ease, transform 0.2s ease',
-                    cursor: 'pointer',
-                  }}
-                  onMouseEnter={e => {
-                    (e.currentTarget as HTMLElement).style.borderColor = color
-                    ;(e.currentTarget as HTMLElement).style.transform = 'translateX(4px)'
-                  }}
-                  onMouseLeave={e => {
-                    (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border)'
-                    ;(e.currentTarget as HTMLElement).style.transform = 'translateX(0)'
-                  }}
-                >
-                  <span style={{ color, flexShrink: 0 }}>{icon}</span>
-                  {label ? (
-                    <div>
-                      <p style={{
-                        fontFamily: "'Inter', system-ui, sans-serif",
-                        fontSize: '0.65rem',
-                        fontWeight: 600,
-                        letterSpacing: '0.12em',
-                        textTransform: 'uppercase',
-                        color: 'var(--color-text-faint)',
-                        marginBottom: '0.15rem',
-                      }}>{sublabel}</p>
+              {CONTACT_LINKS.map(({ href, label, sublabel, download, icon }) => {
+                const isCV = download === true
+                const iconColor = isCV && theme === 'light' ? 'var(--color-primary)' : color
+                const textColor = isCV && theme === 'light' ? 'var(--color-primary)' : 'var(--color-text-muted)'
+                return (
+                  <a
+                    key={href}
+                    href={href}
+                    download={download}
+                    target={href.startsWith('mailto') || download ? undefined : '_blank'}
+                    rel={href.startsWith('mailto') || download ? undefined : 'noopener noreferrer'}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '1rem',
+                      padding: '0.9rem 1.1rem',
+                      background: 'var(--color-surface-elevated)',
+                      border: '1px solid var(--color-border)',
+                      borderRadius: '4px',
+                      textDecoration: 'none',
+                      color: 'var(--color-text)',
+                      transition: 'border-color 0.2s ease, transform 0.2s ease',
+                      cursor: 'pointer',
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLElement).style.borderColor = color
+                      ;(e.currentTarget as HTMLElement).style.transform = 'translateX(4px)'
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border)'
+                      ;(e.currentTarget as HTMLElement).style.transform = 'translateX(0)'
+                    }}
+                  >
+                    <span style={{ color: iconColor, flexShrink: 0 }}>{icon}</span>
+                    {label ? (
+                      <div>
+                        <p style={{
+                          fontFamily: "'Inter', system-ui, sans-serif",
+                          fontSize: '0.65rem',
+                          fontWeight: 600,
+                          letterSpacing: '0.12em',
+                          textTransform: 'uppercase',
+                          color: 'var(--color-text-faint)',
+                          marginBottom: '0.15rem',
+                        }}>{sublabel}</p>
+                        <p style={{
+                          fontFamily: "'Inter', system-ui, sans-serif",
+                          fontSize: '0.8rem',
+                          color: textColor,
+                        }}>{label}</p>
+                      </div>
+                    ) : (
                       <p style={{
                         fontFamily: "'Inter', system-ui, sans-serif",
                         fontSize: '0.8rem',
-                        color: 'var(--color-text-muted)',
-                      }}>{label}</p>
-                    </div>
-                  ) : (
-                    <p style={{
-                      fontFamily: "'Inter', system-ui, sans-serif",
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
-                      color: 'var(--color-text-muted)',
-                      flex: 1,
-                      textAlign: 'center',
-                      marginRight: '20px',
-                    }}>{sublabel}</p>
-                  )}
-                </a>
-              ))}
+                        fontWeight: 600,
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        color: textColor,
+                        flex: 1,
+                        textAlign: 'center',
+                        marginRight: '20px',
+                      }}>{sublabel}</p>
+                    )}
+                  </a>
+                )
+              })}
             </div>
           </div>
 
           {/* Right column – form */}
-          <div style={fade(200)}>
+          <div style={{ ...fade(200), marginTop: isMobile ? '1.5rem' : 0 }}>
             <ContactForm c={c} color={color} theme={theme} visible={visible} />
           </div>
 

@@ -1,5 +1,6 @@
 import { useTheme } from '../context/ThemeContext'
 import { useLanguage } from '../context/LanguageContext'
+import { useMobile } from '../hooks/useMobile'
 
 export default function Footer() {
   const { theme } = useTheme()
@@ -7,6 +8,7 @@ export default function Footer() {
   const color = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
   const year = new Date().getFullYear()
   const cvHref = language === 'en' ? '/Edwin_Lundback_ENG_26.pdf' : '/Edwin_Lundback_SV_26_CV.pdf'
+  const isMobile = useMobile()
 
   const links = [
     {
@@ -56,7 +58,9 @@ export default function Footer() {
         padding: '0 1.5rem',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: isMobile ? 'center' : 'space-between',
+        flexDirection: isMobile ? 'column' : 'row',
+        textAlign: isMobile ? 'center' : 'left',
         flexWrap: 'wrap',
         gap: '1.5rem',
       }}>
@@ -72,7 +76,14 @@ export default function Footer() {
         </p>
 
         {/* Links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: isMobile ? 'center' : 'flex-start',
+          textAlign: isMobile ? 'center' : 'left',
+          gap: '2rem',
+          flexWrap: 'wrap',
+        }}>
           {links.map(({ href, label, download, icon }) => {
             const tooltips: { [key: string]: string } = {
               'CV': 'Download CV',

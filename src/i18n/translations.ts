@@ -35,7 +35,7 @@ export const translations = {
                     id: 1,
                     title: 'Portfolio',
                     tags: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Vercel'],
-                    summary: 'Den här sidan du är på just nu.',
+                    summary: 'Den fantastiska sida du befinner dig på just nu. Utvecklad med inspiration från min bakgrund inom alpint och min syn på hur en webbplats bör upplevas',
                     description: 'Den här sidan är ett personligt portfolio byggt från grunden med React, Vite, TypeScript och Tailwind — och representerar mig som person. Designat med Old Money-inspirerade färger och typsnitt: Cormorant Garamond, djupa marinblå toner och sandbeige accenter. Slalomtemat som löper genom sidan speglar en stor del av vem jag är utanför koden.',
                     images: [
                         '/project1_1.svg',
@@ -248,7 +248,7 @@ export const translations = {
                     id: 1,
                     title: 'Portfolio',
                     tags: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Vercel'],
-                    summary: 'A technically structured portfolio built from scratch.',
+                    summary: 'The very site you are currently viewing. Developed with inspiration from my background in alpine skiing and my perspective on how a website should be experienced.',
                     description:
                         'A personal portfolio developed with React, TypeScript, and Tailwind. Built with a strong focus on clean architecture, reusable components, and performance.\n\n' +
                         'The design is inspired by classic typography and a restrained color palette. The slalom theme throughout the site reflects my background in elite alpine skiing and my structured approach to development.',
