@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { useTheme } from '../context/ThemeContext'
+import { useMobile } from '../hooks/useMobile'
 import SectionHeader from './ui/SectionHeader'
 import ProjectCard from './projects/ProjectCard'
 import ProjectModal from './projects/ProjectModal'
@@ -14,23 +15,24 @@ export default function Projects() {
   const p = t.projects
   const [active, setActive] = useState<{ project: Project; index: number } | null>(null)
   const [page, setPage] = useState(0)
+  const isMobile = useMobile()
 
   const totalPages = Math.ceil(p.items.length / PER_PAGE)
-  const visible = p.items.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE)
+  const visibleCards = isMobile ? p.items : p.items.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE)
   const accent = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
 
   return (
     <>
       <section
         id="projekt"
-        style={{ padding: '7rem 0', borderTop: '1px solid var(--color-border)' }}
+        style={{ padding: isMobile ? '5rem 0' : '7rem 0', borderTop: '1px solid var(--color-border)' }}
       >
         <div style={{ maxWidth: '72rem', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: '3rem' }}>
             <SectionHeader heading={p.heading} subheading={p.subheading} noMargin />
 
-            {/* Nav arrows */}
-            {totalPages > 1 && (
+            {/* Nav arrows — desktop only */}
+            {!isMobile && totalPages > 1 && (
               <div style={{ display: 'flex', gap: '0.5rem', flexShrink: 0 }}>
                 <button
                   onClick={() => setPage(pg => Math.max(0, pg - 1))}
@@ -72,10 +74,10 @@ export default function Projects() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1.5rem',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+            gap: isMobile ? '1rem' : '1.5rem',
           }}>
-            {visible.map((project) => {
+            {visibleCards.map((project) => {
               const index = p.items.indexOf(project)
               return (
                 <ProjectCard
@@ -88,8 +90,8 @@ export default function Projects() {
             })}
           </div>
 
-          {/* Page dots */}
-          {totalPages > 1 && (
+          {/* Page dots — desktop only */}
+          {!isMobile && totalPages > 1 && (
             <div style={{ display: 'flex', justifyContent: 'center', gap: '0.4rem', marginTop: '2rem' }}>
               {Array.from({ length: totalPages }).map((_, i) => (
                 <button
