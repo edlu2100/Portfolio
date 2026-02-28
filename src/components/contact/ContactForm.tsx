@@ -86,7 +86,7 @@ export default function ContactForm({ c, color, theme, visible }: Props) {
         <div style={fieldStyle(80)}>
           <label htmlFor="cf-name" style={labelStyle}>{c.nameLabel}</label>
           <input
-            id="cf-name" name="from_name" type="text" required
+            id="cf-name" name="name" type="text" required
             placeholder={c.namePlaceholder}
             style={inputStyle('name')}
             onFocus={() => setFocused('name')}
@@ -96,7 +96,7 @@ export default function ContactForm({ c, color, theme, visible }: Props) {
         <div style={fieldStyle(140)}>
           <label htmlFor="cf-email" style={labelStyle}>{c.emailLabel}</label>
           <input
-            id="cf-email" name="reply_to" type="email" required
+            id="cf-email" name="email" type="email" required
             placeholder={c.emailPlaceholder}
             style={inputStyle('email')}
             onFocus={() => setFocused('email')}
