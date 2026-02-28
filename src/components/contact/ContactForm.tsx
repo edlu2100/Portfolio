@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } from '../../config/emailjs'
 import SuccessMessage from './SuccessMessage'
@@ -29,15 +29,28 @@ export default function ContactForm({ c, color, theme, visible }: Props) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [focused, setFocused] = useState<string | null>(null)
 
+  // Initialize EmailJS on mount
+  useEffect(() => {
+    if (PUBLIC_KEY) {
+      emailjs.init(PUBLIC_KEY)
+      console.log('EmailJS initialized with public key')
+    } else {
+      console.warn('PUBLIC_KEY not found - EmailJS will not work')
+    }
+  }, [])
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!formRef.current) return
     setStatus('sending')
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      console.log('Sending form with SERVICE_ID:', SERVICE_ID, 'TEMPLATE_ID:', TEMPLATE_ID)
+      const result = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current)
+      console.log('EmailJS response:', result)
       setStatus('success')
       formRef.current.reset()
-    } catch {
+    } catch (error) {
+      console.error('EmailJS error:', error)
       setStatus('error')
     }
   }
