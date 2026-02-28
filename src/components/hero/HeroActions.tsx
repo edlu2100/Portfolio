@@ -1,6 +1,14 @@
 import { useTheme } from '../../context/ThemeContext'
+import { useLanguage } from '../../context/LanguageContext'
 
-const SOCIAL_LINKS = [
+interface SocialLink {
+  href: string
+  label: string
+  path: string
+  download?: boolean
+}
+
+const SOCIAL_LINKS: SocialLink[] = [
   {
     href: 'mailto:edwinlundback@gmail.com',
     label: 'Mail',
@@ -27,6 +35,14 @@ interface Props {
 
 export default function HeroActions({ cta, contact, accentColor, mounted }: Props) {
   const { theme } = useTheme()
+  const { language } = useLanguage()
+  const cvHref = language === 'en' ? '/Edwin_Lundback_ENG_26.pdf' : '/Edwin_Lundback_SV_26_CV.pdf'
+
+  const socialLinks = [
+    ...SOCIAL_LINKS.slice(0, 1),
+    { href: cvHref, label: 'CV', download: true as const, path: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2 14 8 20 8 M12 13 12 19 M9 16 15 16' },
+    ...SOCIAL_LINKS.slice(1),
+  ]
 
   const fade = (delay: number): React.CSSProperties => ({
     opacity: mounted ? 1 : 0,
@@ -101,30 +117,42 @@ export default function HeroActions({ cta, contact, accentColor, mounted }: Prop
 
       {/* Social icons */}
       <div style={{ ...fade(720), display: 'flex', alignItems: 'center', gap: '1.5rem', marginTop: '2rem' }}>
-        {SOCIAL_LINKS.map(({ href, label, path }) => (
-          <a
-            key={label}
-            href={href}
-            target={href.startsWith('mailto') ? undefined : '_blank'}
-            rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-            aria-label={label}
-            style={{ color: accentColor, transition: 'color 0.2s ease, transform 0.2s ease', display: 'flex' }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.color = theme === 'dark' ? 'var(--color-primary)' : 'var(--color-accent-warm)'
-              ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.color = accentColor
-              ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              {path.split(' M').map((p, i) => (
-                <path key={i} d={i === 0 ? p : 'M' + p} />
-              ))}
-            </svg>
-          </a>
-        ))}
+        {socialLinks.map(({ href, label, download, path }) => {
+          const tooltips: { [key: string]: string } = {
+            'Mail': 'Send email',
+            'CV': 'Download CV',
+            'GitHub': 'Visit GitHub',
+            'LinkedIn': 'Visit LinkedIn',
+          }
+          const tooltipText = tooltips[label] || label
+
+          return (
+            <a
+              key={label}
+              href={href}
+              download={download}
+              target={href.startsWith('mailto') || download ? undefined : '_blank'}
+              rel={href.startsWith('mailto') || download ? undefined : 'noopener noreferrer'}
+              aria-label={label}
+              title={tooltipText}
+              style={{ color: accentColor, transition: 'color 0.2s ease, transform 0.2s ease', display: 'flex' }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.color = theme === 'dark' ? 'var(--color-primary)' : 'var(--color-accent-warm)'
+                ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.color = accentColor
+                ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                {path.split(' M').map((p, i) => (
+                  <path key={i} d={i === 0 ? p : 'M' + p} />
+                ))}
+              </svg>
+            </a>
+          )
+        })}
       </div>
     </>
   )

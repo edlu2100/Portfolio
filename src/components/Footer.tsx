@@ -1,11 +1,27 @@
 import { useTheme } from '../context/ThemeContext'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Footer() {
   const { theme } = useTheme()
+  const { language } = useLanguage()
   const color = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
   const year = new Date().getFullYear()
+  const cvHref = language === 'en' ? '/Edwin_Lundback_ENG_26.pdf' : '/Edwin_Lundback_SV_26_CV.pdf'
 
   const links = [
+    {
+      href: cvHref,
+      label: 'CV',
+      download: true,
+      icon: (
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="12" y1="13" x2="12" y2="19"/>
+          <line x1="9" y1="16" x2="15" y2="16"/>
+        </svg>
+      ),
+    },
     {
       href: 'mailto:edwinlundback@gmail.com',
       label: 'edwinlundback@gmail.com',
@@ -57,30 +73,43 @@ export default function Footer() {
 
         {/* Links */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-          {links.map(({ href, label, icon }) => (
-            <a
-              key={href}
-              href={href}
-              target={href.startsWith('mailto') ? undefined : '_blank'}
-              rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                fontFamily: "'Inter', system-ui, sans-serif",
-                fontSize: '0.72rem',
-                letterSpacing: '0.06em',
-                color: 'var(--color-text-muted)',
-                textDecoration: 'none',
-                transition: 'color 0.2s ease',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = color)}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-text-muted)')}
-            >
-              {icon}
-              {label}
-            </a>
-          ))}
+          {links.map(({ href, label, download, icon }) => {
+            const tooltips: { [key: string]: string } = {
+              'CV': 'Download CV',
+              'edwinlundback@gmail.com': 'Send email',
+              'linkedin.com/in/edwinlundback': 'Visit LinkedIn',
+            }
+            const tooltipText = tooltips[label] || label
+
+            return (
+              <a
+                key={href}
+                href={href}
+                download={download}
+                target={href.startsWith('mailto') || download ? undefined : '_blank'}
+                rel={href.startsWith('mailto') || download ? undefined : 'noopener noreferrer'}
+                title={tooltipText}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontSize: '0.72rem',
+                  letterSpacing: '0.06em',
+                  color: 'var(--color-text-muted)',
+                  textDecoration: 'none',
+                  fontWeight: label === 'CV' ? 600 : 400,
+                  transition: 'color 0.2s ease',
+                  position: 'relative',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.color = color)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-text-muted)')}
+              >
+                {icon}
+                {label}
+              </a>
+            )
+          })}
         </div>
 
       </div>

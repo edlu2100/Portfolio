@@ -291,7 +291,7 @@ export const translations = {
                 },
                 {
                     id: 4,
-                    title: 'I-Portal',
+                    title: 'I-Portalen',
                     tags: ['React', 'Strapi', 'Chakra UI'],
                     summary: 'Frontend development and ongoing improvements.',
                     description:
