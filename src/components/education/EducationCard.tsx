@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Tag from '../ui/Tag'
 import DiplomaIcon from './DiplomaIcon'
 

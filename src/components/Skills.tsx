@@ -1,8 +1,9 @@
-import { useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { useTheme } from '../context/ThemeContext'
 import { useInView } from '../hooks/useInView'
 import SectionHeader from './ui/SectionHeader'
+import SkillChip from './skills/SkillChip'
+import GroupLabel from './skills/GroupLabel'
 import {
   SiTypescript, SiJavascript, SiPhp, SiDotnet, SiCss3, SiHtml5,
   SiMysql, SiReact, SiVuedotjs, SiJquery, SiLaravel,
@@ -44,84 +45,6 @@ interface SkillData {
   items: { languages: string[]; technologies: string[] }
 }
 
-function SkillChip({
-  label, delay, visible, accentColor, icon: Icon, imgSrc, imgFilter,
-}: {
-  label: string
-  delay: number
-  visible: boolean
-  accentColor: string
-  icon?: IconType
-  imgSrc?: string
-  imgFilter?: string
-}) {
-  const [hovered, setHovered] = useState(false)
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        opacity: visible ? 1 : 0,
-        transition:
-          `opacity 0.5s ease ${delay}ms, ` +
-          `transform 0.5s ease ${delay}ms, ` +
-          `border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease`,
-        padding: '0.5rem 1.1rem',
-        backgroundColor: 'var(--color-surface-elevated)',
-        border: '1px solid',
-        borderColor: hovered ? accentColor + '66' : 'var(--color-border)',
-        borderRadius: '2px',
-        fontFamily: "'Inter', system-ui, sans-serif",
-        fontSize: '0.75rem',
-        fontWeight: 500,
-        letterSpacing: '0.07em',
-        color: hovered ? accentColor : 'var(--color-text)',
-        cursor: 'default',
-        userSelect: 'none' as const,
-        boxShadow: hovered ? `0 6px 20px ${accentColor}1a` : 'none',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.45rem',
-      }}
-    >
-      {imgSrc && (
-        <img
-          src={imgSrc}
-          alt={label}
-          style={{ height: '0.95rem', width: 'auto', objectFit: 'contain', opacity: hovered ? 1 : 0.65, transition: 'opacity 0.25s ease', filter: imgFilter }}
-          onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
-        />
-      )}
-      {!imgSrc && Icon && <Icon style={{ fontSize: '0.95rem', flexShrink: 0, opacity: hovered ? 1 : 0.65, transition: 'opacity 0.25s ease' }} />}
-      {label}
-    </div>
-  )
-}
-
-function GroupLabel({
-  label, color, delay, visible,
-}: {
-  label: string
-  color: string
-  delay: number
-  visible: boolean
-}) {
-  return (
-    <p style={{
-      fontFamily: "'Inter', system-ui, sans-serif",
-      fontSize: '0.64rem', fontWeight: 600, letterSpacing: '0.22em',
-      textTransform: 'uppercase', color,
-      marginBottom: '1.1rem',
-      display: 'flex', alignItems: 'center', gap: '0.6rem',
-      opacity: visible ? 1 : 0,
-      transform: visible ? 'translateY(0)' : 'translateY(8px)',
-      transition: `opacity 0.5s ease ${delay}ms, transform 0.5s ease ${delay}ms`,
-    }}>
-      <span style={{ display: 'inline-block', width: '1.2rem', height: '1px', backgroundColor: color, opacity: 0.6 }} />
-      {label}
-    </p>
-  )
-}
 
 export default function Skills() {
   const { t } = useLanguage()

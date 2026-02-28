@@ -5,8 +5,6 @@ import SectionHeader from './ui/SectionHeader'
 import EducationCard from './education/EducationCard'
 import type { EduItem } from './education/EducationCard'
 
-const COLORS = ['#4f72ff', '#c4a97e']
-
 export default function Education() {
   const { t } = useLanguage()
   const ed = (t as any).education as { heading: string; subheading: string; items: EduItem[] }

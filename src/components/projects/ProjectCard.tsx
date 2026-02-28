@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useTheme } from '../../context/ThemeContext'
 import type { Project } from './types'
 
 export default function ProjectCard({ project, index, onClick }: {
@@ -8,10 +7,6 @@ export default function ProjectCard({ project, index, onClick }: {
   onClick: () => void
 }) {
   const [hovered, setHovered] = useState(false)
-  const { theme } = useTheme()
-  const accentColor = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
-  const tagBg = theme === 'dark' ? 'rgba(169,138,92,0.1)' : 'rgba(31,58,95,0.08)'
-  const tagBorder = theme === 'dark' ? 'rgba(169,138,92,0.28)' : 'rgba(31,58,95,0.18)'
 
   return (
     <article
