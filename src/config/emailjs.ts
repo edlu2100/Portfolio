@@ -1,3 +1,3 @@
-export const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID as string
-export const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string
-export const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string
+export const SERVICE_ID  = 'service_2pmgh0g'
+export const TEMPLATE_ID = 'template_lnewyoo'
+export const PUBLIC_KEY  = 'mL-GfCn096khj94DZ'
