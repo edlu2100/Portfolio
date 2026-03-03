@@ -4,6 +4,7 @@ import { useTheme } from '../context/ThemeContext'
 import { useMobile } from '../hooks/useMobile'
 import HeroActions from './hero/HeroActions'
 import HeroScrollIndicator from './hero/HeroScrollIndicator'
+import HeroMountains from './hero/HeroMountains'
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -36,6 +37,9 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
+      {/* Bergstoppar — only on desktop */}
+      {!isMobile && <HeroMountains mounted={mounted} />}
+
       {/* Bakgrundsglöd */}
       <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
         <div style={{
