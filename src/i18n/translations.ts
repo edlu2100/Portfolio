@@ -38,8 +38,8 @@ export const translations = {
                     summary: 'Den fantastiska sida du befinner dig på just nu. Utvecklad med inspiration från min bakgrund inom alpint och min syn på hur en webbplats bör upplevas',
                     description: 'Den här sidan är ett personligt portfolio byggt från grunden med React, Vite, TypeScript och Tailwind — och representerar mig som person. Designat med Old Money-inspirerade färger och typsnitt: Cormorant Garamond, djupa marinblå toner och sandbeige accenter. Slalomtemat som löper genom sidan speglar en stor del av vem jag är utanför koden.',
                     images: [
-                        '/project1_2.jpg',
-                        '/project1_1.jpg',
+                        '/project1_2.svg',
+                        '/project1_1.svg',
 
                     ],
                     github: 'https://github.com/edlu2100/Portfolio',
@@ -52,7 +52,7 @@ export const translations = {
                     summary: 'En app som snart är helt klar och kan presenteras.',
                     description: 'En app som snart kommer kunna visas upp. Ett stort projekt som pågått sedan september 2025',
                     images: [
-                        '/project2_1.jpg',
+                        '/project2_1.svg',
                     ],
                     blurImage: true,
                     github: '',
@@ -66,7 +66,7 @@ export const translations = {
                         'Jag utvecklade ett internt administrationsgränssnitt som kontinuerligt övervakar ett stort antal webbplatser. Systemet skannar samtliga länkar och loggar statuskoder, kontrollerar DNS (A-records och name servers) samt bevakar SSL-certifikatens giltighet och utgångsdatum. Vid avvikelser skickas notifieringar via e-post och Slack.\n\n' +
                         'Fokus låg på robust backend-logik, tydlig felrapportering och ett enkelt UI för att lägga till/hantera webbplatser samt välja vilka tester som ska köras. Eventuella fel meddelas via slack och mail.',
                     images: [
-                        '/project4_1.jpg'
+                        '/project4_1.svg'
                     ],
                     github: 'https://github.com/edlu2100/ex-jobb/',
                     live: '',
@@ -79,7 +79,7 @@ export const translations = {
                     summary: 'Underhåller och vidareutvecklar I-portalen.',
                     description: 'Beskriv ditt tredje projekt här. Vad var utmaningen, hur löste du den och vad blev resultatet? Byt ut detta mot riktigt innehåll.',
                     images: [
-                        '/project3_1.jpg'
+                        '/project3_1.svg'
                     ],
                     github: '',
                     live: 'https://i-portalen.se/',
@@ -253,8 +253,8 @@ export const translations = {
                         'A personal portfolio developed with React, TypeScript, and Tailwind. Built with a strong focus on clean architecture, reusable components, and performance.\n\n' +
                         'The design is inspired by classic typography and a restrained color palette. The slalom theme throughout the site reflects my background in elite alpine skiing and my structured approach to development.',
                     images: [
-                        '/project1_2.jpg',
-                        '/project1_1.jpg',
+                        '/project1_2.svg',
+                        '/project1_1.svg',
                     ],
                     github: 'https://github.com/edlu2100/Portfolio',
                     live: '',
@@ -268,7 +268,7 @@ export const translations = {
                         'A larger mobile application developed since September 2025, focusing on scalable architecture and user-centered design.\n\n' +
                         'The project emphasizes structured code, maintainability, and clear user flows. The application is currently in its final development phase.',
                     images: [
-                        '/project2_1.jpg',
+                        '/project2_1.svg',
                     ],
                     blurImage: true,
                     github: '',
@@ -283,7 +283,7 @@ export const translations = {
                         'An administrative system designed to continuously monitor websites by analyzing HTTP status codes, DNS configuration, and SSL certificates.\n\n' +
                         'The system detects broken links, DNS irregularities, and expiring certificates, sending notifications via Slack and email. The focus was on robust backend logic, structured logging, and a clear interface for managing monitored domains.',
                     images: [
-                        '/project4_1.jpg'
+                        '/project4_1.svg'
                     ],
                     github: 'https://github.com/edlu2100/ex-jobb/',
                     live: '',
@@ -298,7 +298,7 @@ export const translations = {
                         'Responsible for further development and improvement of the I-Portal frontend, focusing on structure, reusable components, and user experience.\n\n' +
                         'The project includes collaboration around content management via Strapi and continuous performance and UI improvements.',
                     images: [
-                        '/project3_1.jpg'
+                        '/project3_1.svg'
                     ],
                     github: '',
                     live: 'https://i-portalen.se/',
