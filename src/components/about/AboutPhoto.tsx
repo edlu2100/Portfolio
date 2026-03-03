@@ -62,28 +62,38 @@ export default function AboutPhoto({ color, borderColor, visible, isMobile = fal
         }}
       >
         <div style={{ position: 'relative', width: '100%', aspectRatio: '3 / 4', borderRadius: '3px', overflow: 'hidden' }}>
-          <img
-            src="/profile.jpeg"
-            alt="Edwin Lundbäck"
-            style={{
-              width: '100%', height: '100%',
-              objectFit: 'cover', objectPosition: 'center top',
-              display: 'block', transform: 'scale(1.3)',
-              filter: theme === 'dark'
-                ? 'brightness(0.88) contrast(1.06) saturate(0.95)'
-                : 'brightness(1.02) contrast(1.02)',
-            }}
-            onError={e => {
-              const img = e.currentTarget
-              img.style.display = 'none'
-              const parent = img.parentElement!
-              parent.style.background = `linear-gradient(160deg, var(--color-surface-elevated) 0%, var(--color-surface-light) 100%)`
-              parent.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;padding:2rem">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-                <span style="font-family:Inter,sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-text-faint)">Lägg till /photo.jpg</span>
-              </div>`
-            }}
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/profile-400.webp 400w, /profile.webp 800w"
+              sizes="(max-width: 600px) 400px, 800px"
+            />
+            <img
+              src="/profile-800.jpeg"
+              alt="Edwin Lundbäck – Civilingenjör och fullstackutvecklare"
+              width={800}
+              height={1067}
+              loading="eager"
+              decoding="async"
+              style={{
+                width: '100%', height: '100%',
+                objectFit: 'cover', objectPosition: 'center top',
+                display: 'block', transform: 'scale(1.3)',
+                filter: theme === 'dark'
+                  ? 'brightness(0.88) contrast(1.06) saturate(0.95)'
+                  : 'brightness(1.02) contrast(1.02)',
+              }}
+              onError={e => {
+                const img = e.currentTarget
+                img.style.display = 'none'
+                const parent = img.parentElement!.parentElement!
+                parent.style.background = `linear-gradient(160deg, var(--color-surface-elevated) 0%, var(--color-surface-light) 100%)`
+                parent.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;padding:2rem">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="1" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                </div>`
+              }}
+            />
+          </picture>
           <div style={{
             position: 'absolute', inset: 0,
             background: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.25) 100%)',
