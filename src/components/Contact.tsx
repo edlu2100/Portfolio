@@ -116,7 +116,7 @@ export default function Contact() {
               color: 'var(--color-text-muted)',
               marginBottom: '2.5rem',
             }}>
-              {(t as any).lang === 'en'
+              {language === 'en'
                 ? "Have a project in mind or just want to connect? I'm always open to new opportunities and conversations."
                 : 'Har du ett projekt på gång eller vill du bara ta kontakt? Jag är alltid öppen för nya möjligheter och samtal.'}
             </p>
