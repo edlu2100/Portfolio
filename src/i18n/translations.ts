@@ -38,9 +38,8 @@ export const translations = {
                     summary: 'Den fantastiska sida du befinner dig på just nu. Utvecklad med inspiration från min bakgrund inom alpint och min syn på hur en webbplats bör upplevas',
                     description: 'Den här sidan är ett personligt portfolio byggt från grunden med React, Vite, TypeScript och Tailwind — och representerar mig som person. Designat med Old Money-inspirerade färger och typsnitt: Cormorant Garamond, djupa marinblå toner och sandbeige accenter. Slalomtemat som löper genom sidan speglar en stor del av vem jag är utanför koden.',
                     images: [
-                        '/project1_2.svg',
-                        '/project1_1.svg',
-
+                        '/project1_2.jpg',
+                        '/project1_1.jpg',
                     ],
                     github: 'https://github.com/edlu2100/Portfolio',
                     live: '',
@@ -50,9 +49,10 @@ export const translations = {
                     title: 'Mobilapp',
                     tags: ['React Native', 'Expo', 'Nativewind'],
                     summary: 'En app som snart är helt klar och kan presenteras.',
-                    description: 'En app som snart kommer kunna visas upp. Ett stort projekt som pågått sedan september 2025',
+                    description: 'Ett större mobilappsprojekt som utvecklats sedan september 2025 med fokus på användarvänlig design.\n\n' +
+                        'Projektet fokuserar på strukturerad kod och ett genomtänkt användargränssnitt. Applikationen befinner sig för närvarande i sin slutliga utvecklingsfas.',
                     images: [
-                        '/project2_1.svg',
+                        '/project2_1.jpg',
                     ],
                     blurImage: true,
                     github: '',
@@ -61,12 +61,12 @@ export const translations = {
                     id: 3,
                     title: 'Automatiserad webbplatsövervakning',
                     tags: ['Laravel', 'Inertia', 'Vue', 'Tailwind', 'MySQL'],
-                    summary: 'Internt administrationsverktyg som skannar webbplatser och larmar vid brutna länkar, DNS-problem och utgående SSL.',
+                    summary: 'Internt administrationsverktyg som skannar webbplatser och larmar vid eventuellt brutna länkar, DNS-problem och utgående SSL.',
                     description:
                         'Jag utvecklade ett internt administrationsgränssnitt som kontinuerligt övervakar ett stort antal webbplatser. Systemet skannar samtliga länkar och loggar statuskoder, kontrollerar DNS (A-records och name servers) samt bevakar SSL-certifikatens giltighet och utgångsdatum. Vid avvikelser skickas notifieringar via e-post och Slack.\n\n' +
                         'Fokus låg på robust backend-logik, tydlig felrapportering och ett enkelt UI för att lägga till/hantera webbplatser samt välja vilka tester som ska köras. Eventuella fel meddelas via slack och mail.',
                     images: [
-                        '/project4_1.svg'
+                        '/project4_1.jpg'
                     ],
                     github: 'https://github.com/edlu2100/ex-jobb/',
                     live: '',
@@ -79,7 +79,7 @@ export const translations = {
                     summary: 'Underhåller och vidareutvecklar I-portalen.',
                     description: 'Beskriv ditt tredje projekt här. Vad var utmaningen, hur löste du den och vad blev resultatet? Byt ut detta mot riktigt innehåll.',
                     images: [
-                        '/project3_1.svg'
+                        '/project3_1.jpg'
                     ],
                     github: '',
                     live: 'https://i-portalen.se/',
@@ -93,7 +93,7 @@ export const translations = {
                     year: 'Apr 2025 – Nuvarande',
                     role: 'Systemutvecklare',
                     company: 'Skymaker AB',
-                    description: 'Utvecklade plattformsfunktioner och prototyper för en SaaS-produkt, omsatte kundkrav till tekniska lösningar och fick praktisk erfarenhet av produktionssystem samt hur tekniska beslut påverkar både produkt och affär.',
+                    description: 'Utvecklar plattformsfunktioner och prototyper för en SaaS-produkt, omsätter kundkrav till tekniska lösninga. Får praktisk erfarenhet av produktionssystem samt hur tekniska beslut påverkar både produkt och affär.',
                     tags: ['TypeScript', 'Dynamaker'],
                 },
                 {
@@ -107,14 +107,14 @@ export const translations = {
                     year: 'Mar 2024 – Nuvarande',
                     role: 'Ledamot, Teknologrådet',
                     company: 'Sveriges Ingenjörer',
-                    description: 'Förtroendevald representant teknologrådet, där jag företräder ingenjörsstudenters perspektiv lokalt och internationellt, bland annat genom deltagande vid European Youth Event (EYE) i Malta och ingenjörsfullmäktige (FUM).',
+                    description: 'Förtroendevald representant i teknologrådet, där jag företräder ingenjörsstudenters perspektiv lokalt och internationellt, bland annat genom deltagande vid European Young Engineers (EYE) i Malta och ingenjörsfullmäktige (FUM).',
                     tags: [],
                 },
                 {
                     year: 'Nov 2024 – Nuvarande',
                     role: 'Samordnare för studentambassadörer',
                     company: 'Sveriges Ingenjörer',
-                    description: 'Leder och utvecklar studentambassadörsverksamheten på campus, med ansvar för ett team om fem personer och bidragande till rekordresultat i medlemsrekrytering med en konverteringsgrad på 72%.',
+                    description: 'Leder och utvecklar studentambassadörsverksamheten på campus, med ansvar för ett team om fem personer. Bidrog till rekordresultat 2025 i medlemsrekrytering med en konverteringsgrad på 72%.',
                     tags: [],
                 },
                 {
@@ -128,7 +128,7 @@ export const translations = {
                     year: '2024 – 2026',
                     role: 'Ordförande & Vice Ordförande, Webgroup',
                     company: 'Linköpings universitet',
-                    description: 'Ledde och utvecklade den ideela utskottet Webgroup med ansvar för projektfördelning, teknisk riktning och struktur. Arbetade med att förbättra arbetsprocesser och samarbete inom gruppen.',
+                    description: 'Ledde och utvecklade det ideela utskottet Webgroup med ansvar för projektfördelning, teknisk riktning och struktur. Arbetade med att förbättra interna plattformar för allt fråm bokning av inventarier till faktureringsintegrationer.',
                     tags: ['Ledarskap', 'Projektledning'],
                 },
                 {
@@ -155,7 +155,7 @@ export const translations = {
                     year: '2024 – 2029',
                     degree: 'Civilingenjör, Industriell ekonomi',
                     school: 'Linköpings Universitet, Sverige',
-                    description: 'Studier inom teknik, ekonomi och ledarskap med fokus på strategi, systemförståelse och affärsutveckling. Parallellt har jag varit engagerad i utskottet Webgroup där jag suttit som både vice ordförande och ordförande med ansvar för struktur, projektledning och teknisk utveckling.',
+                    description: 'Studier inom teknik, ekonomi och ledarskap med fokus på strategi, systemförståelse och affärsutveckling. Parallellt är jag engagerad i utskottet Webgroup där jag suttit som både vice ordförande och ordförande med ansvar för struktur, projektledning och teknisk utveckling.',
                     tags: [],
                 },
                 {
@@ -198,7 +198,7 @@ export const translations = {
             tagline: ['Elitalpinist', '15+ år på skidor', 'Nationella tävlingar', 'Civilingenjör'],
             bio1: 'Jag är fullstackutvecklare och ingenjörsstudent med bakgrund inom alpin elitidrott, vilket har präglat mitt arbetssätt genom disciplin, precision och en tydlig drivkraft att ständigt utvecklas.',
             bio2: 'Under studietiden har jag aktivt sökt erfarenheter som breddar mitt perspektiv och förbereder mig för en framtida roll inom IT. Genom allt från programmering och ekonomi till ledarskap har jag utvecklat en förståelse för hur teknik, strategi och affär hänger samman.',
-            bio3: 'På sikt vill jag arbeta i en roll med ett tydligt helhetsperspektiv, där jag arbetar mellan teknik, ekonomi och försäljning.',
+            bio3: 'På sikt vill jag arbeta i en roll med ett tydligt helhetsperspektiv, där jag arbetar mellan teknik, ekonomi och sälj.',
             stats: [
                 { value: '4+', label: 'År programmering' },
                 { value: '3+', label: 'Års studier' },
@@ -248,13 +248,12 @@ export const translations = {
                     id: 1,
                     title: 'Portfolio',
                     tags: ['React', 'TypeScript', 'Tailwind', 'Vite', 'Vercel'],
-                    summary: 'The very site you are currently viewing. Developed with inspiration from my background in alpine skiing and my perspective on how a website should be experienced.',
+                    summary: 'The very site you are currently viewing, designed and developed with inspiration from my background in alpine skiing and my perspective on how a website should be experienced.',
                     description:
-                        'A personal portfolio developed with React, TypeScript, and Tailwind. Built with a strong focus on clean architecture, reusable components, and performance.\n\n' +
-                        'The design is inspired by classic typography and a restrained color palette. The slalom theme throughout the site reflects my background in elite alpine skiing and my structured approach to development.',
+                        'This website is a personal portfolio built from scratch using React, Vite, TypeScript, and Tailwind, reflecting both my technical profile and personal background. The design is inspired by a classic “Old Money” aesthetic, featuring the Cormorant Garamond typeface, deep navy tones, and sand-beige accents. The slalom theme running throughout the site reflects a significant part of who I am outside of coding.',
                     images: [
-                        '/project1_2.svg',
-                        '/project1_1.svg',
+                        '/project1_2.jpg',
+                        '/project1_1.jpg',
                     ],
                     github: 'https://github.com/edlu2100/Portfolio',
                     live: '',
@@ -264,11 +263,10 @@ export const translations = {
                     title: 'Mobile Application',
                     tags: ['React Native', 'Expo', 'Nativewind'],
                     summary: 'A mobile application currently in development.',
-                    description:
-                        'A larger mobile application developed since September 2025, focusing on scalable architecture and user-centered design.\n\n' +
-                        'The project emphasizes structured code, maintainability, and clear user flows. The application is currently in its final development phase.',
+                    description: 'A larger mobile application project developed since September 2025 with a focus on user-friendly design.\n\n' +
+                        'The project emphasizes structured code and a well-designed user interface. The application is currently in its final stage of development.',
                     images: [
-                        '/project2_1.svg',
+                        '/project2_1.jpg',
                     ],
                     blurImage: true,
                     github: '',
@@ -278,12 +276,12 @@ export const translations = {
                     id: 3,
                     title: 'Automated Website Monitoring System',
                     tags: ['Laravel', 'Inertia', 'Vue', 'Tailwind', 'MySQL'],
-                    summary: 'A monitoring system for websites and technical infrastructure.',
+                    summary: 'Internal monitoring tool that scans websites and detects broken links, DNS issues, and expiring SSL certificates.',
                     description:
-                        'An administrative system designed to continuously monitor websites by analyzing HTTP status codes, DNS configuration, and SSL certificates.\n\n' +
-                        'The system detects broken links, DNS irregularities, and expiring certificates, sending notifications via Slack and email. The focus was on robust backend logic, structured logging, and a clear interface for managing monitored domains.',
+                        'I developed an internal administration interface that continuously monitors a large number of websites. The system scans all links and logs HTTP status codes, verifies DNS configuration (A records and name servers), and monitors SSL certificate validity and expiration dates. If irregularities are detected, notifications are automatically sent via email and Slack.\n\n' +
+                        'The focus was on robust backend logic, clear error reporting, and a simple interface for adding and managing websites as well as configuring which tests should be performed. Detected issues are automatically reported through Slack and email notifications.',
                     images: [
-                        '/project4_1.svg'
+                        '/project4_1.jpg'
                     ],
                     github: 'https://github.com/edlu2100/ex-jobb/',
                     live: '',
@@ -298,7 +296,7 @@ export const translations = {
                         'Responsible for further development and improvement of the I-Portal frontend, focusing on structure, reusable components, and user experience.\n\n' +
                         'The project includes collaboration around content management via Strapi and continuous performance and UI improvements.',
                     images: [
-                        '/project3_1.svg'
+                        '/project3_1.jpg'
                     ],
                     github: '',
                     live: 'https://i-portalen.se/',
@@ -327,7 +325,7 @@ export const translations = {
                     year: 'Mar 2025 – Present',
                     role: 'Board Member, Technology Council (Teknologrådet)',
                     company: 'Sveriges Ingenjörer',
-                    description: 'Elected representative in the Engineering Council, advocating for engineering students locally and internationally, including at the European Youth Event (EYE) in Malta and Ingenjörsfullmäktige (FUM).',
+                    description: 'Elected representative in the Engineering Council, advocating for engineering students locally and internationally, including at the European Young Engineers (EYE) in Malta and Ingenjörsfullmäktige (FUM).',
                     tags: [],
                 },
                 {
@@ -375,14 +373,14 @@ export const translations = {
                     year: '2024 – 2029',
                     degree: 'Master of Science in Industrial Engineering and Management',
                     school: 'Linköping University, Sweden',
-                    description: 'Studies in technology, economics, and leadership with focus on strategy, systems thinking, and business development. Parallel leadership experience as Chair and Vice Chair of Webgroup.',
+                    description: 'Studies in technology, economics, and leadership with a focus on strategy, systems thinking, and business development. Alongside my studies, I have been actively involved in the Webgroup committee, serving as both Vice Chair and Chair, responsible for organizational structure, project management, and technical development.',
                     tags: [],
                 },
                 {
                     year: '2021 – 2024',
                     degree: 'Higher Education Diploma in Computer Science (Fullstack developer) ',
                     school: 'Mid Sweden University, Sweden',
-                    description: 'Education in full-stack web development combining theoretical foundations with practical implementation. Studies were combined with elite alpine skiing at a ski university program and national-level competition as part of Team Bauhaus.',
+                    description: 'Education in web development with a focus on both frontend and backend technologies. The studies were combined with elite alpine skiing at a ski university program and national-level competition as part of Team Bauhaus, which strengthened my discipline, structure, and ability to perform under pressure.',
                     tags: [],
                 },
             ],
@@ -417,7 +415,7 @@ export const translations = {
             subheading: 'Background',
             tagline: ['Elite alpine skier', '15+ years on snow', 'National competitions', 'Engineering student'],
             bio1: "I am a full-stack developer and engineering student with a background in elite alpine skiing, which has shaped my approach to work through discipline, precision, and a strong drive for continuous improvement.",
-            bio2: 'Throughout my studies, I have actively sought experiences that broaden my perspective and prepare me for a future role in technology. From programming and economics to leadership, I have developed an understanding of how technology, strategy, and business intersect.',
+            bio2: 'Throughout my studies, I have actively sought experiences that broaden my perspective and prepare me for a future role in IT. From programming and economics to leadership, I have developed an understanding of how technology, strategy, and business intersect.',
             bio3: 'In the long term, I aim to work in a role with a broad, holistic perspective, operating at the intersection of technology, business, and sales.',
             stats: [
                 { value: '4+', label: 'Years coding' },
