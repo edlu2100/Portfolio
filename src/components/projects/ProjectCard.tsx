@@ -7,6 +7,7 @@ export default function ProjectCard({ project, index, onClick }: {
   onClick: () => void
 }) {
   const [hovered, setHovered] = useState(false)
+  const [imgLoaded, setImgLoaded] = useState(false)
 
   return (
     <article
@@ -25,15 +26,29 @@ export default function ProjectCard({ project, index, onClick }: {
       }}
     >
       {/* Image */}
-      <div style={{ aspectRatio: '16/9', overflow: 'hidden', backgroundColor: 'var(--color-surface-elevated)' }}>
+      <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden', backgroundColor: 'var(--color-surface-elevated)' }}>
+        {/* Shimmer skeleton */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, var(--color-surface-light) 25%, var(--color-border) 50%, var(--color-surface-light) 75%)',
+          backgroundSize: '200% 100%',
+          animation: 'shimmer 1.5s ease-in-out infinite',
+          opacity: imgLoaded ? 0 : 1,
+          transition: 'opacity 0.3s ease',
+          pointerEvents: 'none',
+        }} />
         <img
           src={project.images[0]}
           alt={project.title}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setImgLoaded(true)}
           style={{
             width: '100%', height: '100%', objectFit: 'cover', display: 'block',
             transform: hovered ? 'scale(1.14)' : 'scale(1.1)',
-            transition: 'transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+            transition: 'transform 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease',
             filter: project.blurImage ? 'blur(8px)' : 'none',
+            opacity: imgLoaded ? 1 : 0,
           }}
         />
       </div>

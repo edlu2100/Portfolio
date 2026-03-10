@@ -19,6 +19,7 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
   )
   const [visible, setVisible] = useState(false)
   const [vw, setVw] = useState(window.innerWidth)
+  const [imgLoaded, setImgLoaded] = useState(false)
 
   const isMobile = vw < 600
   const isTablet = vw >= 600 && vw < 960
@@ -107,10 +108,22 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
           backgroundColor: 'var(--color-surface-light)',
           overflow: 'hidden',
         }}>
+          {/* Shimmer skeleton */}
+          <div style={{
+            position: 'absolute', inset: 0, zIndex: 1,
+            background: 'linear-gradient(90deg, var(--color-surface-light) 25%, var(--color-border) 50%, var(--color-surface-light) 75%)',
+            backgroundSize: '200% 100%',
+            animation: 'shimmer 1.5s ease-in-out infinite',
+            opacity: imgLoaded ? 0 : 1,
+            transition: 'opacity 0.35s ease',
+            pointerEvents: 'none',
+          }} />
           <img
             key={imgIndex}
             src={project.images[imgIndex]}
             alt={project.title}
+            decoding="async"
+            onLoad={() => setImgLoaded(true)}
             style={{
               width: '100%', height: '100%', objectFit: 'cover', display: 'block',
               animation: 'modalImgFade 0.3s ease',
@@ -161,7 +174,7 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
               display: 'flex', alignItems: 'center', gap: '0.5rem',
             }}>
               <button
-                onClick={() => setImgIndex(i => (i - 1 + project.images.length) % project.images.length)}
+                onClick={() => { setImgLoaded(false); setImgIndex(i => (i - 1 + project.images.length) % project.images.length) }}
                 style={{
                   width: '1.75rem', height: '1.75rem', borderRadius: '50%',
                   backgroundColor: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)',
@@ -174,7 +187,7 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
               </button>
               <div style={{ display: 'flex', gap: '0.3rem', alignItems: 'center' }}>
                 {project.images.map((_, i) => (
-                  <button key={i} onClick={() => setImgIndex(i)} style={{
+                  <button key={i} onClick={() => { setImgLoaded(false); setImgIndex(i) }} style={{
                     width: i === imgIndex ? '1.4rem' : '0.3rem',
                     height: '0.3rem', borderRadius: '99px', padding: 0,
                     backgroundColor: i === imgIndex ? '#fff' : 'rgba(255,255,255,0.4)',
@@ -184,7 +197,7 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
                 ))}
               </div>
               <button
-                onClick={() => setImgIndex(i => (i + 1) % project.images.length)}
+                onClick={() => { setImgLoaded(false); setImgIndex(i => (i + 1) % project.images.length) }}
                 style={{
                   width: '1.75rem', height: '1.75rem', borderRadius: '50%',
                   backgroundColor: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)',

@@ -59,8 +59,8 @@ export default function SlalomTrack({ pathD, totalH, items }: Props) {
       >
         {/* Outer glow */}
         <path d={pathD} fill="none" stroke={lineColor} strokeWidth="6" strokeOpacity="0.06" strokeLinecap="round" />
-        {/* Main track */}
-        <path d={pathD} fill="none" stroke={lineColor} strokeWidth="1.8" strokeOpacity="0.4" strokeLinecap="round" />
+        {/* Main track — data-track-path used by ScrollSkier for getPointAtLength() */}
+        <path data-track-path="true" d={pathD} fill="none" stroke={lineColor} strokeWidth="1.8" strokeOpacity="0.4" strokeLinecap="round" />
         {/* Dashed ski-mark */}
         <path d={pathD} fill="none" stroke="var(--color-text)" strokeWidth="0.7" strokeOpacity="0.07" strokeDasharray="2.5 7" strokeLinecap="round" />
 

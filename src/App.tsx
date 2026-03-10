@@ -8,6 +8,7 @@ import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import SlalomLight from './components/SlalomLight'
 import Background from './components/Background'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -17,6 +18,7 @@ export default function App() {
     <ThemeProvider>
     <LanguageProvider>
       <div className="min-h-screen bg-surface text-text">
+       <SlalomLight />
         <Background />
         <Navbar />
         <Hero />

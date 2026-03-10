@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useTheme } from '../../context/ThemeContext'
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 
 export default function AboutPhoto({ color, borderColor, visible, isMobile = false }: Props) {
   const { theme } = useTheme()
+  const [imgLoaded, setImgLoaded] = useState(false)
 
   const fadeStyle: React.CSSProperties = {
     opacity: visible ? 1 : 0,
@@ -62,6 +64,16 @@ export default function AboutPhoto({ color, borderColor, visible, isMobile = fal
         }}
       >
         <div style={{ position: 'relative', width: '100%', aspectRatio: '3 / 4', borderRadius: '3px', overflow: 'hidden' }}>
+          {/* Shimmer skeleton */}
+          <div style={{
+            position: 'absolute', inset: 0, zIndex: 1,
+            background: 'linear-gradient(90deg, var(--color-surface-light) 25%, var(--color-border) 50%, var(--color-surface-light) 75%)',
+            backgroundSize: '200% 100%',
+            animation: 'shimmer 1.5s ease-in-out infinite',
+            opacity: imgLoaded ? 0 : 1,
+            transition: 'opacity 0.35s ease',
+            pointerEvents: 'none',
+          }} />
           <picture>
             <source
               type="image/webp"
@@ -75,6 +87,8 @@ export default function AboutPhoto({ color, borderColor, visible, isMobile = fal
               height={1067}
               loading="eager"
               decoding="async"
+              fetchPriority="high"
+              onLoad={() => setImgLoaded(true)}
               style={{
                 width: '100%', height: '100%',
                 objectFit: 'cover', objectPosition: 'center top',

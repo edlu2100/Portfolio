@@ -100,7 +100,7 @@ export default function Background() {
             maxWidth: '700px',
             maxHeight: '700px',
             borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(58,86,232,0.063) 0%, transparent 68%)',
+            background: 'radial-gradient(ellipse, rgba(196,169,126,0.162) 0%, transparent 68%)',
             filter: 'blur(12px)',
             animation: 'orb2 40s ease-in-out infinite',
           }} />
