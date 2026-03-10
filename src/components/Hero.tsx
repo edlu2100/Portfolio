@@ -102,7 +102,7 @@ export default function Hero() {
             gap: "0.75rem",
           }}
         >
-          <svg
+        {/*  <svg
             width="28"
             height="14"
             viewBox="0 0 28 14"
@@ -119,9 +119,9 @@ export default function Hero() {
               fill="none"
               opacity="0.75"
             />
-          </svg>
+          </svg>*/}
 
-          {/*<svg width="21.6" height="12.6" viewBox="0 0 24 14" fill="none" aria-hidden="true" style={{ flexShrink: 0, opacity: 0.85 }}>
+          <svg width="21.6" height="12.6" viewBox="0 0 24 14" fill="none" aria-hidden="true" style={{ flexShrink: 0, opacity: 0.85 }}>
             <path
               d="M1 10 C5 2, 11 2, 12 7 C13 12, 19 12, 23 4"
               stroke={accentColor}
@@ -129,7 +129,7 @@ export default function Hero() {
               strokeLinecap="round"
               fill="none"
             />
-          </svg>*/}
+          </svg>
           {h.greeting}
         </p>
 

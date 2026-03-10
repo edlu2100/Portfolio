@@ -19,7 +19,7 @@ const Swirl = ({ color }: { color: string }) => (
     />
   </svg>
 )
-const Mountain = ({ color }: { color: string }) => (
+{/*const Mountain = ({ color }: { color: string }) => (
   <svg width="28" height="14" viewBox="0 0 28 14" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
     <polyline
       points="0,13  6,4  10,8  16,1  22,8  28,13"
@@ -31,7 +31,7 @@ const Mountain = ({ color }: { color: string }) => (
       opacity="0.75"
     />
   </svg>
-)
+)*/}
 
 export default function SectionHeader({ heading, subheading, visible = true, noMargin = false }: Props) {
   const { theme } = useTheme()
@@ -51,8 +51,8 @@ export default function SectionHeader({ heading, subheading, visible = true, noM
         display: 'flex', alignItems: 'center', gap: '0.6rem',
         marginBottom: '0.75rem',
       }}>
-        {/*<Swirl color={color} />*/}
-        <Mountain color={color} />
+        {/*<Mountain color={color} />*/}
+        <Swirl color={color} />
         {subheading}
       </p>
       <h2 style={{
