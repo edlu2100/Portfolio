@@ -293,8 +293,7 @@ export const translations = {
                     tags: ['React', 'Strapi', 'Chakra UI'],
                     summary: 'Frontend development and ongoing improvements.',
                     description:
-                        'Responsible for further development and improvement of the I-Portal frontend, focusing on structure, reusable components, and user experience.\n\n' +
-                        'The project includes collaboration around content management via Strapi and continuous performance and UI improvements.',
+                        'Ansvarig för vidareutveckling och förbättring av I-Portalens frontend, med fokus på struktur, återanvändbara komponenter och användarupplevelse. Projektet innefattar även samarbete kring innehållshantering via Strapi samt kontinuerliga förbättringar av prestanda och användargränssnitt.',
                     images: [
                         '/project3_1.jpg'
                     ],
