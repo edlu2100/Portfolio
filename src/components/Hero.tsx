@@ -118,6 +118,7 @@ export default function Hero() {
               strokeLinejoin="round"
               fill="none"
               opacity="0.75"
+              
             />
           </svg>*/}
 

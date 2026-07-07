@@ -11,6 +11,7 @@ import {
 } from 'react-icons/si'
 import { TbBrandCSharp, TbFileExcel } from 'react-icons/tb'
 import { IconType } from 'react-icons'
+import { PiBrainLight } from "react-icons/pi";
 
 const IMG_MAP: Record<string, string> = {
   'Dynamaker': '/logos/dynamakerLogo.webp',
@@ -35,6 +36,7 @@ const ICON_MAP: Record<string, IconType> = {
   'WordPress': SiWordpress,
   'Tailwind': SiTailwindcss,
   'Excel': TbFileExcel,
+  'AI':  PiBrainLight
 }
 
 interface SkillData {

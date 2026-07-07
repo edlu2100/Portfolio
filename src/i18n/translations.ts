@@ -90,10 +90,17 @@ export const translations = {
             subheading: 'Karriär',
             items: [
                 {
+                    year: 'Jul 2026 – Nuvarande',
+                    role: 'Forward Deployed AI Engineer Intern',
+                    company: 'Nordic Capital',
+                    description: 'Implementerar en intern AI för hela bolaget.',
+                    tags: ['AI', 'Skills'],
+                },
+                {
                     year: 'Apr 2025 – Nuvarande',
                     role: 'Systemutvecklare',
                     company: 'Skymaker AB',
-                    description: 'Utvecklar plattformsfunktioner och prototyper för en SaaS-produkt, omsätter kundkrav till tekniska lösninga. Får praktisk erfarenhet av produktionssystem samt hur tekniska beslut påverkar både produkt och affär.',
+                    description: 'Utvecklar plattformsfunktioner och prototyper för en SaaS-produkt, omsätter kundkrav till tekniska lösningar. Får praktisk erfarenhet av produktionssystem samt hur tekniska beslut påverkar både produkt och affär.',
                     tags: ['TypeScript', 'Dynamaker'],
                 },
                 {
@@ -111,24 +118,24 @@ export const translations = {
                     tags: [],
                 },
                 {
-                    year: 'Nov 2024 – Nuvarande',
+                    year: 'Nov 2024 – Jun 2026',
                     role: 'Samordnare för studentambassadörer',
                     company: 'Sveriges Ingenjörer',
                     description: 'Leder och utvecklar studentambassadörsverksamheten på campus, med ansvar för ett team om fem personer. Bidrog till rekordresultat 2025 i medlemsrekrytering med en konverteringsgrad på 72%.',
-                    tags: [],
+                    tags: ['Ledarskap', 'Marknadsföring', 'Sälj'],
                 },
                 {
                     year: 'Jan 2025 – Jun 2025',
                     role: 'Ekonomiassistent',
                     company: 'Solann AB',
                     description: 'Ansvarade för löpande bokföring, fakturering och finansiella avstämningar i en professionell redovisningsmiljö. Arbetade nära VD och ekonomichef och fick insikt i bolagsstyrning och hur finansiella beslut påverkar verksamheten som helhet.',
-                    tags: ['Odoo'],
+                    tags: ['Odoo', 'Bokföring', 'Ekonomi'],
                 },
                 {
                     year: '2024 – 2026',
                     role: 'Ordförande & Vice Ordförande, Webgroup',
                     company: 'Linköpings universitet',
-                    description: 'Ledde och utvecklade det ideela utskottet Webgroup med ansvar för projektfördelning, teknisk riktning och struktur. Arbetade med att förbättra interna plattformar för allt fråm bokning av inventarier till faktureringsintegrationer.',
+                    description: 'Ledde och utvecklade det ideella utskottet Webgroup med ansvar för projektfördelning, teknisk riktning och struktur. Arbetade med att förbättra interna plattformar för allt från bokning av inventarier till faktureringsintegrationer.',
                     tags: ['Ledarskap', 'Projektledning'],
                 },
                 {
@@ -152,6 +159,13 @@ export const translations = {
             subheading: 'Akademisk bakgrund',
             items: [
                 {
+                    year: '2026 – 2026',
+                    degree: 'Utbytestermin',
+                    school: 'Edith Cowan University, Australien',
+                    description: 'Utbytestermin vid Edith Cowan University i Perth, Australien, med studier inom AI, marknadsföring och hållbarhet. Erfarenheten gav ett internationellt perspektiv på teknik, affärsutveckling och problemlösning, samt en djupare förståelse för kulturella skillnader i studie- och arbetsmiljöer.',
+                    tags: [],
+                },
+                {
                     year: '2024 – 2029',
                     degree: 'Civilingenjör, Industriell ekonomi',
                     school: 'Linköpings Universitet, Sverige',
@@ -174,7 +188,7 @@ export const translations = {
             technologies: 'Teknologier',
             items: {
                 languages: ['TypeScript', 'JavaScript', 'PHP', 'C#', '.Net', 'CSS', 'HTML', 'SQL'],
-                technologies: ['React.js', 'React Native', 'Vue.js', 'jQuery', 'Laravel', 'ASP.NET', 'Node.js', 'WordPress', 'Dynamaker', 'Tailwind', 'Excel'],
+                technologies: ['React.js', 'React Native', 'Vue.js', 'jQuery', 'Laravel', 'ASP.NET', 'Node.js', 'WordPress', 'Dynamaker', 'Tailwind', 'Excel', 'AI'],
             },
         },
         contact: {
@@ -307,8 +321,15 @@ export const translations = {
             subheading: 'Career',
             items: [
                 {
+                    year: 'Jul 2026  – Present',
+                    role: 'Forward Deployed AI Engineer Intern',
+                    company: 'Nordic Capital',
+                    description: 'Implementing a companywide internal AI.',
+                    tags: ['AI', 'Skills'],
+                },
+                {
                     year: 'Apr 2025  – Present',
-                    role: 'Software Developer ',
+                    role: 'Software Developer',
                     company: 'Skymaker AB',
                     description: 'Developed platform features and prototypes for a SaaS product, translating customer requirements into technical solutions while gaining hands-on experience in production systems and understanding how engineering decisions impact product and business.',
                     tags: ['TypeScript', 'Dynamaker'],
@@ -328,18 +349,18 @@ export const translations = {
                     tags: [],
                 },
                 {
-                    year: 'Nov 2024 – Present',
+                    year: 'Nov 2024 – Jun 2026',
                     role: 'Lead Coordinator for Student Ambassadors',
                     company: 'Sveriges Ingenjörer',
                     description: 'Lead and develop the student ambassador program on campus, overseeing a team of five and driving record membership recruitment results with a 72% conversion rate.',
-                    tags: [],
+                    tags: ['Leadership', 'Marketing', 'Sales'],
                 },
                 {
                     year: 'Jan 2025 – Jun 2025',
                     role: 'Finance Assistant',
                     company: 'Solann AB',
                     description: 'Managed ongoing bookkeeping, invoicing, and financial reconciliations in a professional accounting environment. Worked closely with the CEO and Head of Finance, gaining practical insight into corporate finance and its impact on overall business operations.',
-                    tags: ['Odoo'],
+                    tags: ['Odoo', 'Accounting', 'Finance'],
                 },
                 {
                     year: '2024 – 2026',
@@ -369,6 +390,13 @@ export const translations = {
             subheading: 'Academic background',
             items: [
                 {
+                    year: '2026 – 2026',
+                    degree: 'Exchange Semester',
+                    school: 'Edith Cowan University, Australia',
+                    description: 'Exchange semester at Edith Cowan University in Perth, Australia, with studies in AI, marketing and sustainability. The experience strengthened my ability to work in international environments and gave me new perspectives on technology, business development and cross-cultural communication.',
+                    tags: [],
+                },
+                {
                     year: '2024 – 2029',
                     degree: 'Master of Science in Industrial Engineering and Management',
                     school: 'Linköping University, Sweden',
@@ -390,7 +418,7 @@ export const translations = {
             languages: 'Languages',
             technologies: 'Technologies',
             items: {
-                languages: ['TypeScript', 'JavaScript', 'PHP', 'C#', '.Net', 'CSS', 'HTML', 'SQL'],
+                languages: ['TypeScript', 'JavaScript', 'PHP', 'C#', '.Net', 'CSS', 'HTML', 'SQL', 'AI'],
                 technologies: ['React.js', 'React Native', 'Vue.js', 'jQuery', 'Laravel', 'ASP.NET', 'Node.js', 'WordPress', 'Dynamaker', 'Tailwind', 'Excel'],
             },
         },
