@@ -44,8 +44,16 @@ export default function SlalomLight() {
 
       const progress = Math.max(0, Math.min(1, (trackY - svgRect.top) / svgRect.height))
       const pt       = pathEl.getPointAtLength(progress * pathEl.getTotalLength())
-      const x        = svgRect.left + pt.x
-      const y        = svgRect.top  + pt.y
+
+      // Convert from SVG coordinates to screen coordinates through the
+      // browser's actual transform matrix. This keeps the light aligned when
+      // Windows applies zoom, display scaling, or a slightly different SVG
+      // viewport calculation than macOS.
+      const screenMatrix = pathEl.getScreenCTM()
+      if (!screenMatrix) { el.style.opacity = '0'; return }
+      const screenPt = new DOMPoint(pt.x, pt.y).matrixTransform(screenMatrix)
+      const x        = screenPt.x
+      const y        = screenPt.y
 
       el.style.transform = `translate(${x}px, ${y}px)`
       el.style.opacity   = '1'

@@ -88,13 +88,16 @@ export const translations = {
         }, experience: {
             heading: 'Erfarenhet',
             subheading: 'Karriär',
+            readMore: 'Läs mer',
+            close: 'Stäng',
             items: [
                 {
-                    year: 'Jul 2026 – Nuvarande',
+                    year: 'Jul 2026 – Aug 2026',
                     role: 'Forward Deployed AI Engineer Intern',
                     company: 'Nordic Capital',
-                    description: 'Implementerar en intern AI för hela bolaget.',
-                    tags: ['AI', 'Skills'],
+                    description: 'Bygger en AI-driven lösning för en återkommande rapporteringsprocess som tidigare tog veckor och nu kan genomföras på timmar eller en arbetsdag.',
+                    fullDescription: 'Bygger en AI-driven lösning för en återkommande och dataintensiv rapporteringsprocess. Under min praktik på Nordic Capital arbetade jag i AI Task Force över kontoren i Stockholm och London, med fokus på att skapa en gemensam AI-lösning för en process som samlar in, analyserar och presenterar information från flera källor. Jag arbetade med både backend och gränssnitt: förhandsvisning av källdata, spårbarhet till informationens ursprung, analysgenerering och PowerPoint-export för styrelsepresentationer. En central del av arbetet var att utvärdera olika sätt att använda LLM:er och AI-agenter i en verklig affärsprocess, med fokus på tillförlitlighet och spårbarhet. Lösningen bidrog till att korta ned en process som tidigare tog veckor till timmar eller en arbetsdag.',
+                    tags: ['Generativ AI', 'LLM'],
                 },
                 {
                     year: 'Apr 2025 – Nuvarande',
@@ -319,13 +322,16 @@ export const translations = {
         experience: {
             heading: 'Experience',
             subheading: 'Career',
+            readMore: 'Read more',
+            close: 'Close',
             items: [
                 {
-                    year: 'Jul 2026  – Present',
+                    year: 'Jul 2026  – Aug 2026',
                     role: 'Forward Deployed AI Engineer Intern',
                     company: 'Nordic Capital',
-                    description: 'Implementing a companywide internal AI.',
-                    tags: ['AI', 'Skills'],
+                    description: 'Building an AI-powered solution for a recurring reporting process that previously took weeks and can now be completed in hours or a single day.',
+                    fullDescription: 'Building an AI-powered solution for a recurring, data-intensive reporting process. During my internship at Nordic Capital, I worked as part of the AI Task Force across the Stockholm and London offices, focusing on a firm-wide AI solution for a process involving the collection, analysis and presentation of information from multiple sources. I worked across both backend and UI, building functionality for previewing source data, tracing where information came from, generating analyses and producing PowerPoint output used in board-level presentations. A central part of the project involved testing different ways of using LLMs and AI agents in a real business process, with a strong focus on making the output reliable and traceable. The solution helped reduce a process that previously took weeks to hours or a single day.',
+                    tags: ['Generative AI', 'LLMs'],
                 },
                 {
                     year: 'Apr 2025  – Present',

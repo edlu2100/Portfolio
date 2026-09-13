@@ -3,6 +3,7 @@ export interface ExpItem {
   role: string
   company: string
   description: string
+  fullDescription?: string
   tags: string[]
 }
 
@@ -12,9 +13,11 @@ interface Props {
   delay: number
   visible: boolean
   color: string
+  readMoreLabel?: string
+  onReadMore?: () => void
 }
 
-export default function ExperienceCard({ item, side, delay, visible, color }: Props) {
+export default function ExperienceCard({ item, side, delay, visible, color, readMoreLabel, onReadMore }: Props) {
   const tx = side === 'left' ? -28 : 28
 
   return (
@@ -52,6 +55,20 @@ export default function ExperienceCard({ item, side, delay, visible, color }: Pr
         fontSize: '0.79rem', lineHeight: 1.7,
         color: 'var(--color-text-muted)', marginBottom: '1rem',
       }}>{item.description}</p>
+
+      {item.fullDescription && onReadMore && readMoreLabel && (
+        <button
+          onClick={onReadMore}
+          style={{
+            border: 'none', padding: 0, marginBottom: '1rem', background: 'none',
+            color, cursor: 'pointer', fontFamily: "'Inter', system-ui, sans-serif",
+            fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+          }}
+        >
+          {readMoreLabel} <span aria-hidden="true">→</span>
+        </button>
+      )}
 
       {item.tags.length > 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>

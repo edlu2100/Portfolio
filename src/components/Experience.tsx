@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { useTheme } from '../context/ThemeContext'
 import { useMobile } from '../hooks/useMobile'
@@ -7,6 +7,8 @@ import SectionHeader from './ui/SectionHeader'
 import ExperienceCard from './experience/ExperienceCard'
 import SlalomTrack, { buildPath, ROW_H } from './experience/SlalomTrack'
 import MobileTimeline from './experience/MobileTimeline'
+import ExperienceModal from './experience/ExperienceModal'
+import type { ExpItem } from './experience/ExperienceCard'
 
 
 // ── Main component ──────────────────────────────────────────────────
@@ -22,6 +24,7 @@ export default function Experience() {
   const { ref, visible } = useInView()
   const totalH        = n * ROW_H
   const pathD         = useMemo(() => buildPath(n), [n])
+  const [active, setActive] = useState<ExpItem | null>(null)
 
   return (
     <section
@@ -36,7 +39,7 @@ export default function Experience() {
         {isMobile ? (
 
           /* ── Mobile: vertical dot timeline ── */
-          <MobileTimeline items={items} visible={visible} color={cardColor} />
+          <MobileTimeline items={items} visible={visible} color={cardColor} readMoreLabel={e.readMore} onReadMore={setActive} />
 
         ) : (
 
@@ -59,6 +62,8 @@ export default function Experience() {
                         delay={i * 160}
                         visible={visible}
                         color={cardColor}
+                        readMoreLabel={e.readMore}
+                        onReadMore={() => setActive(item)}
                       />
                     </div>
                   </div>
@@ -87,6 +92,8 @@ export default function Experience() {
                         delay={i * 160}
                         visible={visible}
                         color={cardColor}
+                        readMoreLabel={e.readMore}
+                        onReadMore={() => setActive(item)}
                       />
                     </div>
                   </div>
@@ -98,6 +105,7 @@ export default function Experience() {
 
           </div>
         )}
+        {active && <ExperienceModal item={active} closeLabel={e.close} onClose={() => setActive(null)} />}
       </div>
     </section>
   )

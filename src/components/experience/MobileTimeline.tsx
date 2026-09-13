@@ -6,9 +6,11 @@ interface Props {
   items: ExpItem[]
   visible: boolean
   color: string
+  readMoreLabel: string
+  onReadMore: (item: ExpItem) => void
 }
 
-export default function MobileTimeline({ items, visible, color }: Props) {
+export default function MobileTimeline({ items, visible, color, readMoreLabel, onReadMore }: Props) {
   const n = items.length
 
   return (
@@ -40,6 +42,8 @@ export default function MobileTimeline({ items, visible, color }: Props) {
               delay={i * 130}
               visible={visible}
               color={color}
+              readMoreLabel={readMoreLabel}
+              onReadMore={() => onReadMore(item)}
             />
           </div>
         </div>
