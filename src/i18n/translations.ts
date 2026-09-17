@@ -77,7 +77,8 @@ export const translations = {
                     title: 'I-Portalen',
                     tags: ['React', 'Strapi', 'Chakra UI'],
                     summary: 'Underhåller och vidareutvecklar I-portalen.',
-                    description: 'Beskriv ditt tredje projekt här. Vad var utmaningen, hur löste du den och vad blev resultatet? Byt ut detta mot riktigt innehåll.',
+                    description:
+                        'Ansvarig för vidareutveckling och förbättring av I-Portalens frontend, med fokus på struktur, återanvändbara komponenter och användarupplevelse. Projektet innefattar även samarbete kring innehållshantering via Strapi samt kontinuerliga förbättringar av prestanda och användargränssnitt.',
                     images: [
                         '/project3_1.jpg'
                     ],
@@ -310,7 +311,7 @@ export const translations = {
                     tags: ['React', 'Strapi', 'Chakra UI'],
                     summary: 'Frontend development and ongoing improvements.',
                     description:
-                        'Ansvarig för vidareutveckling och förbättring av I-Portalens frontend, med fokus på struktur, återanvändbara komponenter och användarupplevelse. Projektet innefattar även samarbete kring innehållshantering via Strapi samt kontinuerliga förbättringar av prestanda och användargränssnitt.',
+                        'Responsible for the continued development and improvement of I-Portal’s frontend, with a focus on structure, reusable components, and user experience. The project also involves collaborating on content management through Strapi, as well as continuously improving performance and the user interface.',
                     images: [
                         '/project3_1.jpg'
                     ],
