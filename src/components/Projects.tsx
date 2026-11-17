@@ -13,12 +13,13 @@ export default function Projects() {
   const { t } = useLanguage()
   const { theme } = useTheme()
   const p = t.projects
+  const items = [...p.items].sort((a, b) => a.id - b.id)
   const [active, setActive] = useState<{ project: Project; index: number } | null>(null)
   const [page, setPage] = useState(0)
   const isMobile = useMobile()
 
-  const totalPages = Math.ceil(p.items.length / PER_PAGE)
-  const visibleCards = isMobile ? p.items : p.items.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE)
+  const totalPages = Math.ceil(items.length / PER_PAGE)
+  const visibleCards = isMobile ? items : items.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE)
   const accent = theme === 'dark' ? 'var(--color-accent-warm)' : 'var(--color-primary)'
 
   return (
@@ -78,7 +79,7 @@ export default function Projects() {
             gap: isMobile ? '1rem' : '1.5rem',
           }}>
             {visibleCards.map((project) => {
-              const index = p.items.indexOf(project)
+              const index = items.indexOf(project)
               return (
                 <ProjectCard
                   key={project.id}

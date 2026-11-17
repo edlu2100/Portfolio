@@ -10,6 +10,12 @@ interface Props {
   labels: { viewCode: string; viewLive: string; close: string; viewReport: string }
 }
 
+const sectionTitleStyle: React.CSSProperties = {
+  color: 'var(--color-text)',
+  font: "600 1.15rem 'Cormorant Garamond', Georgia, serif",
+  marginBottom: '0.8rem',
+}
+
 export default function ProjectModal({ project, index, onClose, labels }: Props) {
   const { theme } = useTheme()
   const [imgIndex, setImgIndex] = useState(
@@ -59,8 +65,8 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
 
   // Responsive values
   const backdropPad = isMobile ? '0' : '0.5rem'
-  const borderRadius = isMobile ? '0' : '3px'
-  const maxWidth = isMobile ? '100%' : isTablet ? '90%' : '60rem'
+  const borderRadius = isMobile ? '0' : '12px'
+  const maxWidth = isMobile ? '100%' : isTablet ? '90%' : '68rem'
   const maxHeight = isMobile ? '100dvh' : 'calc(100vh - 1rem)'
   const imgRatio = isMobile ? '16/9' : isTablet ? '3/1' : '2.3/1'
   const contentPad = isMobile ? '1.25rem 1rem 1.5rem' : '2rem 2.25rem 2rem'
@@ -89,7 +95,9 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
           backgroundColor: 'var(--color-surface-elevated)',
           border: isMobile ? 'none' : '1px solid var(--color-border)',
           borderRadius: isMobile ? '12px 12px 0 0' : borderRadius,
-          overflow: 'hidden',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          overscrollBehavior: 'contain',
           opacity: visible ? 1 : 0,
           transform: visible
             ? 'scale(1) translateY(0)'
@@ -213,7 +221,7 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
         </div>
 
         {/* Content */}
-        <div style={{ overflowY: 'auto', flex: 1, WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
+        <div style={{ WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
           <div style={{ padding: contentPad, display: 'flex', flexDirection: 'column' }}>
 
             {/* Tags */}
@@ -247,9 +255,37 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
               fontWeight: 300, lineHeight: 1.85,
               color: 'var(--color-text-muted)',
               marginBottom: '1.5rem',
+              whiteSpace: 'pre-line',
             }}>
               {project.description}
             </p>
+
+            {project.roleDescription && <section style={{ marginBottom: '1.5rem' }}>
+              <h3 style={sectionTitleStyle}>{project.roleHeading}</h3>
+              <p style={{ color: 'var(--color-text-muted)', font: "300 0.82rem/1.8 'Inter', system-ui" }}>{project.roleDescription}</p>
+            </section>}
+
+            {project.features && <section style={{ marginBottom: '1.75rem' }}>
+              <h3 style={sectionTitleStyle}>{project.featuresHeading}</h3>
+              <ul style={{ listStyle: 'none', display: 'grid', gap: 0, marginBottom: '0.5rem' }}>
+                {project.features.map(feature => <li key={feature.title} style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'minmax(11rem, 0.7fr) 1.3fr', gap: '0.3rem 1.25rem', padding: '0.8rem 0', borderBottom: '1px solid var(--color-border)' }}>
+                  <span style={{ color: 'var(--color-text)', font: "500 0.8rem 'Inter', system-ui" }}>{feature.title}</span>
+                  <span style={{ color: 'var(--color-text-muted)', font: "300 0.78rem/1.65 'Inter', system-ui" }}>{feature.detail}</span>
+                </li>)}
+              </ul>
+            </section>}
+
+            {project.challenges && <section style={{ marginBottom: '1.75rem' }}>
+              <h3 style={sectionTitleStyle}>{project.challengesHeading}</h3>
+              <ul style={{ display: 'grid', gap: '0.55rem', padding: 0, listStyle: 'none', color: 'var(--color-text-muted)', font: "300 0.8rem/1.7 'Inter', system-ui" }}>
+                {project.challenges.map(challenge => <li key={challenge}>{challenge}</li>)}
+              </ul>
+            </section>}
+
+            {project.architectureDescription && <section style={{ marginBottom: '1.75rem' }}>
+              <h3 style={sectionTitleStyle}>{project.architectureHeading}</h3>
+              <p style={{ color: 'var(--color-text-muted)', font: "300 0.82rem/1.8 'Inter', system-ui" }}>{project.architectureDescription}</p>
+            </section>}
 
             {/* Links */}
             <div style={{
@@ -335,8 +371,25 @@ export default function ProjectModal({ project, index, onClose, labels }: Props)
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = '1' }}
                 >
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-                  {labels.viewLive}
+                  {project.liveLabel ?? labels.viewLive}
                 </a>
+              )}
+              {project.comingSoonLabel && (
+                <span
+                  aria-label={project.comingSoonLabel}
+                  style={{
+                    flex: isMobile ? '1' : undefined,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.45rem',
+                    padding: isMobile ? '0.85rem 1rem' : '0.65rem 1.25rem',
+                    border: '1px solid var(--color-border)', borderRadius: '2px',
+                    color: 'var(--color-text-muted)', backgroundColor: 'var(--color-surface)',
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontSize: '0.65rem', fontWeight: 500, letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {project.comingSoonLabel}
+                </span>
               )}
             </div>
           </div>
